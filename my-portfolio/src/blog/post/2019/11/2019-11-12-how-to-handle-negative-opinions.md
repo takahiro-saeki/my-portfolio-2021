@@ -8,7 +8,7 @@ tags:
   - "思考"
   - "思考法"
   - "考え方"
-coverImage: "kristina-tripkovic-nwWUBsW6ud4-unsplash-scaled.jpg"
+coverImage: "./images/kristina-tripkovic-nwWUBsW6ud4-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今日はネガティブな意見に囚われない為に意識すべき事について書いて行きたいと思います！

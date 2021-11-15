@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "トレード"
   - "考え方"
-coverImage: "austin-distel-DfjJMVhwH_8-unsplash-scaled.jpg"
+coverImage: "./images/austin-distel-DfjJMVhwH_8-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。[先日結婚式の記事](https://forexist-hiro.com/wedding/)にも書きましたが、結婚式が終わり、一段落して、さてこれから何に力を入れようかと考えつつも燃え尽き症候群のような途端に何もやる気が起きない日々を過ごしていました。  

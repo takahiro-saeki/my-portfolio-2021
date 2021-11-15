@@ -5,7 +5,7 @@ categories:
   - "トレード手法"
 tags: 
   - "fx"
-coverImage: "luke-chesser-JKUTrJ4vK00-unsplash-scaled.jpg"
+coverImage: "./images/luke-chesser-JKUTrJ4vK00-unsplash-scaled.jpg"
 ---
 
 僕がFXを始めたのは1月の終わり頃からです。とはいえ本気で始めたのは2月からなので実際はちょうど3ヶ月ぐらいが経過している感じですが、その約３ヶ月の間で僕が3ヶ月前、いや昨年秋の自分にこうしたらもっと上手く行ったよという事を伝える視点で、僕がFXで取引を行う際に大事だと思う事書いて行きたいと思います。  

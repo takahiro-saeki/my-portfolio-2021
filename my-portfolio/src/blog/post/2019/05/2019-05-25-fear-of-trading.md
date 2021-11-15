@@ -6,7 +6,7 @@ categories:
 tags: 
   - "トレード恐怖症"
   - "週間トレード日誌"
-coverImage: "markus-spiske-5gGcn2PRrtc-unsplash-scaled.jpg"
+coverImage: "./images/markus-spiske-5gGcn2PRrtc-unsplash-scaled.jpg"
 ---
 
 どうもお久しぶりです！ヒロです！如何お過ごしでしょうか？メイ英首相がついに辞任しましたね。EU離脱問題がまだ残っている中でのメイ首相の辞任発表、そして辞任。クロスポンドの通貨ペアはどうなる事やらと思っていましたが、特に昨日は良い感じに乱高下してましたね。この乱高下で爆益を得られた方も多いのではないでしょうか？また逆に大損をされた方もいらっしゃるはずです。

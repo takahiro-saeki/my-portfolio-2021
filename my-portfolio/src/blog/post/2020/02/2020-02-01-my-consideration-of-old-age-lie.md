@@ -6,7 +6,7 @@ categories:
 tags: 
   - "人生観"
   - "考え方"
-coverImage: "masaaki-komori-Gy4nokYkkok-unsplash-scaled.jpg"
+coverImage: "./images/masaaki-komori-Gy4nokYkkok-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は老後について思う事を書いて行きたいと思います。何故老後についての記事を書こうと思ったか、それは日頃ニュース記事やツイッターを見ていて老後に対する備えとしての金融資産の話しや年金などの記事を見て少し違うんじゃないかと感じたので僕の意見を書いて行きたいと思います。

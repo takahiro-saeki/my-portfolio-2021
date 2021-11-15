@@ -29,7 +29,10 @@ const Article = data => {
         html={data.pageContext.postData.html}
         toc={data.pageContext.postData.tableOfContents}
         data={data.pageContext.postData.frontmatter}
-        imgSrc={data.pageContext.postData.imgData.node.childImageSharp}
+        imgSrc={
+          data.pageContext.postData.frontmatter.coverImage.childImageSharp
+            .gatsbyImageData
+        }
       />
       <BlogFooter
         categories={data.pageContext.categories.group}
@@ -308,18 +311,12 @@ export const pageQuery = graphql`
             title
             tags
             date
-            coverImage
+            coverImage {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
             categories
-          }
-        }
-      }
-    }
-    allFile {
-      edges {
-        node {
-          name
-          childImageSharp {
-            gatsbyImageData
           }
         }
       }

@@ -3,7 +3,7 @@ title: "時間帯と通貨ペア事の相関性を意識したトレード手法
 date: "2019-12-12"
 categories: 
   - "fx"
-coverImage: "maxwell-nelson-VJeAZr-Bu9E-unsplash-scaled.jpg"
+coverImage: "./images/maxwell-nelson-VJeAZr-Bu9E-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は時間帯と通貨ペア事の相関性を意識したトレード手法について書いて行きたいと思います。これは僕が主にメインの手法として使っている手法になります。もちろん、チャートパターンや前日安値高値を見ての反発だったりチャートパターンなど参考にする事柄はいくつもあるのですが、それよりも第一にこの時間帯と通貨ペアの相関性を重視しています。それでは早速行ってみましょう！

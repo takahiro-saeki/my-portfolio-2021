@@ -5,7 +5,7 @@ categories:
   - "日常"
 tags: 
   - "ブログ"
-coverImage: "mathew-macquarrie-lzcKZlVPYaU-unsplash-1-scaled.jpg"
+coverImage: "./images/mathew-macquarrie-lzcKZlVPYaU-unsplash-1-scaled.jpg"
 ---
 
 どうもヒロです。今日は禁煙について書いて行きたいと重ます。

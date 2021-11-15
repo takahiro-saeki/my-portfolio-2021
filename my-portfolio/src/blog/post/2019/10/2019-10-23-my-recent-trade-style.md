@@ -8,7 +8,7 @@ tags:
   - "トレード手法"
   - "トレード習慣"
   - "負けトレード"
-coverImage: "dan-dealmeida-ODNe1jriB4Y-unsplash-scaled.jpg"
+coverImage: "./images/dan-dealmeida-ODNe1jriB4Y-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は僕が最近トレードで意識している事を書いて行こうと思います！

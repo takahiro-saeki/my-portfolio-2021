@@ -5,7 +5,7 @@ categories:
   - "fx"
 tags: 
   - "トレードアイディア"
-coverImage: "esther-tuttle-dyjH3YMblpo-unsplash-scaled.jpg"
+coverImage: "./images/esther-tuttle-dyjH3YMblpo-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は僕が考えるトレーダーが土日にすべき5つの事を書いて行きます！

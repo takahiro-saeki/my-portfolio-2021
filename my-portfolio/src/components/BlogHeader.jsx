@@ -1,5 +1,6 @@
 import React from "react"
-import { Col, Row } from "react-styled-flexboxgrid"
+import styled from "styled-components"
+import { Grid, Col, Row } from "react-styled-flexboxgrid"
 
 const BlogHeader = () => (
   <HeaderWrap>

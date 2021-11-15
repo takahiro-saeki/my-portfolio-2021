@@ -8,7 +8,7 @@ tags:
   - "思考"
   - "思考法"
   - "成長"
-coverImage: "ross-findon-mG28olYFgHI-unsplash-scaled.jpg"
+coverImage: "./images/ross-findon-mG28olYFgHI-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は環境を変える為の勇気について書いて行きたいと思います。実は僕も環境を大きく変える際結構勇気が必要で中々大きな一歩を踏み込むのが難しい時があります。今回は僕が思う環境を変える為に必要な事について書いて行きたいと思います！

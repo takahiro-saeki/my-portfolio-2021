@@ -6,7 +6,7 @@ categories:
 tags: 
   - "ブログ"
   - "雑記"
-coverImage: "thought-catalog-sCKtNbIKOuQ-unsplash-scaled.jpg"
+coverImage: "./images/thought-catalog-sCKtNbIKOuQ-unsplash-scaled.jpg"
 ---
 
 明けましておめでとうございます！どうもヒロです！と言ってももう2020年も約半月ぐらい終わろうとしているので1年の1/24が終わりそうな感じですね。いやはや本当に月日が流れるのが早く感じます笑  

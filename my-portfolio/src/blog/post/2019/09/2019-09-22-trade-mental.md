@@ -6,7 +6,7 @@ categories:
 tags: 
   - "fx"
   - "トレードメンタル"
-coverImage: "jared-rice-NTyBbu66_SI-unsplash.jpg"
+coverImage: "./images/jared-rice-NTyBbu66_SI-unsplash.jpg"
 ---
 
 どうもヒロです！うちの子猫がついに去勢手術をする日を迎えて、弱り切った姿に心配で心配で仕方ない今日この頃、皆様はどうお過ごしでしょうか？  

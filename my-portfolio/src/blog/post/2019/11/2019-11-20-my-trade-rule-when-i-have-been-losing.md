@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "負けトレード"
   - "資金管理"
-coverImage: "estee-janssens-RARH8b7N-fw-unsplash-scaled.jpg"
+coverImage: "./images/estee-janssens-RARH8b7N-fw-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回はFXで資金を飛ばしたり連敗が続いた際に僕が気をつけている事について書いて行きたいと思います！FXをやっているとどうしても連敗したり焦ってトレードして資金を飛ばしてしまう事があると思います。そうした際に僕が意識している事を書いて行きたいと思います。

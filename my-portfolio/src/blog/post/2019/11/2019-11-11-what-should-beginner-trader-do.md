@@ -9,7 +9,7 @@ tags:
   - "トレード手法"
   - "専業トレーダー"
   - "相場分析"
-coverImage: "jamie-street-VP4WmibxvcY-unsplash-scaled.jpg"
+coverImage: "./images/jamie-street-VP4WmibxvcY-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回はFX初心者が最初にするべき3つの事について書いて行きたいと思います！

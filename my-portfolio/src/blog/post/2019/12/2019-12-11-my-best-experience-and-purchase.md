@@ -6,7 +6,7 @@ categories:
 tags: 
   - "人生観"
   - "決断"
-coverImage: "clay-banks-E2HgkL3LaFE-unsplash-scaled.jpg"
+coverImage: "./images/clay-banks-E2HgkL3LaFE-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は僕が人生で買って良かった物、決断して良かった事について書いていきたいと思います。

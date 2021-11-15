@@ -7,7 +7,7 @@ tags:
   - "所有欲"
   - "経験"
   - "考え方"
-coverImage: "tommaso-nervegna-8lmOKnyUAZ0-unsplash-scaled.jpg"
+coverImage: "./images/tommaso-nervegna-8lmOKnyUAZ0-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は所有欲よりも経験の方が価値があるんじゃないかっていう事を書いて行きたいと思います。

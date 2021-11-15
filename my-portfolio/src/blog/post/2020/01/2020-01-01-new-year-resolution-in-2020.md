@@ -3,7 +3,7 @@ title: "2020年の抱負"
 date: "2020-01-01"
 categories: 
   - "日常"
-coverImage: "jake-ingle-aAcoYBS98F4-unsplash-scaled.jpg"
+coverImage: "./images/jake-ingle-aAcoYBS98F4-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！あけましておめでとうございます！もう2020年ですね！このままオリンピックまですぐに時が経ってしまいそうです。それでは早速ですが、2020年の抱負を書いて行きたいと思います！

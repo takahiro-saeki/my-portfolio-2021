@@ -5,7 +5,7 @@ categories:
   - "beatmania"
 tags: 
   - "beatmania"
-coverImage: "blog.jpeg"
+coverImage: "./images/blog.jpeg"
 ---
 
 どうもヒロです。久しく更新していなかったのです。時は既に明日から11月になろうとしています。時が経つのは本当にあっという間ですね、、、！今回はここ数ヶ月のbeatmaniaについての近況報告をしたいと思います。

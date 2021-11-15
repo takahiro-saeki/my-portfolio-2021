@@ -7,7 +7,7 @@ tags:
   - "ファンダメンタル"
   - "経済指標"
   - "週間報告"
-coverImage: "paul-weaver-uqMjRCBzMk-unsplash-scaled.jpg"
+coverImage: "./images/paul-weaver-uqMjRCBzMk-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今日はドル円もポンド円も大暴落しましたね、、、つい最近中国VSアメリカじゃないですけど、関税合戦で相場が荒れましたが、今日もトランプ大統領の発言によって相場が大幅に下落しました。今日はこれらの相場の変動についての僕の見解とどう向き合って行くかについての考えを書いて行きたいと思います。

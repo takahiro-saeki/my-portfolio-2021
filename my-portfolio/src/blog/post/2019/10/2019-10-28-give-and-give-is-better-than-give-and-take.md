@@ -7,7 +7,7 @@ tags:
   - "ストレス"
   - "マインドハック"
   - "思考法"
-coverImage: "jan-tinneberg-gJJhG4gM7NA-unsplash-scaled.jpg"
+coverImage: "./images/jan-tinneberg-gJJhG4gM7NA-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は他人に見返りを求めない方が幸せに生きれる事について書いて行きたいと思います！

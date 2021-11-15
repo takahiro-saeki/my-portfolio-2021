@@ -8,7 +8,7 @@ tags:
   - "思考"
   - "思考法"
   - "考え方"
-coverImage: "loan-7AIDE8PrvA0-unsplash-scaled.jpg"
+coverImage: "./images/loan-7AIDE8PrvA0-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！早い物でもう新年明けて1月2日です。皆さんどうお正月をお過ごしでしょうか？今回は成長を加速させる会食の際に意識する事について書いて行こうと思います。これは実は僕が19歳ぐらいの頃から意識していた事です。もし誰かの参考になれば幸いです。

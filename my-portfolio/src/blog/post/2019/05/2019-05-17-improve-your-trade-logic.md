@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "トレード手法"
   - "トレード日誌"
-coverImage: "andre-benz-JnB8Gio4GZo-unsplash-scaled.jpg"
+coverImage: "./images/andre-benz-JnB8Gio4GZo-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！[禁煙も始めてから](https://forexist-hiro.com/quit-smoking/)順調！ともいかず、実は月曜日の朝に1本だけ吸ってしまいました。原因を必死に考えて行き着いた結果、やはりニコチンパッチが無いとどうにも禁煙出来ないというのがわかりました笑

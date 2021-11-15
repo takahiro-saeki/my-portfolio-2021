@@ -6,7 +6,7 @@ categories:
 tags: 
   - "ストレス"
   - "成長"
-coverImage: "victoria-heath-MAGAXAYq_NE-unsplash-scaled.jpg"
+coverImage: "./images/victoria-heath-MAGAXAYq_NE-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回はストレス負荷を活用した自信の付け方について書いて行きたいと思います。これは僕が20歳ぐらいから意識的、無意識的問わずに継続して来た事をまとめて物です。それでは行って見ましょう！

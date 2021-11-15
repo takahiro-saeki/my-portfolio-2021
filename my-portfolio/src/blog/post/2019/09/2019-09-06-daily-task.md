@@ -6,7 +6,7 @@ categories:
 tags: 
   - "トレード"
   - "週間報告"
-coverImage: "alex-wong-2Ow2lfQQWY-unsplash-scaled.jpg"
+coverImage: "./images/alex-wong-2Ow2lfQQWY-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は僕が思うトレーダーとして継続すべき事と今週の100万円チャレンジの成績報告です！

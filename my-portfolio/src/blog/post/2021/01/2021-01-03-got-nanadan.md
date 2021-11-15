@@ -3,7 +3,7 @@ title: "beatmania bistroverで七段に受かったのでその経緯をまと�
 date: "2021-01-03"
 categories:
   - "beatmania"
-coverImage: "7dan.jpeg"
+coverImage: "./images/7dan.jpeg"
 ---
 
 どうもヒロです。今回はタイトルの通り、七段に受かったので六段から七段になるまでの過程やこれをやっておけば良かったと思う事、これをしなければ良かった事などまとめて行きたいと思います。

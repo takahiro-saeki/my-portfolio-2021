@@ -5,7 +5,7 @@ categories:
   - "日常"
 tags: 
   - "脱毛"
-coverImage: "george-bohunicky-qJKT2rMU0VU-unsplash-scaled.jpg"
+coverImage: "./images/george-bohunicky-qJKT2rMU0VU-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は僕が脱毛を始めて3年半以上が経ったのでその感想を述べて行きたいと思います。

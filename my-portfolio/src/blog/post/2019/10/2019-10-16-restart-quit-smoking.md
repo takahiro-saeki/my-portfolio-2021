@@ -6,7 +6,7 @@ categories:
 tags: 
   - "禁煙"
   - "禁酒"
-coverImage: "idin-ebrahimi-re8vcdP3aOk-unsplash-scaled.jpg"
+coverImage: "./images/idin-ebrahimi-re8vcdP3aOk-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は誠に私事になりますが、再び禁煙を開始しました。まず禁煙に至った経緯や何故以前禁煙を行っていたのに喫煙を再開してしまったのか、そして何故再度禁煙する事になったか書いて行きたいと思います。

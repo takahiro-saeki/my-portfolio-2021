@@ -8,7 +8,7 @@ tags:
   - "海外で仕事する事"
   - "海外移住"
   - "英語"
-coverImage: "philipp-berndt-5i0GnoTTjSE-unsplash-scaled.jpg"
+coverImage: "./images/philipp-berndt-5i0GnoTTjSE-unsplash-scaled.jpg"
 ---
 
 堀江貴文さんの名著に[多動力](https://www.google.com/search?q=%E5%A4%9A%E5%8B%95%E5%8A%9B+%E6%9C%AC&sxsrf=ACYBGNRkVs21NEIfwuOoANOzO6VNla4z1A:1571666219917&source=lnms&tbm=shop&sa=X&ved=0ahUKEwiChvn1wK3lAhVWPnAKHdUADCIQ_AUIEygC&biw=1440&bih=789)という書籍があります。いくつもの事を並行して行う事で自分の人生をブチ抜いて行く。僕も自分が行動出来ていないなと思う時に読み返したりするぐらい大好きな一冊です。そんな多動力な生活を送る為にはミニマリストになるのが良いという事について書いていきたいと思います。

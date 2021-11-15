@@ -7,7 +7,7 @@ tags:
   - "トレード"
   - "トレードメンタル"
   - "資金管理"
-coverImage: "scott-graham-5fNmWej4tAA-unsplash-scaled.jpg"
+coverImage: "./images/scott-graham-5fNmWej4tAA-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今日はFXはビジネス収入が大事だと思う事について書いて行きたいと思います。

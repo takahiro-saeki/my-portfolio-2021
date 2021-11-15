@@ -7,7 +7,7 @@ tags:
   - "beatmania"
   - "思考"
   - "雑記"
-coverImage: "thought-catalog-sCKtNbIKOuQ-unsplash-scaled.jpg"
+coverImage: "./images/thought-catalog-sCKtNbIKOuQ-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。前回記事を書いてからもう1記事書こうとして中途半端な状態のまま月日だけが過ぎていました。恐らく永遠に下書きコースなのかもしれないなぁ、と思う今日この頃、皆様如何お過ごしでしょうか？

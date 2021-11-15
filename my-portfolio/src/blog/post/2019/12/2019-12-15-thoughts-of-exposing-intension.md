@@ -7,7 +7,7 @@ tags:
   - "人生観"
   - "思考"
   - "考え方"
-coverImage: "paul-hanaoka-w2DsS-ZAP4U-unsplash-scaled.jpg"
+coverImage: "./images/paul-hanaoka-w2DsS-ZAP4U-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は感情を曝け出すのは最強の武器だと思う事について書いて行きたいと思います。このタイトルだけだと何を伝えたいのかイマイチピンと来ないかもしれませんが、**一言で要約すると皆が何者かになりたいと思う時代に自分の本音を曝け出せるのは個性として昇華出来るし、強みにもなると思う事です。**それではより詳しく書いて行きます。

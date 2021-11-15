@@ -5,7 +5,7 @@ categories:
   - "fx"
 tags: 
   - "海外口座"
-coverImage: "austin-distel-pfmKvWLDGoc-unsplash-scaled.jpg"
+coverImage: "./images/austin-distel-pfmKvWLDGoc-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は海外FX口座を本気で使い始めた事についてや近況報告も含め書いて行きたいと思います！

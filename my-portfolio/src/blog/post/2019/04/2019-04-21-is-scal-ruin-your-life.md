@@ -6,7 +6,7 @@ categories:
 tags: 
   - "fx"
   - "トレード手法"
-coverImage: "tom-barrett-TlO8BfwZ5bc-unsplash-1-scaled.jpg"
+coverImage: "./images/tom-barrett-TlO8BfwZ5bc-unsplash-1-scaled.jpg"
 ---
 
 どうも、forexist-hiroの管理人のヒロです。今回はFXでスキャルをするメリット、デメリット、また資金を失う傾向があるトレードやそこから発展して巷で良く聞く一気に資金を失う話しについての僕の意見を書いて行きたいと思います。

@@ -8,7 +8,7 @@ tags:
   - "思考法"
   - "成長"
   - "格差社会"
-coverImage: "vitaly-taranov-OCrPJce6GPk-unsplash-scaled.jpg"
+coverImage: "./images/vitaly-taranov-OCrPJce6GPk-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は年収1400万は低所得なのかという事について書いて行きたいと思います。この記事を書こうと思ったきっかけはTwitterのハッシュタグで [#年収1400](https://twitter.com/hashtag/%E5%B9%B4%E5%8F%8E1400%E4%B8%87) を見かけて色々な人がツイートをしているのを見て気になり出しました。それではこの年収1400万は低所得なのかという事について書いて行きます。

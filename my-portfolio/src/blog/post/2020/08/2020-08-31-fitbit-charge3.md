@@ -6,7 +6,7 @@ categories:
 tags: 
   - "決断"
   - "雑記"
-coverImage: "andres-urena-V7UoMNWsYsg-unsplash-scaled.jpg"
+coverImage: "./images/andres-urena-V7UoMNWsYsg-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。長い梅雨が続いて夏になったかと思えば気付けばもう9月ですね、時間が経つのがあまりにも早過ぎてついて行けていない今日この頃ですが、皆さん如何お過ごしでしょうか？  

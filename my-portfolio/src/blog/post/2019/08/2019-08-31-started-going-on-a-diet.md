@@ -6,7 +6,7 @@ categories:
 tags: 
   - "ダイエット"
   - "猫"
-coverImage: "victor-freitas-WvDYdXDzkhs-unsplash-scaled.jpg"
+coverImage: "./images/victor-freitas-WvDYdXDzkhs-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！タイトル通り、ダイエット始めました。実は人生でまともにダイエットに取り組んだ事がなかったのですが、引っ越しを境に運動しなくなtたり食べたい物食べまくったりして気付いたら人生マックスな体重になってました、、、汗  

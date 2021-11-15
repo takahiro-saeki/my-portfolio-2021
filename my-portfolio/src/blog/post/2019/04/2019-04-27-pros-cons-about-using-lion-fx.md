@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "lionfx"
   - "トレード"
-coverImage: "ingo-stiller-5vCQdgU2CLI-unsplash-scaled.jpg"
+coverImage: "./images/ingo-stiller-5vCQdgU2CLI-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回はヒロセ通商のLion FXの魅力や何故僕が使い続けているかについて書いて行こうと思います。

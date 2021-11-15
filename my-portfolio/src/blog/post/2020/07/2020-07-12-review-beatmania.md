@@ -3,7 +3,7 @@ title: "beatmaniaを始めて3ヶ月が過ぎたので振り返ってみたい"
 date: "2020-07-12"
 categories: 
   - "beatmania"
-coverImage: "EexrTbHUMAIpdOD.jpeg"
+coverImage: "./images/EexrTbHUMAIpdOD.jpeg"
 ---
 
 どうもヒロです。お久しぶりです。もうかれこれ2ヶ月ぐらい更新していませんでした。誠に申し訳ないです汗  

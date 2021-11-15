@@ -7,7 +7,7 @@ categories:
 tags: 
   - "考え方"
   - "雑記"
-coverImage: "yutacar-JKMnm3CIncw-unsplash-scaled.jpg"
+coverImage: "./images/yutacar-JKMnm3CIncw-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は会社の忘年会に参加すべきかについての僕の意見を書いて行こうと思います。Twitterで忘年会についての投稿を散見していて、自分は行きたく無いけど会社の決まりで参加しないといけない方などもいるでしょう。そうした忘年会について僕が思っている事を書いて行きたいと思います。

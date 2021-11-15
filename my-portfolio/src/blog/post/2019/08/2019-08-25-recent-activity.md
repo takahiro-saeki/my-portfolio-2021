@@ -3,7 +3,7 @@ title: "最近の事について"
 date: "2019-08-25"
 categories: 
   - "日常"
-coverImage: "mostafa-meraji-Z_WogC_UONo-unsplash-scaled.jpg"
+coverImage: "./images/mostafa-meraji-Z_WogC_UONo-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！ここ最近全く更新出来てなくて申し訳ございません汗 生活環境も結構ガラリと変わりまして、なんだかんだ記事を書く優先順位が低迷していました、、、汗  

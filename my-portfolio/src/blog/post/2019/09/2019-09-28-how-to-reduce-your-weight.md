@@ -6,7 +6,7 @@ categories:
 tags: 
   - "ダイエット"
   - "減量"
-coverImage: "gursimrat-ganda-TT042bOytlU-unsplash-scaled.jpg"
+coverImage: "./images/gursimrat-ganda-TT042bOytlU-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は僕が先月から続けている減量についてどうやって体重を落としたかのノウハウを書いて行きたいと思います！

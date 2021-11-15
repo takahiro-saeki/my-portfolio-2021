@@ -3,7 +3,7 @@ title: "言い訳を作ると成長を鈍化させる事について"
 date: "2019-11-24"
 categories: 
   - "思考"
-coverImage: "kari-shea-eMzblc6JmXM-unsplash-scaled.jpg"
+coverImage: "./images/kari-shea-eMzblc6JmXM-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。ここ数日投稿出来ずにいました。ブログと言えど毎日続けるのは中々難しいし、Youtube等で毎日投稿を続けてるYoutuberは本当凄いなと改めて感じました。そういう余談は置いといて今回は言い訳を作ると成長を鈍化させる事について書いて行きたいと思います。

@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "トレードメンタル"
   - "トレード手法"
-coverImage: "daan-stevens-yGUuMIqjIrU-unsplash-scaled.jpg"
+coverImage: "./images/daan-stevens-yGUuMIqjIrU-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回はポジポジ病にならない為に意識している事を書いて行きたいと思います！結論から書いてしまうと、ちゃんと損切り出来たり、自分にルールがあるのならポジポジ病になっても良いと思います。しかしちょいと数pips取るつもりが逆行して損切り出来ずに結果コツコツドカンになる事もあったりします。今回はどうポジポジ病に向き合って行くか書いて行きたいと思います。

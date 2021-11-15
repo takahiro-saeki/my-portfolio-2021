@@ -7,7 +7,7 @@ categories:
 tags: 
   - "トレード"
   - "週間トレード日誌"
-coverImage: "rawan-yasser-X8bDX8sB78c-unsplash-scaled.jpg"
+coverImage: "./images/rawan-yasser-X8bDX8sB78c-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！今回は自分の成長限界を突破する事について書いて行きたいと思います。

@@ -6,7 +6,7 @@ categories:
 tags: 
   - "ツール"
   - "トレード"
-coverImage: "scott-graham-5fNmWej4tAA-unsplash-scaled.jpg"
+coverImage: "./images/scott-graham-5fNmWej4tAA-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！時が経つのはあっという間で、もうすぐ9月ですね。皆さま如何お過ごしでしょうか？  

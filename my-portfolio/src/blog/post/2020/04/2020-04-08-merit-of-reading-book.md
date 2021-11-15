@@ -3,7 +3,7 @@ title: "読書をする2つのメリットについて"
 date: "2020-04-08"
 categories: 
   - "思考"
-coverImage: "sara-kurfess-Ada1yXwrbXI-unsplash-scaled.jpg"
+coverImage: "./images/sara-kurfess-Ada1yXwrbXI-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今回は僕が思う読書をする上での2つのメリットを紹介して行きたいと思います。読書と言っても漫画を読むのか、小説を読むのか、ビジネス書を読むのか経済の本を読むのか辞書を読むのかなど幅広く捉える事が出来るとと思いますが、今回は基本的にはビジネス書や何かを学ぶ為に読書する事を想定しています。

@@ -17,20 +17,15 @@ exports.createPages = async ({ actions, graphql }) => {
               title
               tags
               date
-              coverImage
+              coverImage {
+                absolutePath
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
               categories
             }
             tableOfContents
-          }
-        }
-      }
-      allFile {
-        edges {
-          node {
-            name
-            childImageSharp {
-              gatsbyImageData
-            }
           }
         }
       }
@@ -56,21 +51,33 @@ exports.createPages = async ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const findImagePath = fileName =>
-      result.data.allFile.edges.find(({ node }) => fileName.includes(node.name))
+    const posts = result.data.allMarkdownRemark.edges
+    const postsPerPage = 10
+    const numPages = Math.ceil(posts.length / postsPerPage)
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: path.resolve("src/template/blog.jsx"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1,
+        },
+      })
+    })
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const parseName = node.fileAbsolutePath.split("/").slice(-1)[0]
       const parse = parseName.split("-").slice(3).join("-").replace(".md", "")
 
-      const fileName = node.frontmatter.coverImage
       createPage({
         path: parse,
         component: postTemplate,
         context: {
           postData: {
             ...node,
-            imgData: findImagePath(fileName),
           },
           tags: result.data.tags,
           categories: result.data.categories,

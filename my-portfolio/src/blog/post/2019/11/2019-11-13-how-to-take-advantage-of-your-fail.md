@@ -9,7 +9,7 @@ tags:
   - "思考法"
   - "考え方"
   - "駆け足で生きる"
-coverImage: "isaac-smith-6EnTPvPPL6I-unsplash-scaled.jpg"
+coverImage: "./images/isaac-smith-6EnTPvPPL6I-unsplash-scaled.jpg"
 ---
 
 どうもヒロです！もう11月なのに日中はまだまだ暖かい日々が続いていますね、気候変動なのかわからないですが来年の春がめちゃくちゃ寒いんじゃないかって少し心配な今日この頃、如何がお過ごしでしょうか？今回は失敗が人生の糧になる事について書いて行きたいと思います！

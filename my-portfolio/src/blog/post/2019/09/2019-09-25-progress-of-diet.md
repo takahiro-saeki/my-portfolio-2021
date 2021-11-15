@@ -7,7 +7,7 @@ tags:
   - "ダイエット"
   - "人生観"
   - "減量"
-coverImage: "samuel-clara-yUWKDfPLp6w-unsplash.jpg"
+coverImage: "./images/samuel-clara-yUWKDfPLp6w-unsplash.jpg"
 ---
 
 どうもヒロです！今回はタイトル通りですが、先月から続けているダイエットの進捗を報告したいと思います。

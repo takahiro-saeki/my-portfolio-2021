@@ -6,7 +6,7 @@ categories:
 tags: 
   - "fx"
   - "専業トレーダー"
-coverImage: "noah-silliman-gzhyKEo_cbU-unsplash-scaled.jpg"
+coverImage: "./images/noah-silliman-gzhyKEo_cbU-unsplash-scaled.jpg"
 ---
 
 どうもヒロです。今日は専業トレーダーは孤独なのかという事について書いて行きたいと思います。

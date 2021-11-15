@@ -8,7 +8,7 @@ tags:
   - "経験"
   - "雑記"
   - "駆け足で生きる"
-coverImage: "medakit-ltd-9b4QLnWR3Sk-unsplash-scaled.jpg"
+coverImage: "./images/medakit-ltd-9b4QLnWR3Sk-unsplash-scaled.jpg"
 ---
 
 どうもお久しぶりです、ヒロです！更新が1ヶ月以上遅れてしまいました。緊急事態宣言が発令され、自粛が続いていましたが、皆さん如何お過ごしでしょうか？
