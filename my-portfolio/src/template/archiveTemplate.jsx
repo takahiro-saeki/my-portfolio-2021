@@ -14,6 +14,10 @@ import { getMonth, getYear, format } from "date-fns"
 import { groupBy, uniqBy } from "lodash"
 import { Footer } from "../pages/article"
 
+/***
+ * @TODO: 近いうちに必ずblogのtemplateと共通化させる
+ */
+
 const parseLink = path => {
   if (!path) return null
   const parseName = path.split("/").slice(-1)[0]
@@ -21,7 +25,7 @@ const parseLink = path => {
   return parse
 }
 
-const Blog = data => {
+const Archive = data => {
   console.log(data)
   const parseRecentPosts = data.data.recentPosts.edges.map(
     ({ node }) => node.frontmatter
@@ -46,13 +50,9 @@ const Blog = data => {
     <div>
       <BlogHeader />
       <ArticleLists
-        data={data.data.allMarkdownRemark.edges}
+        data={data.pageContext}
         recentPosts={parseRecentPosts}
         archiveData={mapDatesData}
-      />
-      <PaginatedItems
-        pageCount={data.pageContext.numPages}
-        currentPage={data.pageContext.currentPage}
       />
       <BlogFooter
         categories={data.data.categories.group}
@@ -82,39 +82,15 @@ const RecentPosts = ({ data }) => (
   </RecentPostsArea>
 )
 
-const PaginatedItems = ({ pageCount, currentPage }) => {
-  const handleClick = id => {
-    if (id === currentPage) return
-    if (id === 1) {
-      navigate(`/blog`)
-      return
-    }
-    navigate(`/blog/${id}`)
-    return
-  }
-
-  return (
-    <PaginationWrap>
-      <ul>
-        {[...Array(pageCount - 1).keys()].map(val => (
-          <PaginationListItem
-            onClick={() => handleClick(val + 1)}
-            isActive={val + 1 === currentPage}
-          >
-            <span>{val + 1}</span>
-          </PaginationListItem>
-        ))}
-      </ul>
-    </PaginationWrap>
-  )
-}
-
 const ArticleLists = ({ data, recentPosts, archiveData }) => {
   return (
     <StyledGrid fluid>
       <Row>
         <StyledCol xs={8}>
-          {data.map(data => {
+          <ArchiveHeader>
+            アーカイブ: {format(new Date(data.date), "yyyy年MM月")}
+          </ArchiveHeader>
+          {data.node.map(data => {
             const image = getImage(
               data.node.frontmatter.coverImage.childImageSharp.gatsbyImageData
             )
@@ -174,6 +150,10 @@ const ArchiveLists = ({ data }) => (
     </ArchiveListsUl>
   </div>
 )
+
+const ArchiveHeader = styled.h2`
+  font-size: 20px;
+`
 
 const ArchiveListsUl = styled.ul`
   li {
@@ -331,12 +311,8 @@ const StyledGrid = styled(Grid)`
   max-width: 1200px;
 `
 export const pageQuery = graphql`
-  query blogList($skip: Int!, $limit: Int!) {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      limit: $limit
-      skip: $skip
-    ) {
+  query archiveList {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           id
@@ -402,4 +378,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default Blog
+export default Archive

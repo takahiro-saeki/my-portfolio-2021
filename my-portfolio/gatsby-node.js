@@ -1,4 +1,6 @@
 const path = require(`path`)
+const format = require("date-fns/format")
+const uniqBy = require("lodash/uniqBy")
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
@@ -43,6 +45,29 @@ exports.createPages = async ({ actions, graphql }) => {
           totalCount
         }
       }
+
+      archives: allMarkdownRemark(
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            frontmatter {
+              title
+              tags
+              date
+              coverImage {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+              categories
+            }
+            excerpt(pruneLength: 200)
+          }
+        }
+      }
     }
   `)
 
@@ -65,6 +90,34 @@ exports.createPages = async ({ actions, graphql }) => {
           numPages,
           currentPage: i + 1,
         },
+      })
+    })
+
+    const parceDates = result.data.archives.edges.map(({ node }) => ({
+      date: node.frontmatter.date,
+      parcedDate: format(new Date(node.frontmatter.date), "yyyy-MM"),
+      node,
+    }))
+
+    const eliminatedDates = uniqBy(parceDates, "parcedDate")
+    const mapDatesData = eliminatedDates.map(val => {
+      const filterDates = parceDates.filter(
+        date => date.parcedDate === val.parcedDate
+      )
+      return {
+        date: val.parcedDate,
+        count: filterDates.length,
+        node: filterDates,
+      }
+    })
+
+    const archiveTemplate = path.resolve("src/template/archiveTemplate.jsx")
+
+    mapDatesData.forEach(data => {
+      createPage({
+        path: data.date,
+        component: archiveTemplate,
+        context: data,
       })
     })
 

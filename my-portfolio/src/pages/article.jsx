@@ -70,7 +70,7 @@ const StyledGrid = styled(Grid)`
   max-width: 1200px;
 `
 
-const Footer = () => (
+export const Footer = () => (
   <FooterArea>
     <StyledGrid fluid>
       <Row>
