@@ -10,14 +10,16 @@ import Header from "../components/Header.jsx"
 import ContentsArea from "../components/ContentsArea"
 import StyledGrid from "../components/atoms/StyledGrid"
 import Form from "../components/Form"
+import Hiro from "../images/hiro.jpeg"
 
 const TopPage = () => (
   <div>
     <Header />
     <Normalize />
     <ImgWrap>
-      <div>test</div>
-      <img src={TopImage} />
+      <BgCover>
+        <IntroArea />
+      </BgCover>
     </ImgWrap>
     <ContentsArea />
     <StyledGrid fluid>
@@ -37,30 +39,45 @@ const TopPage = () => (
   </div>
 )
 
+const BgCover = styled.div`
+  background: rgba(51, 51, 51, 0.5);
+  width: 100%;
+  height: 100%;
+`
+
 const IntroArea = () => (
-  <div>
+  <IntroAreaWrap>
     <div>
-      <img />
+      <img src={Hiro} />
     </div>
     <div>Takahiro Saeki</div>
     <div>frontend developer</div>
-  </div>
+  </IntroAreaWrap>
 )
 
-const ImgWrap = styled.div`
-  background: rgba(51, 51, 51, 0.5);
-  position: relative;
-  div {
-    position: absolute;
-  }
+const IntroAreaWrap = styled.div`
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  height: 180px;
+  margin: auto;
+  position: absolute;
+  color: #fff;
   img {
-    width: 100%;
-    object-fit: cover;
-    height: 700px;
-    margin: 0;
-    vertical-align: bottom;
-    background: rgba(51, 51, 51, 0.5);
+    border-radius: 50%;
   }
+`
+
+const ImgWrap = styled.div`
+  background-image: url(${TopImage});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(70, 70, 70);
+  position: relative;
+  height: 700px;
 `
 
 const HeaderWrap = styled.div`
