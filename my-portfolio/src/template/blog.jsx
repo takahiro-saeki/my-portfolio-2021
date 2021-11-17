@@ -13,6 +13,7 @@ import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { getMonth, getYear, format } from "date-fns"
 import { groupBy, uniqBy } from "lodash"
 import { Footer } from "../pages/article"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const parseLink = path => {
   if (!path) return null
@@ -327,9 +328,6 @@ const ArticleWrap = styled.article`
   margin: 0 auto 40px auto;
 `
 
-const StyledGrid = styled(Grid)`
-  max-width: 1200px;
-`
 export const pageQuery = graphql`
   query blogList($skip: Int!, $limit: Int!) {
     allMarkdownRemark(

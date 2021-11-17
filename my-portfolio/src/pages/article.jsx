@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
+import { Col, Row } from "react-styled-flexboxgrid"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlogFooter from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const Article = data => {
   React.useEffect(() => {
@@ -65,10 +66,6 @@ const MainArea = ({ html, toc, data, imgSrc }) => {
     </main>
   )
 }
-
-const StyledGrid = styled(Grid)`
-  max-width: 1200px;
-`
 
 export const Footer = () => (
   <FooterArea>

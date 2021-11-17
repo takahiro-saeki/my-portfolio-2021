@@ -14,14 +14,14 @@ import skillData from "./skillData"
 import text from "../text/text.ja.js"
 
 const Skills = () => (
-  <Row>
+  <StyledRow>
     <Col xs={12}>
       <HeaderWrap>
         <h2>スキル</h2>
       </HeaderWrap>
     </Col>
     {Object.keys(skillData).map(val => (
-      <Col xs={12} md={4}>
+      <Col xs={12} md={6}>
         <SkillContentWrap>
           <SkillHeader>
             {text.skill.find(skillVal => skillVal.key === val)?.title || "hoge"}
@@ -53,8 +53,12 @@ const Skills = () => (
         </SkillContentWrap>
       </Col>
     ))}
-  </Row>
+  </StyledRow>
 )
+
+const StyledRow = styled(Row)`
+  padding: 48px;
+`
 
 const SkillHeader = styled.h4`
   text-align: center;
@@ -64,6 +68,7 @@ const HeaderWrap = styled.div`
   h2 {
     margin: auto;
     text-align: center;
+    padding-bottom: 16px;
   }
 `
 

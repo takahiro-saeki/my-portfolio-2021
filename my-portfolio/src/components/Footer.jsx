@@ -5,16 +5,17 @@ import Hiro from "../images/hiro.jpeg"
 import { Timeline as TwitterTimeline } from "react-twitter-widgets"
 import Mohupara from "../images/mohupara.png"
 import Blog from "../images/blogtitle.png"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 export const Footer = () => (
   <FooterArea>
-    <Grid fluid>
+    <StyledGrid fluid>
       <Row>
         <Col xs={12}>
           <footer>© 2015-{new Date().getFullYear()} Takahiro Saeki</footer>
         </Col>
       </Row>
-    </Grid>
+    </StyledGrid>
   </FooterArea>
 )
 
@@ -114,6 +115,7 @@ const ExternalLinkArea = styled.div`
 const HiroIconArea = styled.div`
   padding: 16px;
   text-align: center;
+  font-size: 16px;
   img {
     width: 150px;
     border-radius: 50%;

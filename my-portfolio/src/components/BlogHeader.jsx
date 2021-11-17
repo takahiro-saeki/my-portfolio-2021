@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
+import { Col, Row } from "react-styled-flexboxgrid"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const BlogHeader = () => (
   <HeaderWrap>
@@ -20,9 +21,4 @@ const HeaderWrap = styled.header`
   padding: 8px;
   font-weight: bold;
 `
-
-const StyledGrid = styled(Grid)`
-  max-width: 1200px;
-`
-
 export default BlogHeader

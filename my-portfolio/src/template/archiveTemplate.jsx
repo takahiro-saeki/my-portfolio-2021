@@ -13,6 +13,7 @@ import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { getMonth, getYear, format } from "date-fns"
 import { groupBy, uniqBy } from "lodash"
 import { Footer } from "../pages/article"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 /***
  * @TODO: 近いうちに必ずblogのtemplateと共通化させる
@@ -307,9 +308,6 @@ const ArticleWrap = styled.article`
   margin: 0 auto 40px auto;
 `
 
-const StyledGrid = styled(Grid)`
-  max-width: 1200px;
-`
 export const pageQuery = graphql`
   query archiveList {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {

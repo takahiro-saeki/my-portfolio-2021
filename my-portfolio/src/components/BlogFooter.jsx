@@ -4,6 +4,7 @@ import { Grid, Col, Row } from "react-styled-flexboxgrid"
 import { Link } from "gatsby"
 import Ts from "../images/ts.png"
 import Mohupara from "../images/mohupara.png"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const BlogFooter = ({ categories, tags }) => {
   const filterTags = tags.filter(tag => tag.totalCount > 1)
@@ -35,7 +36,7 @@ const BlogFooter = ({ categories, tags }) => {
         <Col xs={4}>
           <div>
             <div>
-              <Link to="/index2">
+              <Link to="/">
                 <img src={Ts} />
               </Link>
             </div>
@@ -80,10 +81,6 @@ const TagsArea = styled.div`
       border-radius: 8px;
     }
   }
-`
-
-const StyledGrid = styled(Grid)`
-  max-width: 1200px;
 `
 
 export default BlogFooter

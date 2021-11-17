@@ -5,53 +5,65 @@ import Blog from "../images/blogtitle.png"
 import Ts from "../images/ts.png"
 import { Col, Row } from "react-styled-flexboxgrid"
 import { Link } from "gatsby"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const ContentsArea = () => (
-  <ContentsRow>
-    <Col xs={12}>
-      <HeaderWrap>
-        <h2>コンテンツ一覧</h2>
-      </HeaderWrap>
-    </Col>
-    <Col xs={12} md={4}>
-      <Card>
-        <h3>ポートフォリオサイト</h3>
-        <ContentImgWrap>
-          <img src={Ts} />
-        </ContentImgWrap>
-        <CardDescArea>私、三枝木貴浩のポートフォリオサイト</CardDescArea>
-        <button>ポートフォリオはこちら</button>
-      </Card>
-    </Col>
-    <Col xs={12} md={4}>
-      <Card>
-        <h3>もふもふ☆パラダイス</h3>
-        <ContentImgWrap>
-          <img src={Mohupara} />
-        </ContentImgWrap>
-        <CardDescArea>もふもふ☆パラダイスの公式サイトです。</CardDescArea>
-        <Link to="/mohupara">
-          <button>もふパラの公式サイトはこちら</button>
-        </Link>
-      </Card>
-    </Col>
-    <Col xs={12} md={4}>
-      <Card>
-        <h3>ブログサイト</h3>
-        <ContentImgWrap>
-          <img src={Blog} />
-        </ContentImgWrap>
-        <CardDescArea>私、三枝木貴浩のブログサイトです</CardDescArea>
-        <button>ヒロの考え事はこちら</button>
-      </Card>
-    </Col>
-  </ContentsRow>
+  <ContentsAreaWrap>
+    <StyledGrid fluid>
+      <ContentsRow>
+        <Col xs={12}>
+          <HeaderWrap>
+            <h2>コンテンツ一覧</h2>
+          </HeaderWrap>
+        </Col>
+        <Col xs={12} md={4}>
+          <Card>
+            <h3>ポートフォリオサイト</h3>
+            <ContentImgWrap>
+              <img src={Ts} />
+            </ContentImgWrap>
+            <CardDescArea>私、三枝木貴浩のポートフォリオサイト</CardDescArea>
+            <button>ポートフォリオはこちら</button>
+          </Card>
+        </Col>
+        <Col xs={12} md={4}>
+          <Card>
+            <h3>もふもふ☆パラダイス</h3>
+            <ContentImgWrap>
+              <img src={Mohupara} />
+            </ContentImgWrap>
+            <CardDescArea>もふもふ☆パラダイスの公式サイトです。</CardDescArea>
+            <Link to="/mohupara">
+              <button>もふパラの公式サイトはこちら</button>
+            </Link>
+          </Card>
+        </Col>
+        <Col xs={12} md={4}>
+          <Card>
+            <h3>ブログサイト</h3>
+            <ContentImgWrap>
+              <img src={Blog} />
+            </ContentImgWrap>
+            <CardDescArea>私、三枝木貴浩のブログサイトです</CardDescArea>
+            <button>ヒロの考え事はこちら</button>
+          </Card>
+        </Col>
+      </ContentsRow>
+    </StyledGrid>
+  </ContentsAreaWrap>
 )
+
+const ContentsAreaWrap = styled.div`
+  background: #212121;
+  padding: 48px 0;
+`
 
 const HeaderWrap = styled.div`
   h2 {
     margin: auto;
     text-align: center;
+    color: #fff;
+    padding-bottom: 16px;
   }
 `
 
@@ -60,6 +72,10 @@ const Card = styled.div`
   padding: 16px;
   box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
     rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+
+  border-radius: 8px;
+  margin: 4px;
+  font-size: 16px;
 
   img {
     max-height: 150px;
@@ -92,7 +108,6 @@ const Card = styled.div`
 `
 
 const ContentsRow = styled(Row)`
-  background: #e0e0e0;
   padding: 16px;
 `
 

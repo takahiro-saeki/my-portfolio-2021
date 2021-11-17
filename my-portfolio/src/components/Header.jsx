@@ -1,11 +1,12 @@
 import React from "react"
 import styled, { css } from "styled-components"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
+import { Col, Row } from "react-styled-flexboxgrid"
 import { BsGithub, BsTwitter } from "react-icons/bs"
+import StyledGrid from "../components/atoms/StyledGrid"
 
 const Header = () => (
   <HeaderArea>
-    <Grid fluid>
+    <StyledGrid fluid>
       <Row>
         <Col xs={8}>
           <h1>TAKAHIRO SAEKI</h1>
@@ -25,7 +26,7 @@ const Header = () => (
           </IconWrap>
         </ColExtend>
       </Row>
-    </Grid>
+    </StyledGrid>
   </HeaderArea>
 )
 

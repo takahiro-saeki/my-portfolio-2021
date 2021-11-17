@@ -13,6 +13,10 @@ import m6 from "../images/mohupara-6.png"
 import mohupara from "../images/mohupara.png"
 import { Normalize } from "styled-normalize"
 import media from "styled-media-query"
+import StyledGrid from "../components/atoms/StyledGrid"
+import Mohupara from "../images/mohupara.png"
+import Blog from "../images/blogtitle.png"
+import Ts from "../images/ts.png"
 
 const data = [
   {
@@ -81,7 +85,7 @@ const MohuparaPage = () => (
   <MohuparaWrap>
     <Normalize />
     <HeaderArea>
-      <Grid fluid>
+      <StyledGrid fluid>
         <Row>
           <Col xs={12}>
             <div>
@@ -89,12 +93,12 @@ const MohuparaPage = () => (
             </div>
           </Col>
         </Row>
-      </Grid>
+      </StyledGrid>
     </HeaderArea>
     <main>
       {data.map(item => (
         <SectionArea bgColor={item.color}>
-          <Grid fluid>
+          <StyledGrid fluid>
             <Row>
               <Col xs={6}>
                 <BookImageArea>
@@ -127,25 +131,46 @@ const MohuparaPage = () => (
                 </BookInfoWrap>
               </Col>
             </Row>
-          </Grid>
+          </StyledGrid>
         </SectionArea>
       ))}
     </main>
     <FooterArea>
-      <Grid fluid>
+      <StyledGrid fluid>
         <Row>
-          <FooterCol xs={8}>
+          <FooterCol xs={12} md={6}>
             <h3>もふもふ☆パラダイスとは</h3>
             <div>
               もふもふ☆パラダイスはフロントエンドの技術を中心に同人活動を行うサークルです。
             </div>
           </FooterCol>
+          <Col xs={12} md={3}>
+            <LinkBannerArea>
+              <Link to="/">
+                <img src={Ts} />
+              </Link>
+            </LinkBannerArea>
+          </Col>
+          <Col xs={12} md={3}>
+            <LinkBannerArea>
+              <Link to="/blog">
+                <img src={Blog} />
+              </Link>
+            </LinkBannerArea>
+          </Col>
         </Row>
-      </Grid>
+      </StyledGrid>
     </FooterArea>
     <Copyright>©{new Date().getFullYear()} もふもふ☆パラダイス</Copyright>
   </MohuparaWrap>
 )
+
+const LinkBannerArea = styled.div`
+  height: 110px;
+  img {
+    height: 100%;
+  }
+`
 
 const MohuparaWrap = styled.div`
   color: #616161;
@@ -159,7 +184,6 @@ const FooterCol = styled(Col)`
   }
   div {
     font-size: 14px;
-    width: 50%;
     ${media.lessThan("medium")`
     /* screen width is less than 768px (medium) */
     width: 100%;
