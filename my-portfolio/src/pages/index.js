@@ -11,11 +11,12 @@ import ContentsArea from "../components/ContentsArea"
 import StyledGrid from "../components/atoms/StyledGrid"
 import Form from "../components/Form"
 import Hiro from "../images/hiro.jpeg"
+import GlobalCss from "../components/GlobalCss"
 
 const TopPage = () => (
   <div>
     <Header />
-    <Normalize />
+    <GlobalCss />
     <ImgWrap>
       <BgCover>
         <IntroArea />

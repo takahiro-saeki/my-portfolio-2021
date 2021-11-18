@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Takahiro Saeki`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Takahiro Saekiのポートフォリオサイトです。`,
+    author: `Takahiro Saeki`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,19 +24,16 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Takahiro Saeki`,
+        short_name: `ts`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#fff`,
+        theme_color: `#fff`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/cat.png`,
       },
     },
     `gatsby-plugin-gatsby-cloud`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {

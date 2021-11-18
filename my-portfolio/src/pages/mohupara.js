@@ -2,7 +2,6 @@ import * as React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import { Grid, Col, Row } from "react-styled-flexboxgrid"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
 import m1 from "../images/image1.png"
 import m2 from "../images/image2.png"
@@ -17,6 +16,7 @@ import StyledGrid from "../components/atoms/StyledGrid"
 import Mohupara from "../images/mohupara.png"
 import Blog from "../images/blogtitle.png"
 import Ts from "../images/ts.png"
+import GlobalCss from "../components/GlobalCss"
 
 const data = [
   {
@@ -83,7 +83,7 @@ const data = [
 
 const MohuparaPage = () => (
   <MohuparaWrap>
-    <Normalize />
+    <GlobalCss />
     <HeaderArea>
       <StyledGrid fluid>
         <Row>

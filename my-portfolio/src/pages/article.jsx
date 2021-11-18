@@ -6,6 +6,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlogFooter from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
 import StyledGrid from "../components/atoms/StyledGrid"
+import GlobalCss from "../components/GlobalCss"
 
 const Article = data => {
   React.useEffect(() => {
@@ -48,6 +49,7 @@ const MainArea = ({ html, toc, data, imgSrc }) => {
   const image = getImage(imgSrc)
   return (
     <main>
+      <GlobalCss />
       <StyledGrid fluid>
         <Row>
           <Col xs={8}>

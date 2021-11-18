@@ -31,7 +31,6 @@ const Header = () => (
 )
 
 const HeaderArea = styled.div`
-  height: 60px;
   background: #212121;
   padding: 8px 0;
   color: #fff;
