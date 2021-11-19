@@ -9,13 +9,13 @@ const Form = () => (
     </div>
     <div>
       Google Formは
-      <a href="https://forms.gle/wDGveE76AfxXXASz9" target="_blank">
+      <a href="https://forms.gle/wDGveE76AfxXXASz9" target="_blank" rel="noreferrer">
         こちら
       </a>
     </div>
     <div>
       twitterのDMから送りたい方は
-      <a href="https://twitter.com/hirodeath" target="_blank">
+      <a href="https://twitter.com/hirodeath" target="_blank" rel="noreferrer">
         こちら
       </a>
     </div>

@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import TopImage from "../images/forest.jpg"
 import { Col, Row } from "react-styled-flexboxgrid"
-import { Normalize } from "styled-normalize"
 import Timeline from "../components/Timeline"
 import Skills from "../components/Skills"
 import { Footer, FooterInfo } from "../components/Footer"
@@ -12,6 +11,7 @@ import StyledGrid from "../components/atoms/StyledGrid"
 import Form from "../components/Form"
 import Hiro from "../images/hiro.jpeg"
 import GlobalCss from "../components/GlobalCss"
+import Work from "../components/Work"
 
 const TopPage = () => (
   <div>
@@ -25,6 +25,9 @@ const TopPage = () => (
     <ContentsArea />
     <StyledGrid fluid>
       <Skills />
+    </StyledGrid>
+    <Work />
+    <StyledGrid fluid>
       <Row>
         <Col xs={12}>
           <HeaderWrap>

@@ -1,19 +1,16 @@
 import React from "react"
 import styled, { css } from "styled-components"
 import { graphql, navigate } from "gatsby"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
+import { Col, Row } from "react-styled-flexboxgrid"
 import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import Ts from "../images/ts.png"
-import Mohupara from "../images/mohupara.png"
 import BlogFooter from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
-import ReactPaginate from "react-paginate"
-import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
-import { getMonth, getYear, format } from "date-fns"
-import { groupBy, uniqBy } from "lodash"
+import { format } from "date-fns"
+import { uniqBy } from "lodash"
 import { Footer } from "../pages/article"
 import StyledGrid from "../components/atoms/StyledGrid"
+import GlobalCss from "../components/GlobalCss"
 
 const parseLink = path => {
   if (!path) return null
@@ -45,6 +42,7 @@ const Blog = data => {
 
   return (
     <div>
+      <GlobalCss />
       <BlogHeader />
       <ArticleLists
         data={data.data.allMarkdownRemark.edges}
@@ -119,12 +117,6 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
             const image = getImage(
               data.node.frontmatter.coverImage.childImageSharp.gatsbyImageData
             )
-            const parseName = data.node.fileAbsolutePath.split("/").slice(-1)[0]
-            const parse = parseName
-              .split("-")
-              .slice(3)
-              .join("-")
-              .replace(".md", "")
             return (
               <ArticleWrap>
                 <ImageArea>
@@ -143,7 +135,7 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                   </ArticleSubField>
                   <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
                   <ButtonArea>
-                    <Link to={`/${parseLink(parse)}`}>
+                    <Link to={`/${parseLink(data.node.fileAbsolutePath)}`}>
                       <button>続きを読む</button>
                     </Link>
                   </ButtonArea>

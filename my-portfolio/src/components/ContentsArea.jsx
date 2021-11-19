@@ -23,7 +23,6 @@ const ContentsArea = () => (
               <img src={Ts} />
             </ContentImgWrap>
             <CardDescArea>私、三枝木貴浩のポートフォリオサイト</CardDescArea>
-            <button>ポートフォリオはこちら</button>
           </Card>
         </Col>
         <Col xs={12} md={4}>

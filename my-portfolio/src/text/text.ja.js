@@ -56,7 +56,7 @@ const text = {
     {
       title: "この世に生を受ける",
       iconColor: "#f57f17",
-      desc: "PHOTOSHOPを使ってデザインし、HTML、CSS、javascriptでWEB制作業務を行う。",
+      desc: "高校受験が終わってからずっとバンド人生、作曲とライブ活動ばかりしてました。",
       date: "1991 -",
     },
     {

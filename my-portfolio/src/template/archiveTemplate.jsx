@@ -8,12 +8,12 @@ import Ts from "../images/ts.png"
 import Mohupara from "../images/mohupara.png"
 import BlogFooter from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
-import ReactPaginate from "react-paginate"
 import { MdArrowForwardIos, MdArrowBackIosNew } from "react-icons/md"
 import { getMonth, getYear, format } from "date-fns"
 import { groupBy, uniqBy } from "lodash"
 import { Footer } from "../pages/article"
 import StyledGrid from "../components/atoms/StyledGrid"
+import GlobalCss from "../components/GlobalCss"
 
 /***
  * @TODO: 近いうちに必ずblogのtemplateと共通化させる
@@ -49,6 +49,7 @@ const Archive = data => {
 
   return (
     <div>
+      <GlobalCss />
       <BlogHeader />
       <ArticleLists
         data={data.pageContext}

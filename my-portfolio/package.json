@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "date-fns": "^2.25.0",
     "eslint-config-react-app": "^6.0.0",
     "gatsby": "^4.2.0",
@@ -28,7 +29,6 @@
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.3.1",
-    "react-paginate": "^8.0.0",
     "react-styled-flexboxgrid": "^3.2.1",
     "react-twitter-widgets": "^1.10.0",
     "react-vertical-timeline-component": "^3.5.2",
@@ -53,7 +53,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "wp-convert": "wordpress-export-to-markdown"
+    "wp-convert": "wordpress-export-to-markdown",
+    "eslint:fix": "eslint src/**/*.{js,jsx} --fix"
   },
   "repository": {
     "type": "git",

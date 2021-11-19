@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
+import { Col, Row } from "react-styled-flexboxgrid"
 import { Link } from "gatsby"
 import Ts from "../images/ts.png"
 import Mohupara from "../images/mohupara.png"
@@ -42,7 +42,9 @@ const BlogFooter = ({ categories, tags }) => {
             </div>
             <div>
               <Link to="/mohupara">
-                <img src={Mohupara} />
+                <ImgWrap>
+                  <img src={Mohupara} />
+                </ImgWrap>
               </Link>
             </div>
           </div>
@@ -55,9 +57,10 @@ const BlogFooter = ({ categories, tags }) => {
 const CategoriesArea = styled.ul`
   font-size: 14px;
   margin: 0;
+  padding: 0;
   li {
     position: relative;
-    padding: 15px 0 0 20px;
+    padding: 16px 0;
     margin-bottom: 15 px;
     border-top: dotted 1px #d8d8d8;
     line-height: 1.5;
@@ -74,6 +77,7 @@ const TagsArea = styled.div`
     display: inline-block;
     padding: 8px;
     font-size: 14px;
+    margin-bottom: 10px;
     span {
       padding: 8px;
       color: #b92c2c;
@@ -81,6 +85,10 @@ const TagsArea = styled.div`
       border-radius: 8px;
     }
   }
+`
+
+const ImgWrap = styled.div`
+  padding: 32px 0;
 `
 
 export default BlogFooter
