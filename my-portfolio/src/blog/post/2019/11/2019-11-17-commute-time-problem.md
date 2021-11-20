@@ -7,7 +7,7 @@ tags:
   - "思考"
   - "思考法"
   - "考え方"
-coverImage: "./images/joshua-coleman-xLzdUCDRwco-unsplash-scaled.jpg"
+coverImage: "./images/joshua.jpg"
 ---
 
 どうもヒロです。今回は通勤時間無駄なのか？という事を書いて行きたいと思います。皆さんは現在通勤されてらっしゃいますか？僕は現在はリモートワークが中心なので通勤という概念が存在しない環境で仕事をしていますが、以前は通勤をしていました。今回はマナブさんの[言うまでもなく、通勤時間は無駄です【自信喪失したら、試合終了です】](https://manablog.org/commute-useless/)を読んで僕が思った通勤に対する事を書いて行きたいと思います。

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import { Col, Row } from "react-styled-flexboxgrid"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import BlogFooter from "../components/BlogFooter"
+import BlogFooter, { Footer } from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
 import StyledGrid from "../components/atoms/StyledGrid"
 import GlobalCss from "../components/GlobalCss"
@@ -69,18 +69,6 @@ const MainArea = ({ html, toc, data, imgSrc }) => {
   )
 }
 
-export const Footer = () => (
-  <FooterArea>
-    <StyledGrid fluid>
-      <Row>
-        <Col xs={12}>
-          <footer>© {new Date().getFullYear()} ヒロの考え事</footer>
-        </Col>
-      </Row>
-    </StyledGrid>
-  </FooterArea>
-)
-
 const ToCArea = styled.div`
   padding: 4px 0;
   font-size: 14px;
@@ -125,16 +113,6 @@ const ToCHeader = styled.div``
 const StyledGatsbyImage = styled(GatsbyImage)`
   height: 400px;
   width: 100%;
-`
-
-const FooterArea = styled.div`
-  background: #212121;
-  padding: 8px 0;
-  color: #fff;
-  font-size: 14px;
-  footer {
-    text-align: center;
-  }
 `
 
 const BlogDesign = styled.main`

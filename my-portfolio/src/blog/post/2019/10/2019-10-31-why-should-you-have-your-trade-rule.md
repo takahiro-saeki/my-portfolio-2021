@@ -7,7 +7,7 @@ tags:
   - "ゼロカット"
   - "トレードルール"
   - "トレード手法"
-coverImage: "./images/tamarcus-brown-zuQDqLFavI4-unsplash-scaled.jpg"
+coverImage: "./images/tamarcus.jpg"
 ---
 
 どうもヒロです！今日は僕のトレードのマイルールとどうトレードに向き合っているかやマイルールを持つ事のメリット等を書いていきたいと思います！

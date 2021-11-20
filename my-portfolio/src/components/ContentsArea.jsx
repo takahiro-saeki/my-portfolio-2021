@@ -44,7 +44,9 @@ const ContentsArea = () => (
               <img src={Blog} />
             </ContentImgWrap>
             <CardDescArea>私、三枝木貴浩のブログサイトです</CardDescArea>
-            <button>ヒロの考え事はこちら</button>
+            <Link to="/blog">
+              <button>ヒロの考え事はこちら</button>
+            </Link>
           </Card>
         </Col>
       </ContentsRow>

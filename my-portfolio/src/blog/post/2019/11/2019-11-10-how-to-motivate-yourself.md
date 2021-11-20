@@ -7,7 +7,7 @@ tags:
   - "ストレス"
   - "思考法"
   - "生産性"
-coverImage: "./images/fab-lentz-mRMQwK513hY-unsplash.jpg"
+coverImage: "./images/fab.jpg"
 ---
 
 どうもヒロです。今回は僕がやる気が起きない時に意識している事を書いていこうと思います。

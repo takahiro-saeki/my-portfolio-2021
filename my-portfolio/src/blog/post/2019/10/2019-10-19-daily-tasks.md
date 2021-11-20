@@ -7,7 +7,7 @@ tags:
   - "ビジネス"
   - "ライフハック"
   - "思考"
-coverImage: "./images/michael-sum-LEpfefQf4rU-unsplash-scaled.jpg"
+coverImage: "./images/michael.jpg"
 ---
 
 どうもヒロです。今日は継続する事の大事さについて書いて行きたいと思います。

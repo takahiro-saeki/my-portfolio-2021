@@ -9,8 +9,21 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const query = graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
         edges {
+          next {
+            fileAbsolutePath
+            frontmatter {
+              title
+              date
+              coverImage {
+                absolutePath
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
           node {
             id
             fileAbsolutePath
@@ -28,6 +41,19 @@ exports.createPages = async ({ actions, graphql }) => {
               categories
             }
             tableOfContents
+          }
+          previous {
+            fileAbsolutePath
+            frontmatter {
+              title
+              date
+              coverImage {
+                absolutePath
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
           }
         }
       }
@@ -68,6 +94,52 @@ exports.createPages = async ({ actions, graphql }) => {
           }
         }
       }
+      tagList: allMarkdownRemark {
+        group(field: frontmatter___tags) {
+          totalCount
+          fieldValue
+          edges {
+            node {
+              fileAbsolutePath
+              frontmatter {
+                title
+                tags
+                date
+                coverImage {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+                categories
+              }
+              excerpt(pruneLength: 200)
+            }
+          }
+        }
+      }
+      categoryList: allMarkdownRemark {
+        group(field: frontmatter___categories) {
+          totalCount
+          fieldValue
+          edges {
+            node {
+              fileAbsolutePath
+              frontmatter {
+                categories
+                date
+                tags
+                title
+                coverImage {
+                  childImageSharp {
+                    gatsbyImageData
+                  }
+                }
+              }
+              excerpt(pruneLength: 200)
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -76,14 +148,16 @@ exports.createPages = async ({ actions, graphql }) => {
       return Promise.reject(result.errors)
     }
 
+    // ページネーション
     const posts = result.data.allMarkdownRemark.edges
     const postsPerPage = 10
     const numPages = Math.ceil(posts.length / postsPerPage)
+    console.log("post check", numPages)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve("src/template/blog.jsx"),
+        component: path.resolve("src/template/blogTemplate.jsx"),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
@@ -93,6 +167,7 @@ exports.createPages = async ({ actions, graphql }) => {
       })
     })
 
+    // アーカイブページ生成
     const parceDates = result.data.archives.edges.map(({ node }) => ({
       date: node.frontmatter.date,
       parcedDate: format(new Date(node.frontmatter.date), "yyyy-MM"),
@@ -107,21 +182,42 @@ exports.createPages = async ({ actions, graphql }) => {
       return {
         date: val.parcedDate,
         count: filterDates.length,
-        node: filterDates,
+        edges: filterDates,
       }
     })
 
-    const archiveTemplate = path.resolve("src/template/archiveTemplate.jsx")
+    const archiveTemplate = path.resolve("src/template/blogTemplate.jsx")
 
     mapDatesData.forEach(data => {
       createPage({
         path: data.date,
         component: archiveTemplate,
-        context: data,
+        context: { ...data, name: "アーカイブ", limit: 9999, skip: 0 },
       })
     })
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    // タグページの作成
+    const tagListTemplate = path.resolve("src/template/blogTemplate.jsx")
+    result.data.tagList.group.forEach(item => {
+      createPage({
+        path: `/tag/${item.fieldValue}`,
+        component: tagListTemplate,
+        context: { ...item, name: "タグ名", limit: 9999, skip: 0 },
+      })
+    })
+
+    // カテゴリーページの生成
+    const categoryListTemplate = path.resolve("src/template/blogTemplate.jsx")
+    result.data.categoryList.group.forEach(item => {
+      createPage({
+        path: `/category/${item.fieldValue}`,
+        component: categoryListTemplate,
+        context: { ...item, name: "カテゴリー名", limit: 9999, skip: 0 },
+      })
+    })
+
+    // 記事ページ生成
+    result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
       const parseName = node.fileAbsolutePath.split("/").slice(-1)[0]
       const parse = parseName.split("-").slice(3).join("-").replace(".md", "")
 
@@ -134,6 +230,8 @@ exports.createPages = async ({ actions, graphql }) => {
           },
           tags: result.data.tags,
           categories: result.data.categories,
+          next,
+          previous,
         },
       })
     })

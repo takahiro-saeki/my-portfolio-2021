@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import { Col, Row } from "react-styled-flexboxgrid"
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import StyledGrid from "./atoms/StyledGrid"
 import sp1 from "../images/sp1.png"
 import sp2 from "../images/sp2.png"
@@ -10,7 +9,6 @@ import sp3 from "../images/sp3.png"
 import g1 from "../images/portals_component.png"
 import mrcp from "../images/mrcp.png"
 import mohupara from "../images/mohupara.png"
-import { navigate } from "gatsby"
 
 const Work = () => {
   return (
@@ -58,7 +56,7 @@ const Work = () => {
           </Col>
           <Col xs={12} md={4}>
             <a
-              href="https://speakerdeck.com/takahirosaeki/hooksgabian-ge-suruwei-lai-nituite"
+              href="https://github.com/takahiro-saeki/portals-component"
               target="_blank"
               rel="noreferrer"
             >
@@ -70,7 +68,7 @@ const Work = () => {
           </Col>
           <Col xs={12} md={4}>
             <a
-              href="https://speakerdeck.com/takahirosaeki/hooksgabian-ge-suruwei-lai-nituite"
+              href="https://github.com/takahiro-saeki/material-random-color-picker"
               target="_blank"
               rel="noreferrer"
             >

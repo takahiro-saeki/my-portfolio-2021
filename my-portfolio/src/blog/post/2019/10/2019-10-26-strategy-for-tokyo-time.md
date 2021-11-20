@@ -7,7 +7,7 @@ tags:
   - "fx"
   - "トレード検証"
   - "東京時間"
-coverImage: "./images/jezael-melgoza-layMbSJ3YOE-unsplash-scaled.jpg"
+coverImage: "./images/jezael.jpg"
 ---
 
 どうもヒロです。今日はトレード検証をしたのでその検証結果を書き残して行きたいと思います。

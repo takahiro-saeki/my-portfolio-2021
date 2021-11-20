@@ -1,8 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
-import Seo from "../components/seo"
+import { Col, Row } from "react-styled-flexboxgrid"
 import m1 from "../images/image1.png"
 import m2 from "../images/image2.png"
 import m3 from "../images/mohupara-3.jpg"
@@ -10,10 +9,8 @@ import m4 from "../images/mohupara-4.jpg"
 import m5 from "../images/mohupara-5.png"
 import m6 from "../images/mohupara-6.png"
 import mohupara from "../images/mohupara.png"
-import { Normalize } from "styled-normalize"
 import media from "styled-media-query"
 import StyledGrid from "../components/atoms/StyledGrid"
-import Mohupara from "../images/mohupara.png"
 import Blog from "../images/blogtitle.png"
 import Ts from "../images/ts.png"
 import GlobalCss from "../components/GlobalCss"
@@ -100,12 +97,12 @@ const MohuparaPage = () => (
         <SectionArea bgColor={item.color}>
           <StyledGrid fluid>
             <Row>
-              <Col xs={6}>
+              <Col xs={12} md={6}>
                 <BookImageArea>
                   <img src={item.image} />
                 </BookImageArea>
               </Col>
-              <Col xs={6}>
+              <Col xs={12} md={6}>
                 <BookTitle>{item.title}</BookTitle>
                 <BookInfoWrap>
                   <li>
@@ -167,6 +164,10 @@ const MohuparaPage = () => (
 
 const LinkBannerArea = styled.div`
   height: 110px;
+  ${media.lessThan("medium")`
+    padding: 16px 0;
+    text-align: center;
+  `}
   img {
     height: 100%;
   }
@@ -185,7 +186,6 @@ const FooterCol = styled(Col)`
   div {
     font-size: 14px;
     ${media.lessThan("medium")`
-    /* screen width is less than 768px (medium) */
     width: 100%;
   `}
   }
@@ -203,6 +203,7 @@ const BookInfoWrap = styled.ul`
   li {
     display: flex;
     font-size: 14px;
+    padding: 8px 0;
 
     div:first-child {
       flex-basis: 20%;
@@ -216,6 +217,9 @@ const BookInfoWrap = styled.ul`
 const SectionArea = styled.section`
   background: ${({ bgColor }) => bgColor};
   padding: 64px 0;
+  ${media.lessThan("medium")`
+    padding: 32px 0;
+  `}
 `
 
 const HeaderArea = styled.header`
@@ -231,6 +235,9 @@ const HeaderArea = styled.header`
 const BookImageArea = styled.div`
   padding: 0 24px;
   text-align: center;
+  ${media.lessThan("medium")`
+    padding: 0 0 32px;
+  `}
   img {
     max-width: 400px;
     width: 100%;

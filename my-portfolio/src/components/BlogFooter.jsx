@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Col, Row } from "react-styled-flexboxgrid"
-import { Link } from "gatsby"
+import { Link, navigate } from "gatsby"
 import Ts from "../images/ts.png"
 import Mohupara from "../images/mohupara.png"
 import StyledGrid from "../components/atoms/StyledGrid"
@@ -15,7 +15,10 @@ const BlogFooter = ({ categories, tags }) => {
           <h2>カテゴリー</h2>
           <CategoriesArea>
             {categories.map((item, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                onClick={() => navigate(`/category/${item.category}`)}
+              >
                 {item.category}({item.totalCount})
               </li>
             ))}
@@ -25,11 +28,13 @@ const BlogFooter = ({ categories, tags }) => {
           <h2>タグ</h2>
           <TagsArea>
             {filterTags.map((tag, index) => (
-              <div key={index}>
-                <span>
-                  {tag.category}({tag.totalCount})
-                </span>
-              </div>
+              <Link to={`/tag/${tag.category}`} key={index}>
+                <div>
+                  <span>
+                    {tag.category}({tag.totalCount})
+                  </span>
+                </div>
+              </Link>
             ))}
           </TagsArea>
         </Col>
@@ -54,6 +59,28 @@ const BlogFooter = ({ categories, tags }) => {
   )
 }
 
+export const Footer = () => (
+  <FooterArea>
+    <StyledGrid fluid>
+      <Row>
+        <Col xs={12}>
+          <footer>© {new Date().getFullYear()} ヒロの考え事</footer>
+        </Col>
+      </Row>
+    </StyledGrid>
+  </FooterArea>
+)
+
+const FooterArea = styled.div`
+  background: #212121;
+  padding: 8px 0;
+  color: #fff;
+  font-size: 14px;
+  footer {
+    text-align: center;
+  }
+`
+
 const CategoriesArea = styled.ul`
   font-size: 14px;
   margin: 0;
@@ -65,6 +92,7 @@ const CategoriesArea = styled.ul`
     border-top: dotted 1px #d8d8d8;
     line-height: 1.5;
     list-style: none;
+    cursor: pointer;
   }
 
   li:first-child {

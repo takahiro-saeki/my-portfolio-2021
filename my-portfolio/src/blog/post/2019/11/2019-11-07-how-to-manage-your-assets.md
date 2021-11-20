@@ -7,7 +7,7 @@ tags:
   - "トレード手法"
   - "海外口座"
   - "資金管理"
-coverImage: "./images/robson-hatsukami-morgan-haKYGPNXcNQ-unsplash-scaled.jpg"
+coverImage: "./images/robson.jpg"
 ---
 
 どうもヒロです！今日は資金管理について書いて行こうと思います。資金管理と一言で言っても様々な資金管理の方法があります。人によって合う合わないあると思いますが、僕が行っている資金管理や、行っていた資金管理も含めていくつか紹介して行きたいと思います。

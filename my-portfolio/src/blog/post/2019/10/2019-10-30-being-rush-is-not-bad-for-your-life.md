@@ -7,7 +7,7 @@ tags:
   - "人生論"
   - "経験"
   - "駆け足で生きる"
-coverImage: "./images/clement-m-Ng3xrviPrhk-unsplash-scaled.jpg"
+coverImage: "./images/clement.jpg"
 ---
 
 どうもヒロです。今回は駆け足で生きる方が人生得する事について書いていきたいと思います。

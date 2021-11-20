@@ -5,7 +5,7 @@ categories:
   - "fx"
 tags: 
   - "ドル円"
-coverImage: "./images/morning-brew-TZIitGvnmCs-unsplash-scaled.jpg"
+coverImage: "./images/morning.jpg"
 ---
 
 どうもヒロです。今日はボラティリティの話しをしようと思います。というのも最近トレードルールや監視通貨ペアなどの見直しを行なっていまして、今までは比較的ボラティリティが高い通貨ペアをトレードしてみましたが、ボラティリティが少なくても利益を出せるなと感じたので思っている事を含めて書いて行きたいと思います。

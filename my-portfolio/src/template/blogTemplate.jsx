@@ -2,13 +2,12 @@ import React from "react"
 import styled, { css } from "styled-components"
 import { graphql, navigate } from "gatsby"
 import { Col, Row } from "react-styled-flexboxgrid"
-import { GatsbyImage, getImage, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
-import BlogFooter from "../components/BlogFooter"
+import BlogFooter, { Footer } from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
 import { format } from "date-fns"
 import { uniqBy } from "lodash"
-import { Footer } from "../pages/article"
 import StyledGrid from "../components/atoms/StyledGrid"
 import GlobalCss from "../components/GlobalCss"
 
@@ -19,7 +18,7 @@ const parseLink = path => {
   return parse
 }
 
-const Blog = data => {
+const CategoryList = data => {
   console.log(data)
   const parseRecentPosts = data.data.recentPosts.edges.map(
     ({ node }) => node.frontmatter
@@ -38,21 +37,26 @@ const Blog = data => {
         .length,
     }
   })
-  console.log({ eliminatedDates, parceDates, mapDatesData })
 
   return (
     <div>
       <GlobalCss />
       <BlogHeader />
       <ArticleLists
-        data={data.data.allMarkdownRemark.edges}
+        data={
+          data.pageContext?.name
+            ? data.pageContext
+            : data.data.allMarkdownRemark.edges
+        }
         recentPosts={parseRecentPosts}
         archiveData={mapDatesData}
       />
-      <PaginatedItems
-        pageCount={data.pageContext.numPages}
-        currentPage={data.pageContext.currentPage}
-      />
+      {!data.pageContext?.name && (
+        <PaginatedItems
+          pageCount={data.pageContext.numPages}
+          currentPage={data.pageContext.currentPage}
+        />
+      )}
       <BlogFooter
         categories={data.data.categories.group}
         tags={data.data.tags.group}
@@ -61,25 +65,6 @@ const Blog = data => {
     </div>
   )
 }
-
-const RecentPosts = ({ data }) => (
-  <RecentPostsArea>
-    <RecentPostsTitle>最近の投稿</RecentPostsTitle>
-    <RecentPostsUl>
-      {data.map(item => {
-        const image = getImage(item.coverImage.childImageSharp.gatsbyImageData)
-        return (
-          <li>
-            <ImageWrap>
-              <GatsbyImage image={image} alt="test!" />
-            </ImageWrap>
-            <h2>{item.title}</h2>
-          </li>
-        )
-      })}
-    </RecentPostsUl>
-  </RecentPostsArea>
-)
 
 const PaginatedItems = ({ pageCount, currentPage }) => {
   const handleClick = id => {
@@ -95,10 +80,11 @@ const PaginatedItems = ({ pageCount, currentPage }) => {
   return (
     <PaginationWrap>
       <ul>
-        {[...Array(pageCount - 1).keys()].map(val => (
+        {[...Array(pageCount - 1).keys()].map((val, i) => (
           <PaginationListItem
             onClick={() => handleClick(val + 1)}
             isActive={val + 1 === currentPage}
+            key={i}
           >
             <span>{val + 1}</span>
           </PaginationListItem>
@@ -108,17 +94,53 @@ const PaginatedItems = ({ pageCount, currentPage }) => {
   )
 }
 
+const RecentPosts = ({ data }) => (
+  <RecentPostsArea>
+    <RecentPostsTitle>最近の投稿</RecentPostsTitle>
+    <RecentPostsUl>
+      {data.map((item, i) => {
+        const image = getImage(item.coverImage.childImageSharp.gatsbyImageData)
+        return (
+          <li key={i}>
+            <ImageWrap>
+              <GatsbyImage image={image} alt="test!" />
+            </ImageWrap>
+            <h2>{item.title}</h2>
+          </li>
+        )
+      })}
+    </RecentPostsUl>
+  </RecentPostsArea>
+)
+
+const renderTitle = data => (
+  <ArchiveHeader>
+    {data.name}:
+    {data.name === "アーカイブ"
+      ? format(new Date(data.date), "yyyy年MM月")
+      : data.fieldValue}
+  </ArchiveHeader>
+)
+
 const ArticleLists = ({ data, recentPosts, archiveData }) => {
+  const renderData = React.useMemo(() => {
+    if (Array.isArray(data)) {
+      return data
+    }
+    return data.edges
+  }, [data])
+  console.log("article data", { renderData, data })
   return (
     <StyledGrid fluid>
       <Row>
         <StyledCol xs={8}>
-          {data.map(data => {
+          {typeof data === "array" && renderTitle()}
+          {renderData?.map((data, i) => {
             const image = getImage(
               data.node.frontmatter.coverImage.childImageSharp.gatsbyImageData
             )
             return (
-              <ArticleWrap>
+              <ArticleWrap key={i}>
                 <ImageArea>
                   <GatsbyImage image={image} alt="test!" />
                 </ImageArea>
@@ -126,11 +148,13 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                   <h2>{data.node.frontmatter.title}</h2>
                   <ArticleSubField>
                     <ArticleDate>{data.node.frontmatter.date}</ArticleDate>
-                    {data.node.frontmatter.categories.map(category => (
-                      <ArticleCategoryArea>{category}</ArticleCategoryArea>
+                    {data.node.frontmatter.categories.map((category, i) => (
+                      <ArticleCategoryArea key={i}>
+                        {category}
+                      </ArticleCategoryArea>
                     ))}
-                    {data.node.frontmatter?.tags?.map(category => (
-                      <ArticleTagArea>{category}</ArticleTagArea>
+                    {data.node.frontmatter?.tags?.map((category, i) => (
+                      <ArticleTagArea key={i}>{category}</ArticleTagArea>
                     ))}
                   </ArticleSubField>
                   <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
@@ -157,17 +181,77 @@ const ArchiveLists = ({ data }) => (
   <div>
     <RecentPostsTitle>アーカイブ</RecentPostsTitle>
     <ArchiveListsUl>
-      {data.map(date => (
-        <li>
-          <a>
+      {data.map((date, i) => (
+        <li key={i}>
+          <Link to={`/${date.date}`}>
             {date.date}({date.count})
-          </a>
+          </Link>
         </li>
       ))}
     </ArchiveListsUl>
   </div>
 )
 
+const PaginationWrap = styled.div`
+  display: flex;
+  font-size: 14px;
+  transition: 0.5s;
+  margin-bottom: 32px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    padding: 0;
+    border-radius: 8px;
+
+    li:first-child {
+      border-radius: 8px 0 0 8px;
+    }
+
+    li:last-child {
+      border-radius: 0 8px 8px 0;
+    }
+  }
+`
+
+const PaginationListItem = styled.li`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+  ${({ isActive = false }) =>
+    isActive &&
+    css`
+      background: #23adad;
+      color: #fff;
+    `}
+
+  &:hover {
+    color: #23adad;
+  }
+
+  span {
+    display: flex;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    width: 100%;
+  }
+`
+
+const ArchiveHeader = styled.h2`
+  font-size: 20px;
+`
 const ArchiveListsUl = styled.ul`
   li {
     font-size: 14px;
@@ -175,6 +259,11 @@ const ArchiveListsUl = styled.ul`
     padding-bottom: 16px;
     margin-bottom: 16px;
     font-weight: bold;
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
   }
 `
 
@@ -211,54 +300,6 @@ const ImageWrap = styled.div`
   img {
     width: 90px;
     height: 90px;
-  }
-`
-
-const PaginationWrap = styled.div`
-  display: flex;
-  font-size: 14px;
-  transition: 0.5s;
-  margin-bottom: 32px;
-
-  ul {
-    list-style: none;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 16px auto;
-    border-radius: 0.6rem;
-    background: #ffffff;
-    border: 1px solid #e5e5e5;
-  }
-`
-
-const PaginationListItem = styled.li`
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  margin: 0;
-  ${({ isActive }) =>
-    isActive &&
-    css`
-      background: #23adad;
-      color: #fff;
-    `}
-
-  &:hover {
-    color: #23adad;
-  }
-
-  span {
-    display: flex;
-    padding: 8px;
-    text-align: center;
-    justify-content: center;
-    width: 100%;
   }
 `
 
@@ -321,7 +362,7 @@ const ArticleWrap = styled.article`
 `
 
 export const pageQuery = graphql`
-  query blogList($skip: Int!, $limit: Int!) {
+  query blogListData($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       limit: $limit
@@ -392,4 +433,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default Blog
+export default CategoryList

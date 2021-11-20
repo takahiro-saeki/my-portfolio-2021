@@ -6,7 +6,7 @@ categories:
 tags: 
   - "フリーランス"
   - "格差社会"
-coverImage: "./images/jason-dent-JVD3XPqjLaQ-unsplash-scaled.jpg"
+coverImage: "./images/jason.jpg"
 ---
 
 どうもヒロです。今日は僕が感じる格差社会について書いて行こうと思います。結論から書くと、今の時代はやったもん勝ちだと思います。だからこれだと思う事は迷わずやるのが良いと思います。  
