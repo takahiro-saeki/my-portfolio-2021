@@ -3,6 +3,8 @@ title: "beatmania bistroverで七段に受かったのでその経緯をまと�
 date: "2021-01-03"
 categories:
   - "beatmania"
+tags: 
+  - "beatmania"
 coverImage: "./images/7dan.jpeg"
 ---
 

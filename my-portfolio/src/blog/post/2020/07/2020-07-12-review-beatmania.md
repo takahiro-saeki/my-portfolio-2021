@@ -3,6 +3,8 @@ title: "beatmaniaを始めて3ヶ月が過ぎたので振り返ってみたい"
 date: "2020-07-12"
 categories: 
   - "beatmania"
+tags: 
+  - "beatmania"
 coverImage: "./images/EexrTbHUMAIpdOD.jpeg"
 ---
 

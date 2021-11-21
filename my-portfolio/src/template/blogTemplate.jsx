@@ -10,6 +10,8 @@ import { format } from "date-fns"
 import { uniqBy } from "lodash"
 import StyledGrid from "../components/atoms/StyledGrid"
 import GlobalCss from "../components/GlobalCss"
+import { VscCalendar } from "react-icons/vsc"
+import { AiOutlineTag, AiOutlineFolderOpen } from "react-icons/ai"
 
 const parseLink = path => {
   if (!path) return null
@@ -18,8 +20,7 @@ const parseLink = path => {
   return parse
 }
 
-const CategoryList = data => {
-  console.log(data)
+const BlogList = data => {
   const parseRecentPosts = data.data.recentPosts.edges.map(
     ({ node }) => node.frontmatter
   )
@@ -129,7 +130,6 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
     }
     return data.edges
   }, [data])
-  console.log("article data", { renderData, data })
   return (
     <StyledGrid fluid>
       <Row>
@@ -147,15 +147,43 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                 <ArticleMainArea>
                   <h2>{data.node.frontmatter.title}</h2>
                   <ArticleSubField>
-                    <ArticleDate>{data.node.frontmatter.date}</ArticleDate>
-                    {data.node.frontmatter.categories.map((category, i) => (
-                      <ArticleCategoryArea key={i}>
-                        {category}
-                      </ArticleCategoryArea>
-                    ))}
-                    {data.node.frontmatter?.tags?.map((category, i) => (
-                      <ArticleTagArea key={i}>{category}</ArticleTagArea>
-                    ))}
+                    <ArticleSubFieldItem>
+                      <SubFieldSpaceArea>
+                        <VscCalendar />
+                      </SubFieldSpaceArea>
+                      <ArticleDate>{data.node.frontmatter.date}</ArticleDate>
+                    </ArticleSubFieldItem>
+                    <ArticleSubFieldItem>
+                      <SubFieldSpaceArea>
+                        <AiOutlineTag />
+                      </SubFieldSpaceArea>
+                      {data.node.frontmatter.categories.map((category, i) => (
+                        <Link to={`/category/${category}`} key={i}>
+                          <ArticleCategoryArea key={i}>
+                            {category}
+                          </ArticleCategoryArea>
+                        </Link>
+                      ))}
+                    </ArticleSubFieldItem>
+                    <ArticleSubFieldItem>
+                      <SubFieldSpaceArea>
+                        <AiOutlineFolderOpen />
+                      </SubFieldSpaceArea>
+                      {data.node.frontmatter?.tags?.map((category, i) =>
+                        i > 0 ? (
+                          <>
+                            <SubFieldSpaceArea>{","}</SubFieldSpaceArea>
+                            <Link to={`/tag/${category}`} key={i}>
+                              <ArticleTagArea>{category}</ArticleTagArea>
+                            </Link>
+                          </>
+                        ) : (
+                          <Link to={`/tag/${category}`} key={i}>
+                            <ArticleTagArea>{category}</ArticleTagArea>
+                          </Link>
+                        )
+                      )}
+                    </ArticleSubFieldItem>
                   </ArticleSubField>
                   <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
                   <ButtonArea>
@@ -176,6 +204,11 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
     </StyledGrid>
   )
 }
+
+const SubFieldSpaceArea = styled.div`
+  padding-right: 4px;
+  display: flex;
+`
 
 const ArchiveLists = ({ data }) => (
   <div>
@@ -337,6 +370,14 @@ const ArticleExcerpt = styled.div`
 
 const ArticleSubField = styled.div`
   display: flex;
+  align-items: center;
+  padding-bottom: 8px;
+`
+
+const ArticleSubFieldItem = styled.div`
+  padding-right: 8px;
+  display: flex;
+  align-items: center;
 `
 
 const ImageArea = styled.div`
@@ -433,4 +474,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default CategoryList
+export default BlogList

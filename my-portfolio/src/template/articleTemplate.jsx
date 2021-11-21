@@ -1,12 +1,18 @@
 import React from "react"
 import styled from "styled-components"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Col, Row } from "react-styled-flexboxgrid"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import BlogFooter, { Footer } from "../components/BlogFooter"
 import BlogHeader from "../components/BlogHeader"
 import StyledGrid from "../components/atoms/StyledGrid"
 import GlobalCss from "../components/GlobalCss"
+const parseLink = path => {
+  if (!path) return null
+  const parseName = path.split("/").slice(-1)[0]
+  const parse = parseName.split("-").slice(3).join("-").replace(".md", "")
+  return parse
+}
 
 const Article = data => {
   React.useEffect(() => {
@@ -22,8 +28,15 @@ const Article = data => {
         .replace("？", "")
       el.setAttribute("id", text)
     })
-    console.log(data)
   }, [])
+  const nextAndPrevData = React.useMemo(() => {
+    const prev = data.pageContext.previous
+    const next = data.pageContext.next
+    return {
+      next,
+      prev,
+    }
+  }, [data.pageContext])
   return (
     <div>
       <BlogHeader />
@@ -35,6 +48,7 @@ const Article = data => {
           data.pageContext.postData.frontmatter.coverImage.childImageSharp
             .gatsbyImageData
         }
+        nextAndPrevData={nextAndPrevData}
       />
       <BlogFooter
         categories={data.pageContext.categories.group}
@@ -45,8 +59,15 @@ const Article = data => {
   )
 }
 
-const MainArea = ({ html, toc, data, imgSrc }) => {
+const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData }) => {
   const image = getImage(imgSrc)
+  const { next, prev } = nextAndPrevData
+  const nextImage =
+    next &&
+    getImage(next.frontmatter.coverImage.childImageSharp.gatsbyImageData)
+  const prevImage =
+    prev &&
+    getImage(prev.frontmatter.coverImage.childImageSharp.gatsbyImageData)
   return (
     <main>
       <GlobalCss />
@@ -54,8 +75,62 @@ const MainArea = ({ html, toc, data, imgSrc }) => {
         <Row>
           <Col xs={8}>
             <h1>{data.title}</h1>
-            <StyledGatsbyImage image={image} alt="test!" />
+            <StyledGatsbyImage image={image} alt={data.title} />
             <BlogDesign dangerouslySetInnerHTML={{ __html: html }} />
+            <NextAndPrevArea>
+              {prev ? (
+                <li>
+                  <NextAndPrevPop>前の記事</NextAndPrevPop>
+                  <NextAndPrevContentArea>
+                    <NextAndPrevImageArea>
+                      <Link to={`/${parseLink(prev.fileAbsolutePath)}`}>
+                        <GatsbyImage
+                          image={prevImage}
+                          alt={prev.frontmatter.title}
+                        />
+                      </Link>
+                    </NextAndPrevImageArea>
+                    <NextAndPrevDesc>
+                      <Link to={`/${parseLink(prev.fileAbsolutePath)}`}>
+                        <h2>{prev.frontmatter.title}</h2>
+                      </Link>
+                      <div>{prev.frontmatter.date}</div>
+                    </NextAndPrevDesc>
+                  </NextAndPrevContentArea>
+                </li>
+              ) : (
+                <li>
+                  <NextAndPrevPop>前の記事</NextAndPrevPop>
+                  <NoContentArea>記事がありません</NoContentArea>
+                </li>
+              )}
+              {next ? (
+                <li>
+                  <NextAndPrevPop>次の記事</NextAndPrevPop>
+                  <NextAndPrevContentArea>
+                    <NextAndPrevImageArea>
+                      <Link to={`/${parseLink(next.fileAbsolutePath)}`}>
+                        <GatsbyImage
+                          image={nextImage}
+                          alt={next.frontmatter.title}
+                        />
+                      </Link>
+                    </NextAndPrevImageArea>
+                    <NextAndPrevDesc>
+                      <Link to={`/${parseLink(next.fileAbsolutePath)}`}>
+                        <h2>{next.frontmatter.title}</h2>
+                      </Link>
+                      <div>{next.frontmatter.date}</div>
+                    </NextAndPrevDesc>
+                  </NextAndPrevContentArea>
+                </li>
+              ) : (
+                <li>
+                  <NextAndPrevPop>次の記事</NextAndPrevPop>
+                  <NoContentArea>記事がありません</NoContentArea>
+                </li>
+              )}
+            </NextAndPrevArea>
           </Col>
           <Col xs={4}>
             <ToCWrap>
@@ -68,6 +143,58 @@ const MainArea = ({ html, toc, data, imgSrc }) => {
     </main>
   )
 }
+
+const NextAndPrevArea = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding: 16px 0 0;
+  border-top: 1 px solid #ccc;
+  li {
+    width: 50%;
+  }
+`
+
+const NextAndPrevImageArea = styled.div`
+  padding-right: 16px;
+  height: 100px;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+`
+
+const NextAndPrevContentArea = styled.div`
+  display: flex;
+`
+
+const NextAndPrevPop = styled.div`
+  background: #b92c2c;
+  color: #fff;
+  display: inline-block;
+  padding: 8px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  border-radius: 8px;
+`
+
+const NextAndPrevDesc = styled.div`
+  h2 {
+    font-size: 16px;
+  }
+  div {
+    font-size: 12px;
+  }
+`
+
+const NoContentArea = styled.div`
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bfbfbf;
+`
 
 const ToCArea = styled.div`
   padding: 4px 0;

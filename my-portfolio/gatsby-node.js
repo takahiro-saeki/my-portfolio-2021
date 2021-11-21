@@ -5,8 +5,6 @@ const uniqBy = require("lodash/uniqBy")
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
 
-  const postTemplate = path.resolve(`src/pages/article.jsx`)
-
   const query = graphql(`
     {
       allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
@@ -152,7 +150,6 @@ exports.createPages = async ({ actions, graphql }) => {
     const posts = result.data.allMarkdownRemark.edges
     const postsPerPage = 10
     const numPages = Math.ceil(posts.length / postsPerPage)
-    console.log("post check", numPages)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
@@ -217,6 +214,7 @@ exports.createPages = async ({ actions, graphql }) => {
     })
 
     // 記事ページ生成
+    const postTemplate = path.resolve(`src/template/articleTemplate.jsx`)
     result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
       const parseName = node.fileAbsolutePath.split("/").slice(-1)[0]
       const parse = parseName.split("-").slice(3).join("-").replace(".md", "")

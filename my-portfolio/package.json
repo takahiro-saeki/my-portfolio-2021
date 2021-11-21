@@ -7,7 +7,7 @@
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.1.1",
     "babel-eslint": "^10.1.0",
-    "date-fns": "^2.25.0",
+    "date-fns": "^2.26.0",
     "eslint-config-react-app": "^6.0.0",
     "gatsby": "^4.2.0",
     "gatsby-plugin-gatsby-cloud": "^4.2.0",
@@ -54,7 +54,6 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "wp-convert": "wordpress-export-to-markdown",
     "eslint:fix": "eslint src/**/*.{js,jsx} --fix"
   },
   "repository": {
