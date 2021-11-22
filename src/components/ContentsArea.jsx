@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "styled-components"
-import Mohupara from "../images/mohupara.png"
-import Blog from "../images/blogtitle.png"
-import Ts from "../images/ts.png"
-import { Col, Row } from "react-styled-flexboxgrid"
-import { Link } from "gatsby"
-import StyledGrid from "../components/atoms/StyledGrid"
+import React from 'react';
+import styled from 'styled-components';
+import Mohupara from '../images/mohupara.png';
+import Blog from '../images/blogtitle.png';
+import Ts from '../images/ts.png';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import { Link } from 'gatsby';
+import StyledGrid from '../components/atoms/StyledGrid';
 
 const ContentsArea = () => (
   <ContentsAreaWrap>
@@ -20,7 +20,7 @@ const ContentsArea = () => (
           <Card>
             <h3>ポートフォリオサイト</h3>
             <ContentImgWrap>
-              <img src={Ts} />
+              <img src={Ts} alt="TAKAHIRO SAEKIのポートフォリオ" />
             </ContentImgWrap>
             <CardDescArea>私、三枝木貴浩のポートフォリオサイト</CardDescArea>
           </Card>
@@ -29,7 +29,7 @@ const ContentsArea = () => (
           <Card>
             <h3>もふもふ☆パラダイス</h3>
             <ContentImgWrap>
-              <img src={Mohupara} />
+              <img src={Mohupara} alt="もふもふ☆パラダイス" />
             </ContentImgWrap>
             <CardDescArea>もふもふ☆パラダイスの公式サイトです。</CardDescArea>
             <Link to="/mohupara">
@@ -41,7 +41,7 @@ const ContentsArea = () => (
           <Card>
             <h3>ブログサイト</h3>
             <ContentImgWrap>
-              <img src={Blog} />
+              <img src={Blog} alt="TAKAHIRO SAEKIのブログサイト" />
             </ContentImgWrap>
             <CardDescArea>私、三枝木貴浩のブログサイトです</CardDescArea>
             <Link to="/blog">
@@ -52,12 +52,12 @@ const ContentsArea = () => (
       </ContentsRow>
     </StyledGrid>
   </ContentsAreaWrap>
-)
+);
 
 const ContentsAreaWrap = styled.div`
   background: #212121;
   padding: 48px 0;
-`
+`;
 
 const HeaderWrap = styled.div`
   h2 {
@@ -66,7 +66,7 @@ const HeaderWrap = styled.div`
     color: #fff;
     padding-bottom: 16px;
   }
-`
+`;
 
 const Card = styled.div`
   background: #fff;
@@ -106,20 +106,20 @@ const Card = styled.div`
     background: #4dd0e1;
     color: white;
   }
-`
+`;
 
 const ContentsRow = styled(Row)`
   padding: 16px;
-`
+`;
 
 const ContentImgWrap = styled.div`
   height: 150px;
   display: flex;
   align-items: center;
-`
+`;
 
 const CardDescArea = styled.div`
   padding: 16px 0;
-`
+`;
 
-export default ContentsArea
+export default ContentsArea;

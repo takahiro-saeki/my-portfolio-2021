@@ -1,13 +1,13 @@
-import React from "react"
-import styled from "styled-components"
-import { Col, Row } from "react-styled-flexboxgrid"
-import { Link, navigate } from "gatsby"
-import Ts from "../images/ts.png"
-import Mohupara from "../images/mohupara.png"
-import StyledGrid from "../components/atoms/StyledGrid"
+import React from 'react';
+import styled from 'styled-components';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import { Link, navigate } from 'gatsby';
+import Ts from '../images/ts.png';
+import Mohupara from '../images/mohupara.png';
+import StyledGrid from '../components/atoms/StyledGrid';
 
 const BlogFooter = ({ categories, tags }) => {
-  const filterTags = tags.filter(tag => tag.totalCount > 1)
+  const filterTags = tags.filter((tag) => tag.totalCount > 1);
   return (
     <StyledGrid fluid>
       <Row>
@@ -42,13 +42,13 @@ const BlogFooter = ({ categories, tags }) => {
           <div>
             <div>
               <Link to="/">
-                <img src={Ts} />
+                <img src={Ts} alt="TAKAHIRO SAEKIのポートフォリオサイト" />
               </Link>
             </div>
             <div>
               <Link to="/mohupara">
                 <ImgWrap>
-                  <img src={Mohupara} />
+                  <img src={Mohupara} alt="TAKAHIRO SAEKIのブログサイト" />
                 </ImgWrap>
               </Link>
             </div>
@@ -56,8 +56,8 @@ const BlogFooter = ({ categories, tags }) => {
         </Col>
       </Row>
     </StyledGrid>
-  )
-}
+  );
+};
 
 export const Footer = () => (
   <FooterArea>
@@ -69,7 +69,7 @@ export const Footer = () => (
       </Row>
     </StyledGrid>
   </FooterArea>
-)
+);
 
 const FooterArea = styled.div`
   background: #212121;
@@ -79,7 +79,7 @@ const FooterArea = styled.div`
   footer {
     text-align: center;
   }
-`
+`;
 
 const CategoriesArea = styled.ul`
   font-size: 14px;
@@ -98,7 +98,7 @@ const CategoriesArea = styled.ul`
   li:first-child {
     border: none;
   }
-`
+`;
 
 const TagsArea = styled.div`
   div {
@@ -113,10 +113,10 @@ const TagsArea = styled.div`
       border-radius: 8px;
     }
   }
-`
+`;
 
 const ImgWrap = styled.div`
   padding: 32px 0;
-`
+`;
 
-export default BlogFooter
+export default BlogFooter;

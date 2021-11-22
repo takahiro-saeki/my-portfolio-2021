@@ -1,43 +1,43 @@
-import React from "react"
-import styled, { css } from "styled-components"
-import { graphql, navigate } from "gatsby"
-import { Col, Row } from "react-styled-flexboxgrid"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
-import BlogFooter, { Footer } from "../components/BlogFooter"
-import BlogHeader from "../components/BlogHeader"
-import { format } from "date-fns"
-import { uniqBy } from "lodash"
-import StyledGrid from "../components/atoms/StyledGrid"
-import GlobalCss from "../components/GlobalCss"
-import { VscCalendar } from "react-icons/vsc"
-import { AiOutlineTag, AiOutlineFolderOpen } from "react-icons/ai"
+import React from 'react';
+import styled, { css } from 'styled-components';
+import { graphql, navigate } from 'gatsby';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+import BlogFooter, { Footer } from '../components/BlogFooter';
+import BlogHeader from '../components/BlogHeader';
+import { format } from 'date-fns';
+import { uniqBy } from 'lodash';
+import StyledGrid from '../components/atoms/StyledGrid';
+import GlobalCss from '../components/GlobalCss';
+import { VscCalendar } from 'react-icons/vsc';
+import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
 
-const parseLink = path => {
-  if (!path) return null
-  const parseName = path.split("/").slice(-1)[0]
-  const parse = parseName.split("-").slice(3).join("-").replace(".md", "")
-  return parse
-}
+const parseLink = (path) => {
+  if (!path) return null;
+  const parseName = path.split('/').slice(-1)[0];
+  const parse = parseName.split('-').slice(3).join('-').replace('.md', '');
+  return parse;
+};
 
-const BlogList = data => {
+const BlogList = (data) => {
   const parseRecentPosts = data.data.recentPosts.edges.map(
     ({ node }) => node.frontmatter
-  )
+  );
 
   const parceDates = data.data.archives.edges.map(({ node }) => ({
     date: node.frontmatter.date,
-    parcedDate: format(new Date(node.frontmatter.date), "yyyy-MM"),
-  }))
+    parcedDate: format(new Date(node.frontmatter.date), 'yyyy-MM'),
+  }));
 
-  const eliminatedDates = uniqBy(parceDates, "parcedDate")
-  const mapDatesData = eliminatedDates.map(val => {
+  const eliminatedDates = uniqBy(parceDates, 'parcedDate');
+  const mapDatesData = eliminatedDates.map((val) => {
     return {
       date: val.parcedDate,
-      count: parceDates.filter(date => date.parcedDate === val.parcedDate)
+      count: parceDates.filter((date) => date.parcedDate === val.parcedDate)
         .length,
-    }
-  })
+    };
+  });
 
   return (
     <div>
@@ -64,19 +64,19 @@ const BlogList = data => {
       />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 const PaginatedItems = ({ pageCount, currentPage }) => {
-  const handleClick = id => {
-    if (id === currentPage) return
+  const handleClick = (id) => {
+    if (id === currentPage) return;
     if (id === 1) {
-      navigate(`/blog`)
-      return
+      navigate(`/blog`);
+      return;
     }
-    navigate(`/blog/${id}`)
-    return
-  }
+    navigate(`/blog/${id}`);
+    return;
+  };
 
   return (
     <PaginationWrap>
@@ -92,15 +92,15 @@ const PaginatedItems = ({ pageCount, currentPage }) => {
         ))}
       </ul>
     </PaginationWrap>
-  )
-}
+  );
+};
 
 const RecentPosts = ({ data }) => (
   <RecentPostsArea>
     <RecentPostsTitle>最近の投稿</RecentPostsTitle>
     <RecentPostsUl>
       {data.map((item, i) => {
-        const image = getImage(item.coverImage.childImageSharp.gatsbyImageData)
+        const image = getImage(item.coverImage.childImageSharp.gatsbyImageData);
         return (
           <li key={i}>
             <ImageWrap>
@@ -108,37 +108,38 @@ const RecentPosts = ({ data }) => (
             </ImageWrap>
             <h2>{item.title}</h2>
           </li>
-        )
+        );
       })}
     </RecentPostsUl>
   </RecentPostsArea>
-)
+);
 
-const renderTitle = data => (
+const renderTitle = (data) => (
   <ArchiveHeader>
     {data.name}:
-    {data.name === "アーカイブ"
-      ? format(new Date(data.date), "yyyy年MM月")
+    {data.name === 'アーカイブ'
+      ? format(new Date(data.date), 'yyyy年MM月')
       : data.fieldValue}
   </ArchiveHeader>
-)
+);
 
 const ArticleLists = ({ data, recentPosts, archiveData }) => {
   const renderData = React.useMemo(() => {
     if (Array.isArray(data)) {
-      return data
+      return data;
     }
-    return data.edges
-  }, [data])
+    return data.edges;
+  }, [data]);
+
   return (
     <StyledGrid fluid>
       <Row>
         <StyledCol xs={8}>
-          {typeof data === "array" && renderTitle()}
+          {Array.isArray(data) && renderTitle(data)}
           {renderData?.map((data, i) => {
             const image = getImage(
               data.node.frontmatter.coverImage.childImageSharp.gatsbyImageData
-            )
+            );
             return (
               <ArticleWrap key={i}>
                 <ImageArea>
@@ -172,7 +173,7 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                       {data.node.frontmatter?.tags?.map((category, i) =>
                         i > 0 ? (
                           <>
-                            <SubFieldSpaceArea>{","}</SubFieldSpaceArea>
+                            <SubFieldSpaceArea>{','}</SubFieldSpaceArea>
                             <Link to={`/tag/${category}`} key={i}>
                               <ArticleTagArea>{category}</ArticleTagArea>
                             </Link>
@@ -193,7 +194,7 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                   </ButtonArea>
                 </ArticleMainArea>
               </ArticleWrap>
-            )
+            );
           })}
         </StyledCol>
         <Col xs={4}>
@@ -202,13 +203,13 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
         </Col>
       </Row>
     </StyledGrid>
-  )
-}
+  );
+};
 
 const SubFieldSpaceArea = styled.div`
   padding-right: 4px;
   display: flex;
-`
+`;
 
 const ArchiveLists = ({ data }) => (
   <div>
@@ -223,7 +224,7 @@ const ArchiveLists = ({ data }) => (
       ))}
     </ArchiveListsUl>
   </div>
-)
+);
 
 const PaginationWrap = styled.div`
   display: flex;
@@ -251,7 +252,7 @@ const PaginationWrap = styled.div`
       border-radius: 0 8px 8px 0;
     }
   }
-`
+`;
 
 const PaginationListItem = styled.li`
   width: 40px;
@@ -280,11 +281,11 @@ const PaginationListItem = styled.li`
     justify-content: center;
     width: 100%;
   }
-`
+`;
 
 const ArchiveHeader = styled.h2`
   font-size: 20px;
-`
+`;
 const ArchiveListsUl = styled.ul`
   li {
     font-size: 14px;
@@ -298,9 +299,9 @@ const ArchiveListsUl = styled.ul`
       text-decoration: none;
     }
   }
-`
+`;
 
-const RecentPostsArea = styled.div``
+const RecentPostsArea = styled.div``;
 
 const RecentPostsUl = styled.ul`
   list-style: none;
@@ -315,7 +316,7 @@ const RecentPostsUl = styled.ul`
       padding-left: 8px;
     }
   }
-`
+`;
 
 const RecentPostsTitle = styled.h2`
   margin: 0;
@@ -324,7 +325,7 @@ const RecentPostsTitle = styled.h2`
   border-bottom: 3px solid #23adad;
   padding-bottom: 4px;
   margin-bottom: 20px;
-`
+`;
 
 const ImageWrap = styled.div`
   width: 90px;
@@ -334,7 +335,7 @@ const ImageWrap = styled.div`
     width: 90px;
     height: 90px;
   }
-`
+`;
 
 const ButtonArea = styled.div`
   display: flex;
@@ -348,43 +349,43 @@ const ButtonArea = styled.div`
     font-size: 14px;
     border-radius: 6px;
   }
-`
+`;
 
 const ArticleDate = styled.div`
   font-size: 12px;
-`
+`;
 
 const StyledCol = styled(Col)`
   padding: 60px 3.5% 20px 0;
-`
+`;
 
 const ArticleTagArea = styled.div`
   font-size: 12px;
-`
+`;
 const ArticleCategoryArea = styled.div`
   font-size: 12px;
-`
+`;
 const ArticleExcerpt = styled.div`
   font-size: 14px;
-`
+`;
 
 const ArticleSubField = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 8px;
-`
+`;
 
 const ArticleSubFieldItem = styled.div`
   padding-right: 8px;
   display: flex;
   align-items: center;
-`
+`;
 
 const ImageArea = styled.div`
   width: 35%;
   display: flex;
   align-items: center;
-`
+`;
 
 const ArticleMainArea = styled.div`
   width: calc(65% - 20px);
@@ -393,14 +394,14 @@ const ArticleMainArea = styled.div`
     margin-bottom: 10px;
   }
   margin-left: auto;
-`
+`;
 
 const ArticleWrap = styled.article`
   display: flex;
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 40px;
   margin: 0 auto 40px auto;
-`
+`;
 
 export const pageQuery = graphql`
   query blogListData($skip: Int!, $limit: Int!) {
@@ -472,6 +473,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default BlogList
+export default BlogList;

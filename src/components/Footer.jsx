@@ -1,11 +1,9 @@
-import React from "react"
-import styled from "styled-components"
-import { Grid, Col, Row } from "react-styled-flexboxgrid"
-import Hiro from "../images/hiro.jpeg"
-import { Timeline as TwitterTimeline } from "react-twitter-widgets"
-import Mohupara from "../images/mohupara.png"
-import Blog from "../images/blogtitle.png"
-import StyledGrid from "../components/atoms/StyledGrid"
+import React from 'react';
+import styled from 'styled-components';
+import { Col, Row } from 'react-styled-flexboxgrid';
+import Hiro from '../images/hiro.jpeg';
+import { Timeline as TwitterTimeline } from 'react-twitter-widgets';
+import StyledGrid from '../components/atoms/StyledGrid';
 
 export const Footer = () => (
   <FooterArea>
@@ -17,7 +15,7 @@ export const Footer = () => (
       </Row>
     </StyledGrid>
   </FooterArea>
-)
+);
 
 export const FooterInfo = () => (
   <Row>
@@ -69,7 +67,7 @@ export const FooterInfo = () => (
     <Col xs={12} md={4}>
       <ShortProfileArea>
         <HiroIconArea>
-          <img src={Hiro} />
+          <img src={Hiro} alt="TAKAHIRO SAEKI" />
         </HiroIconArea>
         <h3>ヒロ</h3>
         <div>
@@ -81,16 +79,16 @@ export const FooterInfo = () => (
     <Col xs={12} md={4}>
       <TwitterTimeline
         dataSource={{
-          sourceType: "profile",
-          screenName: "hirodeath",
+          sourceType: 'profile',
+          screenName: 'hirodeath',
         }}
         options={{
-          height: "650",
+          height: '650',
         }}
       />
     </Col>
   </Row>
-)
+);
 
 const ExternalLinkArea = styled.div`
   h3 {
@@ -110,7 +108,7 @@ const ExternalLinkArea = styled.div`
       }
     }
   }
-`
+`;
 
 const HiroIconArea = styled.div`
   padding: 16px;
@@ -120,7 +118,7 @@ const HiroIconArea = styled.div`
     width: 150px;
     border-radius: 50%;
   }
-`
+`;
 
 const FooterArea = styled.div`
   background: #212121;
@@ -129,5 +127,5 @@ const FooterArea = styled.div`
   footer {
     text-align: center;
   }
-`
-const ShortProfileArea = styled.div``
+`;
+const ShortProfileArea = styled.div``;

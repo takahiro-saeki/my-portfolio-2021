@@ -49,7 +49,7 @@ module.exports = {
             options: {
               usePrefix: false,
               providers: {
-                include: ["Twitter"],
+                include: ['Twitter'],
                 settings: {
                   Twitter: { maxwidth: 700 },
                   Instagram: { hidecaption: true },
@@ -66,5 +66,6 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-styled-components',
   ],
-}
+};

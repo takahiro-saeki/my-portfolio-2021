@@ -4,5 +4,6 @@
   "prettier.disableLanguages": ["markdown"],
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "eslint.run": "onSave"
+  "eslint.run": "onSave",
+  "eslint.workingDirectories": ["src"]
 }

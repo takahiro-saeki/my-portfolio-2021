@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import { Col, Row } from "react-styled-flexboxgrid"
+import React from 'react';
+import styled from 'styled-components';
+import { Col, Row } from 'react-styled-flexboxgrid';
 import {
   Radar,
   RadarChart,
@@ -8,9 +8,9 @@ import {
   PolarAngleAxis,
   PolarRadiusAxis,
   ResponsiveContainer,
-} from "recharts"
-import skillData from "./skillData"
-import text from "../text/text.ja.js"
+} from 'recharts';
+import skillData from './skillData';
+import text from '../text/text.ja.js';
 
 const Skills = () => (
   <StyledRow>
@@ -19,13 +19,14 @@ const Skills = () => (
         <h2>スキル</h2>
       </HeaderWrap>
     </Col>
-    {Object.keys(skillData).map(val => (
-      <Col xs={12} md={6}>
+    {Object.keys(skillData).map((val, i) => (
+      <Col xs={12} md={6} key={i}>
         <SkillContentWrap>
           <SkillHeader>
-            {text.skill.find(skillVal => skillVal.key === val)?.title || "hoge"}
+            {text.skill.find((skillVal) => skillVal.key === val)?.title ||
+              'hoge'}
           </SkillHeader>
-          <div style={{ height: "250px" }}>
+          <div style={{ height: '250px' }}>
             <ResponsiveContainer width="100%" height="100%">
               <RadarChart
                 cx="50%"
@@ -47,21 +48,21 @@ const Skills = () => (
             </ResponsiveContainer>
           </div>
           <NoteArea>
-            {text.skill.find(skillVal => skillVal.key === val)?.note}
+            {text.skill.find((skillVal) => skillVal.key === val)?.note}
           </NoteArea>
         </SkillContentWrap>
       </Col>
     ))}
   </StyledRow>
-)
+);
 
 const StyledRow = styled(Row)`
   padding: 48px;
-`
+`;
 
 const SkillHeader = styled.h4`
   text-align: center;
-`
+`;
 
 const HeaderWrap = styled.div`
   h2 {
@@ -69,16 +70,16 @@ const HeaderWrap = styled.div`
     text-align: center;
     padding-bottom: 16px;
   }
-`
+`;
 
 const SkillContentWrap = styled.div`
   padding: 8px;
-`
+`;
 
 const NoteArea = styled.div`
   padding: 8px;
   border: 1px dashed #ccc;
   font-size: 14px;
-`
+`;
 
-export default Skills
+export default Skills;
