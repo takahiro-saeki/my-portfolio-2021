@@ -42,8 +42,6 @@ const BlogList = (data) => {
     };
   });
 
-  console.log('check data', data);
-
   const title = React.useMemo(() => {
     if (!data.pageContext?.name) return null;
     return (
@@ -59,8 +57,6 @@ const BlogList = (data) => {
     data.pageContext?.date,
     data.pageContext.fieldValue,
   ]);
-
-  console.log('check data', data);
 
   return (
     <div>
@@ -163,8 +159,6 @@ const ArticleLists = ({
     }
     return data.edges;
   }, [data]);
-
-  console.log(renderData);
 
   return (
     <StyledGrid fluid>
