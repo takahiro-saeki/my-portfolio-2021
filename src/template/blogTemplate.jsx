@@ -12,6 +12,8 @@ import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
 import { VscCalendar } from 'react-icons/vsc';
 import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
+import { useMediaQuery } from 'beautiful-react-hooks';
+import media from 'styled-media-query';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -21,6 +23,7 @@ const parseLink = (path) => {
 };
 
 const BlogList = (data) => {
+  const isSmall = useMediaQuery('(max-width: 768px)');
   const parseRecentPosts = data.data.recentPosts.edges.map(
     ({ node }) => node.frontmatter
   );
@@ -39,6 +42,26 @@ const BlogList = (data) => {
     };
   });
 
+  console.log('check data', data);
+
+  const title = React.useMemo(() => {
+    if (!data.pageContext?.name) return null;
+    return (
+      <ArchiveHeader>
+        {data.pageContext.name}:
+        {data.pageContext.name === 'アーカイブ'
+          ? format(new Date(data.pageContext.date), 'yyyy年MM月')
+          : data.pageContext.fieldValue}
+      </ArchiveHeader>
+    );
+  }, [
+    data.pageContext.name,
+    data.pageContext?.date,
+    data.pageContext.fieldValue,
+  ]);
+
+  console.log('check data', data);
+
   return (
     <div>
       <GlobalCss />
@@ -51,8 +74,19 @@ const BlogList = (data) => {
         }
         recentPosts={parseRecentPosts}
         archiveData={mapDatesData}
+        title={title}
+        renderPagination={() =>
+          !data.pageContext?.name &&
+          isSmall && (
+            <PaginatedItems
+              pageCount={data.pageContext.numPages}
+              currentPage={data.pageContext.currentPage}
+            />
+          )
+        }
+        isSmall={isSmall}
       />
-      {!data.pageContext?.name && (
+      {!data.pageContext?.name && !isSmall && (
         <PaginatedItems
           pageCount={data.pageContext.numPages}
           currentPage={data.pageContext.currentPage}
@@ -67,6 +101,7 @@ const BlogList = (data) => {
   );
 };
 
+// const renderPagination = (data) =>
 const PaginatedItems = ({ pageCount, currentPage }) => {
   const handleClick = (id) => {
     if (id === currentPage) return;
@@ -114,16 +149,14 @@ const RecentPosts = ({ data }) => (
   </RecentPostsArea>
 );
 
-const renderTitle = (data) => (
-  <ArchiveHeader>
-    {data.name}:
-    {data.name === 'アーカイブ'
-      ? format(new Date(data.date), 'yyyy年MM月')
-      : data.fieldValue}
-  </ArchiveHeader>
-);
-
-const ArticleLists = ({ data, recentPosts, archiveData }) => {
+const ArticleLists = ({
+  data,
+  recentPosts,
+  archiveData,
+  title,
+  renderPagination,
+  isSmall,
+}) => {
   const renderData = React.useMemo(() => {
     if (Array.isArray(data)) {
       return data;
@@ -131,11 +164,13 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
     return data.edges;
   }, [data]);
 
+  console.log(renderData);
+
   return (
     <StyledGrid fluid>
       <Row>
-        <StyledCol xs={8}>
-          {Array.isArray(data) && renderTitle(data)}
+        <StyledCol xs={12} md={8}>
+          {title}
           {renderData?.map((data, i) => {
             const image = getImage(
               data.node.frontmatter.coverImage.childImageSharp.gatsbyImageData
@@ -186,7 +221,9 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
                       )}
                     </ArticleSubFieldItem>
                   </ArticleSubField>
-                  <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
+                  {!isSmall && (
+                    <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
+                  )}
                   <ButtonArea>
                     <Link to={`/${parseLink(data.node.fileAbsolutePath)}`}>
                       <button>続きを読む</button>
@@ -196,8 +233,9 @@ const ArticleLists = ({ data, recentPosts, archiveData }) => {
               </ArticleWrap>
             );
           })}
+          {renderPagination()}
         </StyledCol>
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <RecentPosts data={recentPosts} />
           <ArchiveLists data={archiveData} />
         </Col>
@@ -231,6 +269,9 @@ const PaginationWrap = styled.div`
   font-size: 14px;
   transition: 0.5s;
   margin-bottom: 32px;
+  ${media.lessThan('medium')`
+  margin-bottom: 0;
+  `}
 
   ul {
     list-style: none;
@@ -356,7 +397,9 @@ const ArticleDate = styled.div`
 `;
 
 const StyledCol = styled(Col)`
-  padding: 60px 3.5% 20px 0;
+  ${media.greaterThan('medium')`
+padding: 60px 3.5% 20px 0;
+  `}
 `;
 
 const ArticleTagArea = styled.div`
@@ -373,12 +416,14 @@ const ArticleSubField = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 8px;
+  flex-wrap: wrap;
 `;
 
 const ArticleSubFieldItem = styled.div`
   padding-right: 8px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `;
 
 const ImageArea = styled.div`
@@ -401,6 +446,10 @@ const ArticleWrap = styled.article`
   border-bottom: 1px solid #e5e5e5;
   padding-bottom: 40px;
   margin: 0 auto 40px auto;
+  ${media.lessThan('medium')`
+  padding-bottom: 20px;
+  margin: 0 auto 20px auto;
+  `}
 `;
 
 export const pageQuery = graphql`

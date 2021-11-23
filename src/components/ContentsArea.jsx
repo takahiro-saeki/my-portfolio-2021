@@ -6,26 +6,32 @@ import Ts from '../images/ts.png';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { Link } from 'gatsby';
 import StyledGrid from '../components/atoms/StyledGrid';
+import media from 'styled-media-query';
 
-const ContentsArea = () => (
+const ContentsArea = ({ is404 }) => (
   <ContentsAreaWrap>
     <StyledGrid fluid>
       <ContentsRow>
-        <Col xs={12}>
+        <StyledCol xs={12}>
           <HeaderWrap>
             <h2>コンテンツ一覧</h2>
           </HeaderWrap>
-        </Col>
-        <Col xs={12} md={4}>
+        </StyledCol>
+        <StyledCol xs={12} md={4}>
           <Card>
             <h3>ポートフォリオサイト</h3>
             <ContentImgWrap>
               <img src={Ts} alt="TAKAHIRO SAEKIのポートフォリオ" />
             </ContentImgWrap>
             <CardDescArea>私、三枝木貴浩のポートフォリオサイト</CardDescArea>
+            {is404 && (
+              <Link to="/">
+                <button>ポートフォリオサイトはこちら</button>
+              </Link>
+            )}
           </Card>
-        </Col>
-        <Col xs={12} md={4}>
+        </StyledCol>
+        <StyledCol xs={12} md={4}>
           <Card>
             <h3>もふもふ☆パラダイス</h3>
             <ContentImgWrap>
@@ -36,8 +42,8 @@ const ContentsArea = () => (
               <button>もふパラの公式サイトはこちら</button>
             </Link>
           </Card>
-        </Col>
-        <Col xs={12} md={4}>
+        </StyledCol>
+        <StyledCol xs={12} md={4}>
           <Card>
             <h3>ブログサイト</h3>
             <ContentImgWrap>
@@ -48,7 +54,7 @@ const ContentsArea = () => (
               <button>ヒロの考え事はこちら</button>
             </Link>
           </Card>
-        </Col>
+        </StyledCol>
       </ContentsRow>
     </StyledGrid>
   </ContentsAreaWrap>
@@ -77,6 +83,9 @@ const Card = styled.div`
   border-radius: 8px;
   margin: 4px;
   font-size: 16px;
+  ${media.lessThan('medium')`
+margin: 8px 0;
+`}
 
   img {
     max-height: 150px;
@@ -108,8 +117,17 @@ const Card = styled.div`
   }
 `;
 
+const StyledCol = styled(Col)`
+  ${media.lessThan('medium')`
+padding: 0;
+`}
+`;
+
 const ContentsRow = styled(Row)`
   padding: 16px;
+  ${media.lessThan('medium')`
+  padding: 0;
+  `}
 `;
 
 const ContentImgWrap = styled.div`

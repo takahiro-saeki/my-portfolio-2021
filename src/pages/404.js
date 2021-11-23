@@ -1,13 +1,41 @@
-import * as React from "react"
+import * as React from 'react';
+import styled from 'styled-components';
+import { Footer, FooterInfo } from '../components/Footer';
+import Header from '../components/Header.jsx';
+import ContentsArea from '../components/ContentsArea';
+import StyledGrid from '../components/atoms/StyledGrid';
+import GlobalCss from '../components/GlobalCss';
+import { Col, Row } from 'react-styled-flexboxgrid';
 
-import Seo from "../components/seo"
+const NotFoundPage = (data) => (
+  <div>
+    <Header />
+    <GlobalCss />
 
-const NotFoundPage = data => (
-  <div onClick={() => console.log(data)}>
-    <Seo title="404: Not found" description="desc" lang="ja" meta="test" />
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <StyledGrid fluid>
+      <Row>
+        <Col xs={12}>
+          <NotFoundContent />
+        </Col>
+      </Row>
+    </StyledGrid>
+    <ContentsArea is404 />
+    <StyledGrid fluid>
+      <FooterInfo />
+    </StyledGrid>
+    <Footer />
   </div>
-)
+);
 
-export default NotFoundPage
+const NotFoundContent = () => (
+  <NotFoundArea>
+    <h2>404 NOT FOUND</h2>
+    <div>お探しのページは見つかりませんでした。</div>
+  </NotFoundArea>
+);
+
+const NotFoundArea = styled.div`
+  padding: 64px 0;
+`;
+
+export default NotFoundPage;

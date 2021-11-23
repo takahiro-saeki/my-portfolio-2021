@@ -8,9 +8,10 @@ import 'react-vertical-timeline-component/style.min.css';
 import { MdWorkOutline } from 'react-icons/md';
 import { Col } from 'react-styled-flexboxgrid';
 import text from '../text/text.ja.js';
+import media from 'styled-media-query';
 
 const Timeline = () => (
-  <Col xs={12}>
+  <StyledCol xs={12}>
     <TimelineWrap>
       <VerticalTimeline>
         {text.timeline.map((val, i) => (
@@ -27,8 +28,14 @@ const Timeline = () => (
         ))}
       </VerticalTimeline>
     </TimelineWrap>
-  </Col>
+  </StyledCol>
 );
+
+const StyledCol = styled(Col)`
+  ${media.lessThan('medium')`
+padding: 0;
+`}
+`;
 
 const TimelineWrap = styled.div`
   background: #eee;

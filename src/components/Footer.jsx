@@ -73,7 +73,6 @@ export const FooterInfo = () => (
         <div>
           三枝木貴浩、フロントエンドエンジニアを本業としている。自分がこれだと確信した事に突っ走る性格。趣味は音楽ゲームと運動、読書。猫が大好きです。
         </div>
-        <div>ここにソーシャルアイコン置く</div>
       </ShortProfileArea>
     </Col>
     <Col xs={12} md={4}>

@@ -11,7 +11,7 @@ const BlogFooter = ({ categories, tags }) => {
   return (
     <StyledGrid fluid>
       <Row>
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <h2>カテゴリー</h2>
           <CategoriesArea>
             {categories.map((item, index) => (
@@ -24,7 +24,7 @@ const BlogFooter = ({ categories, tags }) => {
             ))}
           </CategoriesArea>
         </Col>
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <h2>タグ</h2>
           <TagsArea>
             {filterTags.map((tag, index) => (
@@ -38,7 +38,7 @@ const BlogFooter = ({ categories, tags }) => {
             ))}
           </TagsArea>
         </Col>
-        <Col xs={4}>
+        <Col xs={12} md={4}>
           <div>
             <div>
               <Link to="/">

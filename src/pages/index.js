@@ -12,6 +12,7 @@ import Form from '../components/Form';
 import Hiro from '../images/hiro.jpeg';
 import GlobalCss from '../components/GlobalCss';
 import Work from '../components/Work';
+import media from 'styled-media-query';
 
 const TopPage = () => (
   <div>
@@ -27,21 +28,39 @@ const TopPage = () => (
       <Skills />
     </StyledGrid>
     <Work />
-    <StyledGrid fluid>
-      <Row>
-        <Col xs={12}>
+    <ExtendStyledGrid fluid>
+      <StyledRow>
+        <StyledCol xs={12}>
           <HeaderWrap>
             <h2>タイムライン</h2>
           </HeaderWrap>
-        </Col>
+        </StyledCol>
         <Timeline />
-      </Row>
+      </StyledRow>
       <Form />
       <FooterInfo />
-    </StyledGrid>
+    </ExtendStyledGrid>
     <Footer />
   </div>
 );
+
+const StyledCol = styled(Col)`
+  ${media.lessThan('medium')`
+padding: 0;
+`}
+`;
+
+const StyledRow = styled(Row)`
+  ${media.lessThan('medium')`
+padding: 0;
+`}
+`;
+
+const ExtendStyledGrid = styled(StyledGrid)`
+  ${media.lessThan('medium')`
+  padding: 4px;
+`}
+`;
 
 const BgCover = styled.div`
   background: rgba(51, 51, 51, 0.5);
@@ -82,6 +101,10 @@ const ImgWrap = styled.div`
   background-color: rgb(70, 70, 70);
   position: relative;
   height: 700px;
+
+  ${media.lessThan('medium')`
+  height: 500px;
+  `}
 `;
 
 const HeaderWrap = styled.div`

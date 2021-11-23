@@ -11,16 +11,17 @@ import {
 } from 'recharts';
 import skillData from './skillData';
 import text from '../text/text.ja.js';
+import media from 'styled-media-query';
 
 const Skills = () => (
   <StyledRow>
-    <Col xs={12}>
+    <StyledCol xs={12}>
       <HeaderWrap>
         <h2>スキル</h2>
       </HeaderWrap>
-    </Col>
+    </StyledCol>
     {Object.keys(skillData).map((val, i) => (
-      <Col xs={12} md={6} key={i}>
+      <StyledCol xs={12} md={6} key={i}>
         <SkillContentWrap>
           <SkillHeader>
             {text.skill.find((skillVal) => skillVal.key === val)?.title ||
@@ -51,13 +52,22 @@ const Skills = () => (
             {text.skill.find((skillVal) => skillVal.key === val)?.note}
           </NoteArea>
         </SkillContentWrap>
-      </Col>
+      </StyledCol>
     ))}
   </StyledRow>
 );
 
+const StyledCol = styled(Col)`
+  ${media.lessThan('medium')`
+padding: 0;
+`}
+`;
+
 const StyledRow = styled(Row)`
   padding: 48px;
+  ${media.lessThan('medium')`
+padding: 8px 0;
+`}
 `;
 
 const SkillHeader = styled.h4`
@@ -74,12 +84,18 @@ const HeaderWrap = styled.div`
 
 const SkillContentWrap = styled.div`
   padding: 8px;
+  ${media.lessThan('medium')`
+padding: 8px 0;
+`}
 `;
 
 const NoteArea = styled.div`
   padding: 8px;
   border: 1px dashed #ccc;
   font-size: 14px;
+  ${media.lessThan('medium')`
+padding: 0;
+`}
 `;
 
 export default Skills;
