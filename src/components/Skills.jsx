@@ -94,7 +94,7 @@ const NoteArea = styled.div`
   border: 1px dashed #ccc;
   font-size: 14px;
   ${media.lessThan('medium')`
-padding: 0;
+padding: 8px;
 `}
 `;
 

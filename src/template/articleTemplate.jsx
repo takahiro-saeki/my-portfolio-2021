@@ -9,6 +9,7 @@ import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
 import { useMediaQuery } from 'beautiful-react-hooks';
 import media from 'styled-media-query';
+import { VscCalendar } from 'react-icons/vsc';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -78,8 +79,12 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
       <GlobalCss />
       <StyledGrid fluid>
         <Row>
-          <Col xs={12} md={8}>
+          <StyledCol xs={12} md={8}>
             <h1>{data.title}</h1>
+            <DateArea>
+              <VscCalendar />
+              <span>{data.date}</span>
+            </DateArea>
             <StyledGatsbyImage image={image} alt={data.title} />
             <BlogDesign dangerouslySetInnerHTML={{ __html: html }} />
             <NextAndPrevArea>
@@ -140,7 +145,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
                 </li>
               )}
             </NextAndPrevArea>
-          </Col>
+          </StyledCol>
           {!isSmall && (
             <Col xs={12} md={4}>
               <ToCWrap>
@@ -154,6 +159,23 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
     </main>
   );
 };
+
+const DateArea = styled.div`
+  display: flex;
+  font-size: 14px;
+  padding-bottom: 8px;
+  align-items: center;
+
+  span {
+    padding-left: 4px;
+  }
+`;
+
+const StyledCol = styled(Col)`
+  ${media.lessThan('medium')`
+    padding: 0;
+  `}
+`;
 
 const NextTitleItem = styled.div`
   ${media.lessThan('medium')`
@@ -271,6 +293,7 @@ const ToCHeader = styled.div``;
 const StyledGatsbyImage = styled(GatsbyImage)`
   height: 400px;
   width: 100%;
+  margin-bottom: 16px;
 `;
 
 const BlogDesign = styled.main`

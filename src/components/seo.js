@@ -1,8 +1,8 @@
-import * as React from "react"
-import { Helmet } from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+import * as React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
 
-const Seo = ({ title }) => {
+const Seo = ({ title, meta }) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -13,9 +13,9 @@ const Seo = ({ title }) => {
         }
       }
     `
-  )
+  );
 
-  const metaDescription = site.siteMetadata.description
+  const metaDescription = site.siteMetadata.description;
 
   return (
     <Helmet
@@ -53,9 +53,9 @@ const Seo = ({ title }) => {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ]}
+      ].concat(meta)}
     />
-  )
-}
+  );
+};
 
-export default Seo
+export default Seo;

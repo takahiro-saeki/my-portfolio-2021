@@ -24,9 +24,10 @@ const parseLink = (path) => {
 
 const BlogList = (data) => {
   const isSmall = useMediaQuery('(max-width: 768px)');
-  const parseRecentPosts = data.data.recentPosts.edges.map(
-    ({ node }) => node.frontmatter
-  );
+  const parseRecentPosts = data.data.recentPosts.edges.map(({ node }) => ({
+    ...node.frontmatter,
+    fileAbsolutePath: node.fileAbsolutePath,
+  }));
 
   const parceDates = data.data.archives.edges.map(({ node }) => ({
     date: node.frontmatter.date,
@@ -134,10 +135,14 @@ const RecentPosts = ({ data }) => (
         const image = getImage(item.coverImage.childImageSharp.gatsbyImageData);
         return (
           <li key={i}>
-            <ImageWrap>
-              <GatsbyImage image={image} alt="test!" />
-            </ImageWrap>
-            <h2>{item.title}</h2>
+            <Link to={`/${parseLink(item.fileAbsolutePath)}`}>
+              <ImageWrap>
+                <GatsbyImage image={image} alt="test!" />
+              </ImageWrap>
+            </Link>
+            <Link to={`/${parseLink(item.fileAbsolutePath)}`}>
+              <h2>{item.title}</h2>
+            </Link>
           </li>
         );
       })}
@@ -172,7 +177,12 @@ const ArticleLists = ({
             return (
               <ArticleWrap key={i}>
                 <ImageArea>
-                  <GatsbyImage image={image} alt="test!" />
+                  <Link
+                    to={`/${parseLink(data.node.fileAbsolutePath)}`}
+                    key={i}
+                  >
+                    <GatsbyImage image={image} alt="test!" />
+                  </Link>
                 </ImageArea>
                 <ArticleMainArea>
                   <h2>{data.node.frontmatter.title}</h2>
@@ -383,6 +393,7 @@ const ButtonArea = styled.div`
     padding: 4px 16px;
     font-size: 14px;
     border-radius: 6px;
+    cursor: pointer;
   }
 `;
 
@@ -424,6 +435,23 @@ const ImageArea = styled.div`
   width: 35%;
   display: flex;
   align-items: center;
+
+  a {
+    width: 100%;
+    div {
+      width: 100%;
+    }
+  }
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    max-height: 170px;
+    &:hover {
+      transform: scale(1.3);
+      transition: ease-in-out 0.2s;
+    }
+  }
 `;
 
 const ArticleMainArea = styled.div`
@@ -492,6 +520,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          fileAbsolutePath
           frontmatter {
             title
             coverImage {
