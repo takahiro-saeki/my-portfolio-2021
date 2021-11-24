@@ -1,9 +1,9 @@
-const path = require(`path`)
-const format = require("date-fns/format")
-const uniqBy = require("lodash/uniqBy")
+const path = require(`path`);
+const format = require('date-fns/format');
+const uniqBy = require('lodash/uniqBy');
 
 exports.createPages = async ({ actions, graphql }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
   const query = graphql(`
     {
@@ -139,85 +139,85 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       }
     }
-  `)
+  `);
 
-  return query.then(result => {
+  return query.then((result) => {
     if (result.errors) {
-      return Promise.reject(result.errors)
+      return Promise.reject(result.errors);
     }
 
     // ページネーション
-    const posts = result.data.allMarkdownRemark.edges
-    const postsPerPage = 10
-    const numPages = Math.ceil(posts.length / postsPerPage)
+    const posts = result.data.allMarkdownRemark.edges;
+    const postsPerPage = 10;
+    const numPages = Math.ceil(posts.length / postsPerPage);
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
         path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-        component: path.resolve("src/template/blogTemplate.jsx"),
+        component: path.resolve('src/template/blogTemplate.jsx'),
         context: {
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,
           currentPage: i + 1,
         },
-      })
-    })
+      });
+    });
 
     // アーカイブページ生成
     const parceDates = result.data.archives.edges.map(({ node }) => ({
       date: node.frontmatter.date,
-      parcedDate: format(new Date(node.frontmatter.date), "yyyy-MM"),
+      parcedDate: format(new Date(node.frontmatter.date), 'yyyy-MM'),
       node,
-    }))
+    }));
 
-    const eliminatedDates = uniqBy(parceDates, "parcedDate")
-    const mapDatesData = eliminatedDates.map(val => {
+    const eliminatedDates = uniqBy(parceDates, 'parcedDate');
+    const mapDatesData = eliminatedDates.map((val) => {
       const filterDates = parceDates.filter(
-        date => date.parcedDate === val.parcedDate
-      )
+        (date) => date.parcedDate === val.parcedDate
+      );
       return {
         date: val.parcedDate,
         count: filterDates.length,
         edges: filterDates,
-      }
-    })
+      };
+    });
 
-    const archiveTemplate = path.resolve("src/template/blogTemplate.jsx")
+    const archiveTemplate = path.resolve('src/template/blogTemplate.jsx');
 
-    mapDatesData.forEach(data => {
+    mapDatesData.forEach((data) => {
       createPage({
         path: data.date,
         component: archiveTemplate,
-        context: { ...data, name: "アーカイブ", limit: 9999, skip: 0 },
-      })
-    })
+        context: { ...data, name: 'アーカイブ', limit: 9999, skip: 0 },
+      });
+    });
 
     // タグページの作成
-    const tagListTemplate = path.resolve("src/template/blogTemplate.jsx")
-    result.data.tagList.group.forEach(item => {
+    const tagListTemplate = path.resolve('src/template/blogTemplate.jsx');
+    result.data.tagList.group.forEach((item) => {
       createPage({
         path: `/tag/${item.fieldValue}`,
         component: tagListTemplate,
-        context: { ...item, name: "タグ名", limit: 9999, skip: 0 },
-      })
-    })
+        context: { ...item, name: 'タグ名', limit: 9999, skip: 0 },
+      });
+    });
 
     // カテゴリーページの生成
-    const categoryListTemplate = path.resolve("src/template/blogTemplate.jsx")
-    result.data.categoryList.group.forEach(item => {
+    const categoryListTemplate = path.resolve('src/template/blogTemplate.jsx');
+    result.data.categoryList.group.forEach((item) => {
       createPage({
         path: `/category/${item.fieldValue}`,
         component: categoryListTemplate,
-        context: { ...item, name: "カテゴリー名", limit: 9999, skip: 0 },
-      })
-    })
+        context: { ...item, name: 'カテゴリー名', limit: 9999, skip: 0 },
+      });
+    });
 
     // 記事ページ生成
-    const postTemplate = path.resolve(`src/template/articleTemplate.jsx`)
+    const postTemplate = path.resolve(`src/template/articleTemplate.jsx`);
     result.data.allMarkdownRemark.edges.forEach(({ node, next, previous }) => {
-      const parseName = node.fileAbsolutePath.split("/").slice(-1)[0]
-      const parse = parseName.split("-").slice(3).join("-").replace(".md", "")
+      const parseName = node.fileAbsolutePath.split('/').slice(-1)[0];
+      const parse = parseName.split('-').slice(3).join('-').replace('.md', '');
 
       createPage({
         path: parse,
@@ -231,7 +231,7 @@ exports.createPages = async ({ actions, graphql }) => {
           next,
           previous,
         },
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};

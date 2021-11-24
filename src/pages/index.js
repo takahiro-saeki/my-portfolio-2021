@@ -13,9 +13,11 @@ import Hiro from '../images/hiro.jpeg';
 import GlobalCss from '../components/GlobalCss';
 import Work from '../components/Work';
 import media from 'styled-media-query';
+import Seo from '../components/seo.js';
 
 const TopPage = () => (
   <div>
+    <Seo />
     <Header />
     <GlobalCss />
     <ImgWrap>

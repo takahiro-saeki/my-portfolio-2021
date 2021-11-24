@@ -1,9 +1,12 @@
 import * as React from 'react';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
+import Ts from '../images/ts.png';
 
-const Seo = ({ title, meta }) => {
-  const { site } = useStaticQuery(
+// { title, meta }
+const Seo = () => {
+  // const { site } =
+  useStaticQuery(
     graphql`
       query {
         site {
@@ -15,46 +18,18 @@ const Seo = ({ title, meta }) => {
     `
   );
 
-  const metaDescription = site.siteMetadata.description;
+  //const metaDescription = site.siteMetadata.description;
 
   return (
-    <Helmet
-      title={title}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+    <Helmet>
+      <meta property="og:image" content={Ts} />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:width" content="1200" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:image" content={Ts} />
+      <meta name="twitter:title" content="タイトル" />
+      <meta name="twitter:description" content="詳細" />
+    </Helmet>
   );
 };
 
