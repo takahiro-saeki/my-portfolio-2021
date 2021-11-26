@@ -18,7 +18,7 @@ const Seo = ({ image }) => {
     `
   );
 
-  const sitePath = 'https://takahiro-saeki.com';
+  const sitePath = 'https://takahiro-saeki.tech';
 
   return (
     <Helmet>
