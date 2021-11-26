@@ -18,7 +18,10 @@ const Seo = ({ image }) => {
     `
   );
 
-  const sitePath = 'https:takahiro-saeki.com';
+  const sitePath =
+    typeof window !== 'undefined'
+      ? window.location.origin
+      : 'https://takahiro-saeki.com';
 
   return (
     <Helmet>
@@ -31,11 +34,11 @@ const Seo = ({ image }) => {
       <meta property="og:image:width" content="1200" />
       <meta name="twitter:card" content="summary_large_image" />
       {image ? (
-        <meta property="twitter:image" content={`${sitePath}/${image}`} />
+        <meta property="twitter:image" content={`${sitePath}${image}`} />
       ) : (
         <meta
           property="twitter:image"
-          content={`${site.siteMetadata.portfolioImage}`}
+          content={`${sitePath}${site.siteMetadata.portfolioImage}`}
         />
       )}
       <meta name="twitter:title" content="タイトル" />
