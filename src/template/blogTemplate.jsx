@@ -214,12 +214,12 @@ const ArticleLists = ({
                       </SubFieldSpaceArea>
                       {data.node.frontmatter?.tags?.map((category, i) =>
                         i > 0 ? (
-                          <div key={i}>
+                          <TagMapArea key={i}>
                             <SubFieldSpaceArea>{','}</SubFieldSpaceArea>
                             <Link to={`/blog/tag/${category}`}>
                               <ArticleTagArea>{category}</ArticleTagArea>
                             </Link>
-                          </div>
+                          </TagMapArea>
                         ) : (
                           <Link to={`/blog/tag/${category}`} key={i}>
                             <ArticleTagArea>{category}</ArticleTagArea>
@@ -250,6 +250,11 @@ const ArticleLists = ({
     </StyledGrid>
   );
 };
+
+const TagMapArea = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const SubFieldSpaceArea = styled.div`
   padding-right: 4px;

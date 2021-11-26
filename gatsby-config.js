@@ -3,6 +3,7 @@ module.exports = {
     title: `Takahiro Saeki`,
     description: `Takahiro Saekiのポートフォリオサイトです。`,
     author: `Takahiro Saeki`,
+    portfolioImage: `src/images/cat.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

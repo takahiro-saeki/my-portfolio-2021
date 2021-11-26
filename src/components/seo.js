@@ -5,18 +5,20 @@ import Ts from '../images/ts.png';
 
 // { title, meta }
 const Seo = ({ image }) => {
-  // const { site } =
-  useStaticQuery(
+  const { site } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             description
+            portfolioImage
           }
         }
       }
     `
   );
+
+  const sitePath = 'https:takahiro-saeki.com';
 
   return (
     <Helmet>
@@ -29,9 +31,12 @@ const Seo = ({ image }) => {
       <meta property="og:image:width" content="1200" />
       <meta name="twitter:card" content="summary_large_image" />
       {image ? (
-        <meta property="twitter:image" content={image} />
+        <meta property="twitter:image" content={`${sitePath}/${image}`} />
       ) : (
-        <meta property="twitter:image" content={Ts} />
+        <meta
+          property="twitter:image"
+          content={`${site.siteMetadata.portfolioImage}`}
+        />
       )}
       <meta name="twitter:title" content="タイトル" />
       <meta name="twitter:description" content="詳細" />
