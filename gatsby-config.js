@@ -1,4 +1,7 @@
 module.exports = {
+  flags: {
+    PARALLEL_SOURCING: true,
+  },
   siteMetadata: {
     title: `Takahiro Saeki`,
     description: `Takahiro Saekiのポートフォリオサイトです。`,

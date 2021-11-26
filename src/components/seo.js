@@ -18,10 +18,7 @@ const Seo = ({ image }) => {
     `
   );
 
-  const sitePath =
-    typeof window !== 'undefined'
-      ? window.location.origin
-      : 'https://takahiro-saeki.com';
+  const sitePath = 'https://takahiro-saeki.com';
 
   return (
     <Helmet>
