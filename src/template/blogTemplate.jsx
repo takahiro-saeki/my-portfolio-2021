@@ -5,7 +5,6 @@ import { Col, Row } from 'react-styled-flexboxgrid';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import BlogFooter, { Footer } from '../components/BlogFooter';
-import BlogHeader from '../components/BlogHeader';
 import { format } from 'date-fns';
 import { uniqBy } from 'lodash';
 import StyledGrid from '../components/atoms/StyledGrid';
@@ -14,6 +13,8 @@ import { VscCalendar } from 'react-icons/vsc';
 import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
 import { useMediaQuery } from 'beautiful-react-hooks';
 import media from 'styled-media-query';
+import Header from '../components/Header';
+import Seo from '../components/seo.js';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -61,8 +62,9 @@ const BlogList = (data) => {
 
   return (
     <div>
+      <Seo />
       <GlobalCss />
-      <BlogHeader />
+      <Header title="ヒロの考え事" path="/blog" />
       <ArticleLists
         data={
           data.pageContext?.name
@@ -98,7 +100,6 @@ const BlogList = (data) => {
   );
 };
 
-// const renderPagination = (data) =>
 const PaginatedItems = ({ pageCount, currentPage }) => {
   const handleClick = (id) => {
     if (id === currentPage) return;
@@ -135,12 +136,12 @@ const RecentPosts = ({ data }) => (
         const image = getImage(item.coverImage.childImageSharp.gatsbyImageData);
         return (
           <li key={i}>
-            <Link to={`/${parseLink(item.fileAbsolutePath)}`}>
+            <Link to={`/blog/${parseLink(item.fileAbsolutePath)}`}>
               <ImageWrap>
-                <GatsbyImage image={image} alt="test!" />
+                <GatsbyImage image={image} alt={item.title} />
               </ImageWrap>
             </Link>
-            <Link to={`/${parseLink(item.fileAbsolutePath)}`}>
+            <Link to={`/blog/${parseLink(item.fileAbsolutePath)}`}>
               <h2>{item.title}</h2>
             </Link>
           </li>
@@ -177,15 +178,17 @@ const ArticleLists = ({
             return (
               <ArticleWrap key={i}>
                 <ImageArea>
-                  <Link
-                    to={`/${parseLink(data.node.fileAbsolutePath)}`}
-                    key={i}
-                  >
-                    <GatsbyImage image={image} alt="test!" />
+                  <Link to={`/blog/${parseLink(data.node.fileAbsolutePath)}`}>
+                    <GatsbyImage
+                      image={image}
+                      alt={data.node.frontmatter.title}
+                    />
                   </Link>
                 </ImageArea>
                 <ArticleMainArea>
-                  <h2>{data.node.frontmatter.title}</h2>
+                  <Link to={`/blog/${parseLink(data.node.fileAbsolutePath)}`}>
+                    <h2>{data.node.frontmatter.title}</h2>
+                  </Link>
                   <ArticleSubField>
                     <ArticleSubFieldItem>
                       <SubFieldSpaceArea>
@@ -198,7 +201,7 @@ const ArticleLists = ({
                         <AiOutlineTag />
                       </SubFieldSpaceArea>
                       {data.node.frontmatter.categories.map((category, i) => (
-                        <Link to={`/category/${category}`} key={i}>
+                        <Link to={`/blog/category/${category}`} key={i}>
                           <ArticleCategoryArea key={i}>
                             {category}
                           </ArticleCategoryArea>
@@ -211,14 +214,14 @@ const ArticleLists = ({
                       </SubFieldSpaceArea>
                       {data.node.frontmatter?.tags?.map((category, i) =>
                         i > 0 ? (
-                          <>
+                          <div key={i}>
                             <SubFieldSpaceArea>{','}</SubFieldSpaceArea>
-                            <Link to={`/tag/${category}`} key={i}>
+                            <Link to={`/blog/tag/${category}`}>
                               <ArticleTagArea>{category}</ArticleTagArea>
                             </Link>
-                          </>
+                          </div>
                         ) : (
-                          <Link to={`/tag/${category}`} key={i}>
+                          <Link to={`/blog/tag/${category}`} key={i}>
                             <ArticleTagArea>{category}</ArticleTagArea>
                           </Link>
                         )
@@ -229,7 +232,7 @@ const ArticleLists = ({
                     <ArticleExcerpt>{data.node.excerpt}</ArticleExcerpt>
                   )}
                   <ButtonArea>
-                    <Link to={`/${parseLink(data.node.fileAbsolutePath)}`}>
+                    <Link to={`/blog/${parseLink(data.node.fileAbsolutePath)}`}>
                       <button>続きを読む</button>
                     </Link>
                   </ButtonArea>
@@ -258,11 +261,11 @@ const ArchiveLists = ({ data }) => (
     <RecentPostsTitle>アーカイブ</RecentPostsTitle>
     <ArchiveListsUl>
       {data.map((date, i) => (
-        <li key={i}>
-          <Link to={`/${date.date}`}>
+        <Link to={`/blog/${date.date}`} key={i}>
+          <li>
             {date.date}({date.count})
-          </Link>
-        </li>
+          </li>
+        </Link>
       ))}
     </ArchiveListsUl>
   </div>
@@ -338,10 +341,10 @@ const ArchiveListsUl = styled.ul`
     padding-bottom: 16px;
     margin-bottom: 16px;
     font-weight: bold;
-
-    a {
-      color: #000;
-      text-decoration: none;
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      color: #b92c2c;
     }
   }
 `;
@@ -379,6 +382,10 @@ const ImageWrap = styled.div`
   img {
     width: 90px;
     height: 90px;
+    &:hover {
+      transform: scale(1.3);
+      transition: ease-in-out 0.2s;
+    }
   }
 `;
 
@@ -390,10 +397,16 @@ const ButtonArea = styled.div`
     color: #b92c2c;
     background: #fff;
     border: 1px solid #b92c2c;
-    padding: 4px 16px;
+    padding: 8px 16px;
     font-size: 14px;
     border-radius: 6px;
     cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background: #b92c2c;
+      transition: 0.3s;
+    }
   }
 `;
 
@@ -409,9 +422,17 @@ padding: 60px 3.5% 20px 0;
 
 const ArticleTagArea = styled.div`
   font-size: 12px;
+  color: #000;
+  &:hover {
+    color: #b92c2c;
+  }
 `;
 const ArticleCategoryArea = styled.div`
   font-size: 12px;
+  color: #000;
+  &:hover {
+    color: #b92c2c;
+  }
 `;
 const ArticleExcerpt = styled.div`
   font-size: 14px;
@@ -459,6 +480,11 @@ const ArticleMainArea = styled.div`
   h2 {
     font-size: 18px;
     margin-bottom: 10px;
+    color: #000;
+
+    &:hover {
+      color: #b92c2c;
+    }
   }
   margin-left: auto;
 `;

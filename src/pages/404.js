@@ -6,12 +6,13 @@ import ContentsArea from '../components/ContentsArea';
 import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
 import { Col, Row } from 'react-styled-flexboxgrid';
+import Seo from '../components/seo.js';
 
-const NotFoundPage = (data) => (
+const NotFoundPage = () => (
   <div>
-    <Header />
+    <Header title="TAKAHIRO SAEKI" path="/" />
     <GlobalCss />
-
+    <Seo />
     <StyledGrid fluid>
       <Row>
         <Col xs={12}>

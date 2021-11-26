@@ -2,15 +2,18 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { BsGithub, BsTwitter } from 'react-icons/bs';
+import { Link } from 'gatsby';
 import StyledGrid from '../components/atoms/StyledGrid';
 import media from 'styled-media-query';
 
-const Header = () => (
+const Header = ({ title, path }) => (
   <HeaderArea>
     <StyledGrid fluid>
       <Row>
         <StyledCol xs={8}>
-          <Heading>TAKAHIRO SAEKI</Heading>
+          <Link to={path}>
+            <Heading>{title}</Heading>
+          </Link>
         </StyledCol>
         <ColExtend xs={4}>
           <IconWrap>
@@ -37,6 +40,7 @@ const StyledCol = styled(Col)`
 `;
 
 const Heading = styled.h1`
+  color: #fff;
   ${media.lessThan('medium')`
     font-size: 20px;
     display: flex;

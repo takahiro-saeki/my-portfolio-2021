@@ -18,7 +18,7 @@ import Seo from '../components/seo.js';
 const TopPage = () => (
   <div>
     <Seo />
-    <Header />
+    <Header title="TAKAHIRO SAEKI" path="/" />
     <GlobalCss />
     <ImgWrap>
       <BgCover>

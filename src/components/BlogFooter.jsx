@@ -17,7 +17,7 @@ const BlogFooter = ({ categories, tags }) => {
             {categories.map((item, index) => (
               <li
                 key={index}
-                onClick={() => navigate(`/category/${item.category}`)}
+                onClick={() => navigate(`/blog/category/${item.category}`)}
               >
                 {item.category}({item.totalCount})
               </li>
@@ -28,7 +28,7 @@ const BlogFooter = ({ categories, tags }) => {
           <h2>タグ</h2>
           <TagsArea>
             {filterTags.map((tag, index) => (
-              <Link to={`/tag/${tag.category}`} key={index}>
+              <Link to={`/blog/tag/${tag.category}`} key={index}>
                 <div>
                   <span>
                     {tag.category}({tag.totalCount})
@@ -93,6 +93,10 @@ const CategoriesArea = styled.ul`
     line-height: 1.5;
     list-style: none;
     cursor: pointer;
+
+    &:hover {
+      color: #b92c2c;
+    }
   }
 
   li:first-child {
@@ -111,6 +115,12 @@ const TagsArea = styled.div`
       color: #b92c2c;
       border: 1px solid #b92c2c;
       border-radius: 8px;
+
+      &:hover {
+        color: #fff;
+        background: #b92c2c;
+        transition: 0.3s;
+      }
     }
   }
 `;

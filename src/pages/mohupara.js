@@ -14,6 +14,7 @@ import StyledGrid from '../components/atoms/StyledGrid';
 import Blog from '../images/blogtitle.png';
 import Ts from '../images/ts.png';
 import GlobalCss from '../components/GlobalCss';
+import Seo from '../components/seo.js';
 
 const data = [
   {
@@ -80,6 +81,7 @@ const data = [
 
 const MohuparaPage = () => (
   <MohuparaWrap>
+    <Seo />
     <GlobalCss />
     <HeaderArea>
       <StyledGrid fluid>

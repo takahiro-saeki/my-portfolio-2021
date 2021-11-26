@@ -4,12 +4,13 @@ import { graphql, Link } from 'gatsby';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import BlogFooter, { Footer } from '../components/BlogFooter';
-import BlogHeader from '../components/BlogHeader';
 import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
 import { useMediaQuery } from 'beautiful-react-hooks';
 import media from 'styled-media-query';
 import { VscCalendar } from 'react-icons/vsc';
+import Header from '../components/Header';
+import Seo from '../components/seo.js';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -44,7 +45,7 @@ const Article = (data) => {
   }, [data.pageContext]);
   return (
     <div>
-      <BlogHeader />
+      <Header title="ヒロの考え事" path="/blog" />
       <MainArea
         html={data.pageContext.postData.html}
         toc={data.pageContext.postData.tableOfContents}
@@ -76,6 +77,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
     getImage(prev.frontmatter.coverImage.childImageSharp.gatsbyImageData);
   return (
     <main>
+      <Seo image={image.images.fallback.src} />
       <GlobalCss />
       <StyledGrid fluid>
         <Row>
@@ -93,7 +95,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
                   <NextAndPrevPop>前の記事</NextAndPrevPop>
                   <NextAndPrevContentArea>
                     <NextAndPrevImageArea>
-                      <Link to={`/${parseLink(prev.fileAbsolutePath)}`}>
+                      <Link to={`/blog/${parseLink(prev.fileAbsolutePath)}`}>
                         <GatsbyImage
                           image={prevImage}
                           alt={prev.frontmatter.title}
@@ -101,7 +103,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
                       </Link>
                     </NextAndPrevImageArea>
                     <NextAndPrevDesc>
-                      <Link to={`/${parseLink(prev.fileAbsolutePath)}`}>
+                      <Link to={`/blog/${parseLink(prev.fileAbsolutePath)}`}>
                         <h2>{prev.frontmatter.title}</h2>
                       </Link>
                       <div>{prev.frontmatter.date}</div>
@@ -121,7 +123,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
                   </NextTitleItem>
                   <NextAndPrevContentArea>
                     <NextAndPrevImageArea>
-                      <Link to={`/${parseLink(next.fileAbsolutePath)}`}>
+                      <Link to={`/blog/${parseLink(next.fileAbsolutePath)}`}>
                         <GatsbyImage
                           image={nextImage}
                           alt={next.frontmatter.title}
@@ -129,7 +131,7 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
                       </Link>
                     </NextAndPrevImageArea>
                     <NextAndPrevDesc>
-                      <Link to={`/${parseLink(next.fileAbsolutePath)}`}>
+                      <Link to={`/blog/${parseLink(next.fileAbsolutePath)}`}>
                         <h2>{next.frontmatter.title}</h2>
                       </Link>
                       <div>{next.frontmatter.date}</div>

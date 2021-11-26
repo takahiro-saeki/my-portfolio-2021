@@ -187,7 +187,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     mapDatesData.forEach((data) => {
       createPage({
-        path: data.date,
+        path: `/blog/${data.date}`,
         component: archiveTemplate,
         context: { ...data, name: 'アーカイブ', limit: 9999, skip: 0 },
       });
@@ -197,7 +197,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const tagListTemplate = path.resolve('src/template/blogTemplate.jsx');
     result.data.tagList.group.forEach((item) => {
       createPage({
-        path: `/tag/${item.fieldValue}`,
+        path: `/blog/tag/${item.fieldValue}`,
         component: tagListTemplate,
         context: { ...item, name: 'タグ名', limit: 9999, skip: 0 },
       });
@@ -207,7 +207,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const categoryListTemplate = path.resolve('src/template/blogTemplate.jsx');
     result.data.categoryList.group.forEach((item) => {
       createPage({
-        path: `/category/${item.fieldValue}`,
+        path: `/blog/category/${item.fieldValue}`,
         component: categoryListTemplate,
         context: { ...item, name: 'カテゴリー名', limit: 9999, skip: 0 },
       });
@@ -220,7 +220,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const parse = parseName.split('-').slice(3).join('-').replace('.md', '');
 
       createPage({
-        path: parse,
+        path: `/blog/${parse}`,
         component: postTemplate,
         context: {
           postData: {
