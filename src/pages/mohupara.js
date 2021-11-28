@@ -84,6 +84,7 @@ const MohuparaPage = (mohuparaData) => {
   const image = getImage(
     mohuparaData.data.allFile.edges[0].node.childImageSharp.gatsbyImageData
   );
+  console.log(image);
   return (
     <MohuparaWrap>
       <Seo
@@ -279,7 +280,7 @@ export default MohuparaPage;
 
 export const pageQuery = graphql`
   query mohuparaData {
-    allFile(filter: { name: { eq: "mohupara" } }) {
+    allFile(filter: { name: { eq: "mohupara-ogp" } }) {
       edges {
         node {
           id
