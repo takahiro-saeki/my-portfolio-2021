@@ -61,7 +61,7 @@ const BlogList = (data) => {
   ]);
 
   const image = getImage(
-    data.renderData.blogImage.edges[0].node.childImageSharp.gatsbyImageData
+    data.data.blogImage.edges[0].node.childImageSharp.gatsbyImageData
   );
 
   return (
