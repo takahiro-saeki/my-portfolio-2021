@@ -108,6 +108,7 @@ margin: 8px 0;
     border-radius: 4px;
     padding: 8px;
     transition: 0.5s;
+    cursor: pointer;
   }
 
   button:hover {

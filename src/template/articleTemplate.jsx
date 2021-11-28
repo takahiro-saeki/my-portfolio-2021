@@ -43,8 +43,17 @@ const Article = (data) => {
       prev,
     };
   }, [data.pageContext]);
+  const image = getImage(
+    data.pageContext.postData.frontmatter.coverImage.childImageSharp
+      .gatsbyImageData
+  );
   return (
     <div>
+      <Seo
+        image={image.images.fallback.src}
+        description={data.pageContext.postData.excerpt}
+        title={data.pageContext.postData.frontmatter.title}
+      />
       <Header title="ヒロの考え事" path="/blog" />
       <MainArea
         html={data.pageContext.postData.html}
@@ -56,6 +65,7 @@ const Article = (data) => {
         }
         nextAndPrevData={nextAndPrevData}
         isSmall={isSmall}
+        excerpt={data.pageContext.postData.excerpt}
       />
       <BlogFooter
         categories={data.pageContext.categories.group}
@@ -77,7 +87,6 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
     getImage(prev.frontmatter.coverImage.childImageSharp.gatsbyImageData);
   return (
     <main>
-      <Seo image={image.images.fallback.src} />
       <GlobalCss />
       <StyledGrid fluid>
         <Row>

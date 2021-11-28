@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import { Col, Row } from 'react-styled-flexboxgrid';
 import m1 from '../images/image1.png';
 import m2 from '../images/image2.png';
@@ -15,6 +15,7 @@ import Blog from '../images/blogtitle.png';
 import Ts from '../images/ts.png';
 import GlobalCss from '../components/GlobalCss';
 import Seo from '../components/seo.js';
+import { getImage } from 'gatsby-plugin-image';
 
 const data = [
   {
@@ -79,90 +80,99 @@ const data = [
   },
 ];
 
-const MohuparaPage = () => (
-  <MohuparaWrap>
-    <Seo />
-    <GlobalCss />
-    <HeaderArea>
-      <StyledGrid fluid>
-        <Row>
-          <Col xs={12}>
-            <div>
-              <img src={mohupara} alt="もふもふ☆パラダイス" />
-            </div>
-          </Col>
-        </Row>
-      </StyledGrid>
-    </HeaderArea>
-    <main>
-      {data.map((item, i) => (
-        <SectionArea bgColor={item.color} key={i}>
-          <StyledGrid fluid>
-            <Row>
-              <Col xs={12} md={6}>
-                <BookImageArea>
-                  <img src={item.image} alt={item.title} />
-                </BookImageArea>
-              </Col>
-              <Col xs={12} md={6}>
-                <BookTitle>{item.title}</BookTitle>
-                <BookInfoWrap>
-                  <li>
-                    <div>概要</div>
-                    <div>{item.desc}</div>
-                  </li>
-                  <li>
-                    <div>サークル名</div>
-                    <div>{item.circleName}</div>
-                  </li>
-                  <li>
-                    <div>配布場所</div>
-                    <div>{item.place}</div>
-                  </li>
-                  <li>
-                    <div>配布日程</div>
-                    <div>{item.date}</div>
-                  </li>
-                  <li>
-                    <div>価格</div>
-                    <div>{item.price}円</div>
-                  </li>
-                </BookInfoWrap>
-              </Col>
-            </Row>
-          </StyledGrid>
-        </SectionArea>
-      ))}
-    </main>
-    <FooterArea>
-      <StyledGrid fluid>
-        <Row>
-          <FooterCol xs={12} md={6}>
-            <h3>もふもふ☆パラダイスとは</h3>
-            <div>
-              もふもふ☆パラダイスはフロントエンドの技術を中心に同人活動を行うサークルです。
-            </div>
-          </FooterCol>
-          <Col xs={12} md={3}>
-            <LinkBannerArea>
-              <Link to="/">
-                <img src={Ts} alt="TAKAHIRO SAEKIのポートフォリオ" />
-              </Link>
-            </LinkBannerArea>
-          </Col>
-          <Col xs={12} md={3}>
-            <LinkBannerArea>
-              <Link to="/blog">
-                <img src={Blog} alt="TAKAHIRO SAEKIのブログサイト" />
-              </Link>
-            </LinkBannerArea>
-          </Col>
-        </Row>
-      </StyledGrid>
-    </FooterArea>
-    <Copyright>©{new Date().getFullYear()} もふもふ☆パラダイス</Copyright>
-  </MohuparaWrap>
-);
+const MohuparaPage = (mohuparaData) => {
+  const image = getImage(
+    mohuparaData.data.allFile.edges[0].node.childImageSharp.gatsbyImageData
+  );
+  return (
+    <MohuparaWrap>
+      <Seo
+        title="もふもふ☆パラダイス"
+        description="技術系同人サークルもふもふ☆パラダイスの公式サイトです。"
+        image={image.images.fallback.src}
+      />
+      <GlobalCss />
+      <HeaderArea>
+        <StyledGrid fluid>
+          <Row>
+            <Col xs={12}>
+              <div>
+                <img src={mohupara} alt="もふもふ☆パラダイス" />
+              </div>
+            </Col>
+          </Row>
+        </StyledGrid>
+      </HeaderArea>
+      <main>
+        {data.map((item, i) => (
+          <SectionArea bgColor={item.color} key={i}>
+            <StyledGrid fluid>
+              <Row>
+                <Col xs={12} md={6}>
+                  <BookImageArea>
+                    <img src={item.image} alt={item.title} />
+                  </BookImageArea>
+                </Col>
+                <Col xs={12} md={6}>
+                  <BookTitle>{item.title}</BookTitle>
+                  <BookInfoWrap>
+                    <li>
+                      <div>概要</div>
+                      <div>{item.desc}</div>
+                    </li>
+                    <li>
+                      <div>サークル名</div>
+                      <div>{item.circleName}</div>
+                    </li>
+                    <li>
+                      <div>配布場所</div>
+                      <div>{item.place}</div>
+                    </li>
+                    <li>
+                      <div>配布日程</div>
+                      <div>{item.date}</div>
+                    </li>
+                    <li>
+                      <div>価格</div>
+                      <div>{item.price}円</div>
+                    </li>
+                  </BookInfoWrap>
+                </Col>
+              </Row>
+            </StyledGrid>
+          </SectionArea>
+        ))}
+      </main>
+      <FooterArea>
+        <StyledGrid fluid>
+          <Row>
+            <FooterCol xs={12} md={6}>
+              <h3>もふもふ☆パラダイスとは</h3>
+              <div>
+                もふもふ☆パラダイスはフロントエンドの技術を中心に同人活動を行うサークルです。
+              </div>
+            </FooterCol>
+            <Col xs={12} md={3}>
+              <LinkBannerArea>
+                <Link to="/">
+                  <img src={Ts} alt="TAKAHIRO SAEKIのポートフォリオ" />
+                </Link>
+              </LinkBannerArea>
+            </Col>
+            <Col xs={12} md={3}>
+              <LinkBannerArea>
+                <Link to="/blog">
+                  <img src={Blog} alt="TAKAHIRO SAEKIのブログサイト" />
+                </Link>
+              </LinkBannerArea>
+            </Col>
+          </Row>
+        </StyledGrid>
+      </FooterArea>
+      <Copyright>©{new Date().getFullYear()} もふもふ☆パラダイス</Copyright>
+    </MohuparaWrap>
+  );
+};
 
 const LinkBannerArea = styled.div`
   height: 110px;
@@ -266,3 +276,19 @@ const Copyright = styled.div`
 `;
 
 export default MohuparaPage;
+
+export const pageQuery = graphql`
+  query mohuparaData {
+    allFile(filter: { name: { eq: "mohupara" } }) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;

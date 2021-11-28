@@ -14,37 +14,48 @@ import GlobalCss from '../components/GlobalCss';
 import Work from '../components/Work';
 import media from 'styled-media-query';
 import Seo from '../components/seo.js';
+import { getImage } from 'gatsby-plugin-image';
+import { graphql } from 'gatsby';
 
-const TopPage = () => (
-  <div>
-    <Seo />
-    <Header title="TAKAHIRO SAEKI" path="/" />
-    <GlobalCss />
-    <ImgWrap>
-      <BgCover>
-        <IntroArea />
-      </BgCover>
-    </ImgWrap>
-    <ContentsArea />
-    <StyledGrid fluid>
-      <Skills />
-    </StyledGrid>
-    <Work />
-    <ExtendStyledGrid fluid>
-      <StyledRow>
-        <StyledCol xs={12}>
-          <HeaderWrap>
-            <h2>タイムライン</h2>
-          </HeaderWrap>
-        </StyledCol>
-        <Timeline />
-      </StyledRow>
-      <Form />
-      <FooterInfo />
-    </ExtendStyledGrid>
-    <Footer />
-  </div>
-);
+const TopPage = ({ data }) => {
+  const image = getImage(
+    data.allFile.edges[0].node.childImageSharp.gatsbyImageData
+  );
+  return (
+    <div>
+      <Seo
+        title="TAKAHIRO SAEKIのポートフォリオサイト"
+        description="三枝木貴浩のポートフォリオサイト"
+        image={image.images.fallback.src}
+      />
+      <Header title="TAKAHIRO SAEKI" path="/" />
+      <GlobalCss />
+      <ImgWrap>
+        <BgCover>
+          <IntroArea />
+        </BgCover>
+      </ImgWrap>
+      <ContentsArea />
+      <StyledGrid fluid>
+        <Skills />
+      </StyledGrid>
+      <Work />
+      <ExtendStyledGrid fluid>
+        <StyledRow>
+          <StyledCol xs={12}>
+            <HeaderWrap>
+              <h2>タイムライン</h2>
+            </HeaderWrap>
+          </StyledCol>
+          <Timeline />
+        </StyledRow>
+        <Form />
+        <FooterInfo />
+      </ExtendStyledGrid>
+      <Footer />
+    </div>
+  );
+};
 
 const StyledCol = styled(Col)`
   ${media.lessThan('medium')`
@@ -118,3 +129,19 @@ const HeaderWrap = styled.div`
 `;
 
 export default TopPage;
+
+export const pageQuery = graphql`
+  query portfolioData {
+    allFile(filter: { name: { eq: "ts" } }) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            gatsbyImageData
+          }
+        }
+      }
+    }
+  }
+`;

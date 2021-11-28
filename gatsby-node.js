@@ -38,6 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
               }
               categories
             }
+            excerpt(pruneLength: 200)
             tableOfContents
           }
           previous {

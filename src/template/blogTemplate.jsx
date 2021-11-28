@@ -60,9 +60,18 @@ const BlogList = (data) => {
     data.pageContext.fieldValue,
   ]);
 
+  const image = getImage(
+    data.renderData.blogImage.edges[0].node.childImageSharp.gatsbyImageData
+  );
+
   return (
     <div>
-      <Seo />
+      <Seo
+        title="ヒロの考え事"
+        description="三枝木貴浩のブログサイトです。"
+        image={image.images.fallback.src}
+      />
+
       <GlobalCss />
       <Header title="ヒロの考え事" path="/blog" />
       <ArticleLists
@@ -571,6 +580,18 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             date
+          }
+        }
+      }
+    }
+
+    blogImage: allFile(filter: { name: { eq: "blogtitle" } }) {
+      edges {
+        node {
+          id
+          name
+          childImageSharp {
+            gatsbyImageData
           }
         }
       }
