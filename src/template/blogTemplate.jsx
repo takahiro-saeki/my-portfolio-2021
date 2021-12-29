@@ -175,6 +175,8 @@ const ArticleLists = ({
     return data.edges;
   }, [data]);
 
+  console.log("data", renderData)
+
   return (
     <StyledGrid fluid>
       <Row>
