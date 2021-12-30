@@ -11,6 +11,14 @@ import media from 'styled-media-query';
 import { VscCalendar } from 'react-icons/vsc';
 import Header from '../components/Header';
 import Seo from '../components/seo.js';
+import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
+import {
+  ArticleSubFieldItem,
+  SubFieldSpaceArea,
+  TagMapArea,
+  ArticleTagArea,
+  ArticleCategoryArea,
+} from './blogTemplate';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -85,6 +93,10 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
   const prevImage =
     prev &&
     getImage(prev.frontmatter.coverImage.childImageSharp.gatsbyImageData);
+
+  const category = data?.categories[0] || '';
+  const tags = data.tags;
+
   return (
     <main>
       <GlobalCss />
@@ -94,7 +106,34 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
             <h1>{data.title}</h1>
             <DateArea>
               <VscCalendar />
-              <span>{data.date}</span>
+              <DateSpan>{data.date}</DateSpan>
+              <ArticleSubFieldItem>
+                <SubFieldSpaceArea>
+                  <AiOutlineTag />
+                </SubFieldSpaceArea>
+                <Link to={`/blog/category/${category}`}>
+                  <ArticleCategoryArea>{category}</ArticleCategoryArea>
+                </Link>
+              </ArticleSubFieldItem>
+              <ArticleSubFieldItem>
+                <SubFieldSpaceArea>
+                  <AiOutlineFolderOpen />
+                </SubFieldSpaceArea>
+                {tags?.map((tag, i) =>
+                  i > 0 ? (
+                    <TagMapArea key={i}>
+                      <SubFieldSpaceArea>{','}</SubFieldSpaceArea>
+                      <Link to={`/blog/tag/${tag}`}>
+                        <ArticleTagArea>{tag}</ArticleTagArea>
+                      </Link>
+                    </TagMapArea>
+                  ) : (
+                    <Link to={`/blog/tag/${tag}`} key={i}>
+                      <ArticleTagArea>{tag}</ArticleTagArea>
+                    </Link>
+                  )
+                )}
+              </ArticleSubFieldItem>
             </DateArea>
             <StyledGatsbyImage image={image} alt={data.title} />
             <BlogDesign dangerouslySetInnerHTML={{ __html: html }} />
@@ -170,6 +209,10 @@ const MainArea = ({ html, toc, data, imgSrc, nextAndPrevData, isSmall }) => {
     </main>
   );
 };
+
+const DateSpan = styled.span`
+  padding-right: 6px;
+`;
 
 const DateArea = styled.div`
   display: flex;
@@ -332,7 +375,6 @@ const BlogDesign = styled.main`
   body {
     font: 1.3em 'Vollkorn', Palatino, Times;
     color: #333;
-    line-height: 1.4;
     text-align: justify;
   }
   header,
@@ -373,22 +415,69 @@ const BlogDesign = styled.main`
     font-weight: normal;
   }
   h2 {
-    font-weight: normal;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 24px;
+    margin: 40px 0;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-image: repeating-linear-gradient(
+      90deg,
+      #23adad 0,
+      #23adad 8px,
+      rgba(0, 0, 0, 0) 8px,
+      rgba(0, 0, 0, 0) 11px
+    );
   }
   h3 {
-    font-weight: normal;
-    font-style: italic;
-    padding-top: 3em;
+    font-weight: bold;
+    font-size: 20px;
+    border-left: solid 4px #23adad;
+    padding-left: 8px;
+    margin: 28px 0;
   }
+
   p {
     margin-top: 0;
     -webkit-hypens: auto;
     -moz-hypens: auto;
     hyphens: auto;
+    line-height: 1.8;
   }
-  ul {
-    list-style: square;
-    padding-left: 1.2em;
+  ul,
+  ol {
+    padding: 0;
+  }
+
+  ul li {
+    position: relative;
+    list-style-type: none !important; /*ポチ消す*/
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    background: #dbebf8;
+    vertical-align: middle;
+    color: #505050;
+    border-radius: 15px 0px 0px 15px; /*左側の角丸く*/
+  }
+
+  ul li:before {
+    display: inline-block;
+    vertical-align: middle;
+    /*以下白丸つくる*/
+    content: '';
+    width: 1em;
+    height: 1em;
+    background: #fff;
+    border-radius: 50%;
+    margin-right: 8px;
   }
   ol {
     padding-left: 1.2em;

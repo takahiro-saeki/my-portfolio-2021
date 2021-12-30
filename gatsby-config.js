@@ -1,12 +1,13 @@
 module.exports = {
   flags: {
-    PARALLEL_SOURCING: true,
+    FAST_DEV: true,
   },
   siteMetadata: {
     title: `Takahiro Saeki`,
     description: `Takahiro Saekiのポートフォリオサイトです。`,
     author: `Takahiro Saeki`,
     portfolioImage: `src/images/cat.png`,
+    siteUrl: `https://takahiro-saeki.tech`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -74,9 +75,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-adsense`,
       options: {
-        publisherId: `ca-pub-9447805094874371`
+        publisherId: `ca-pub-9447805094874371`,
       },
     },
-
+    'gatsby-plugin-sitemap',
   ],
 };

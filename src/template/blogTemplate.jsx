@@ -175,8 +175,6 @@ const ArticleLists = ({
     return data.edges;
   }, [data]);
 
-  console.log("data", renderData)
-
   return (
     <StyledGrid fluid>
       <Row>
@@ -223,17 +221,17 @@ const ArticleLists = ({
                       <SubFieldSpaceArea>
                         <AiOutlineFolderOpen />
                       </SubFieldSpaceArea>
-                      {data.node.frontmatter?.tags?.map((category, i) =>
+                      {data.node.frontmatter?.tags?.map((tag, i) =>
                         i > 0 ? (
                           <TagMapArea key={i}>
                             <SubFieldSpaceArea>{','}</SubFieldSpaceArea>
-                            <Link to={`/blog/tag/${category}`}>
-                              <ArticleTagArea>{category}</ArticleTagArea>
+                            <Link to={`/blog/tag/${tag}`}>
+                              <ArticleTagArea>{tag}</ArticleTagArea>
                             </Link>
                           </TagMapArea>
                         ) : (
-                          <Link to={`/blog/tag/${category}`} key={i}>
-                            <ArticleTagArea>{category}</ArticleTagArea>
+                          <Link to={`/blog/tag/${tag}`} key={i}>
+                            <ArticleTagArea>{tag}</ArticleTagArea>
                           </Link>
                         )
                       )}
@@ -262,12 +260,12 @@ const ArticleLists = ({
   );
 };
 
-const TagMapArea = styled.div`
+export const TagMapArea = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const SubFieldSpaceArea = styled.div`
+export const SubFieldSpaceArea = styled.div`
   padding-right: 4px;
   display: flex;
 `;
@@ -436,14 +434,14 @@ padding: 60px 3.5% 20px 0;
   `}
 `;
 
-const ArticleTagArea = styled.div`
+export const ArticleTagArea = styled.div`
   font-size: 12px;
   color: #000;
   &:hover {
     color: #b92c2c;
   }
 `;
-const ArticleCategoryArea = styled.div`
+export const ArticleCategoryArea = styled.div`
   font-size: 12px;
   color: #000;
   &:hover {
@@ -461,7 +459,7 @@ const ArticleSubField = styled.div`
   flex-wrap: wrap;
 `;
 
-const ArticleSubFieldItem = styled.div`
+export const ArticleSubFieldItem = styled.div`
   padding-right: 8px;
   display: flex;
   align-items: center;
