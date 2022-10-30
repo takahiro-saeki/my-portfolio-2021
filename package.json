@@ -43,7 +43,7 @@
     "wordpress-export-to-markdown": "^2.2.2"
   },
   "devDependencies": {
-    "prettier": "2.5.1"
+    "prettier": "2.7.1"
   },
   "keywords": [
     "gatsby"
