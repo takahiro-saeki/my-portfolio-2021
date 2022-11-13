@@ -33,6 +33,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.6.0",
+    "react-router-dom": "^6.4.3",
     "react-styled-flexboxgrid": "^3.2.1",
     "react-twitter-widgets": "^1.11.0",
     "react-vertical-timeline-component": "^3.5.2",
