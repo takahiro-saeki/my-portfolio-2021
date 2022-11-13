@@ -13,12 +13,12 @@ import Header from '../components/Header';
 import Seo from '../components/seo.js';
 import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
 import {
+  ArticleCategoryArea,
   ArticleSubFieldItem,
+  ArticleTagArea,
   SubFieldSpaceArea,
   TagMapArea,
-  ArticleTagArea,
-  ArticleCategoryArea,
-} from './blogTemplate';
+} from '../components/blog';
 
 const parseLink = (path) => {
   if (!path) return null;
