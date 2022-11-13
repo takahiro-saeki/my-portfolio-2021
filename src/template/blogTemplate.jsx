@@ -15,6 +15,13 @@ import { useMediaQuery } from 'beautiful-react-hooks';
 import media from 'styled-media-query';
 import Header from '../components/Header';
 import Seo from '../components/seo.js';
+import {
+  ArticleCategoryArea,
+  ArticleSubFieldItem,
+  ArticleTagArea,
+  SubFieldSpaceArea,
+  TagMapArea,
+} from '../components/blog';
 
 const parseLink = (path) => {
   if (!path) return null;
@@ -260,16 +267,6 @@ const ArticleLists = ({
   );
 };
 
-export const TagMapArea = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const SubFieldSpaceArea = styled.div`
-  padding-right: 4px;
-  display: flex;
-`;
-
 const ArchiveLists = ({ data }) => (
   <div>
     <RecentPostsTitle>アーカイブ</RecentPostsTitle>
@@ -434,20 +431,6 @@ padding: 60px 3.5% 20px 0;
   `}
 `;
 
-export const ArticleTagArea = styled.div`
-  font-size: 12px;
-  color: #000;
-  &:hover {
-    color: #b92c2c;
-  }
-`;
-export const ArticleCategoryArea = styled.div`
-  font-size: 12px;
-  color: #000;
-  &:hover {
-    color: #b92c2c;
-  }
-`;
 const ArticleExcerpt = styled.div`
   font-size: 14px;
 `;
@@ -456,13 +439,6 @@ const ArticleSubField = styled.div`
   display: flex;
   align-items: center;
   padding-bottom: 8px;
-  flex-wrap: wrap;
-`;
-
-export const ArticleSubFieldItem = styled.div`
-  padding-right: 8px;
-  display: flex;
-  align-items: center;
   flex-wrap: wrap;
 `;
 
