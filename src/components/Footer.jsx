@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Col, Row } from 'react-styled-flexboxgrid';
-import Hiro from '../images/hiro.jpeg';
-import { Timeline as TwitterTimeline } from 'react-twitter-widgets';
-import StyledGrid from '../components/atoms/StyledGrid';
+import React from "react";
+import styled from "styled-components";
+import { Col, Row } from "react-styled-flexboxgrid";
+import Hiro from "../images/hiro.jpeg";
+// import { Timeline as TwitterTimeline } from "react-twitter-widgets";
+import StyledGrid from "../components/atoms/StyledGrid";
 
 export const Footer = () => (
   <FooterArea>
@@ -74,17 +74,6 @@ export const FooterInfo = () => (
           三枝木貴浩、フロントエンドエンジニアを本業としている。自分がこれだと確信した事に突っ走る性格。趣味は音楽ゲームと運動、読書。猫が大好きです。
         </div>
       </ShortProfileArea>
-    </Col>
-    <Col xs={12} md={4}>
-      <TwitterTimeline
-        dataSource={{
-          sourceType: 'profile',
-          screenName: 'hirodeath',
-        }}
-        options={{
-          height: '650',
-        }}
-      />
     </Col>
   </Row>
 );
