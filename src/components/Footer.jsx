@@ -53,11 +53,6 @@ export const FooterInfo = () => (
           </li>
           <li>
             <a href="http://takahiro-saeki.github.io/new-book/template/">
-              twitter
-            </a>
-          </li>
-          <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
               facebook
             </a>
           </li>

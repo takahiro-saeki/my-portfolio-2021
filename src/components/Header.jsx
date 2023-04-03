@@ -1,10 +1,10 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { Col, Row } from 'react-styled-flexboxgrid';
-import { BsGithub, BsTwitter } from 'react-icons/bs';
-import { Link } from 'gatsby';
-import StyledGrid from '../components/atoms/StyledGrid';
-import media from 'styled-media-query';
+import React from "react";
+import styled, { css } from "styled-components";
+import { Col, Row } from "react-styled-flexboxgrid";
+import { BsGithub, BsTwitter } from "react-icons/bs";
+import { Link } from "gatsby";
+import StyledGrid from "../components/atoms/StyledGrid";
+import media from "styled-media-query";
 
 const Header = ({ title, path }) => (
   <HeaderArea>
@@ -20,13 +20,6 @@ const Header = ({ title, path }) => (
             <IconLink href="https://github.com/takahiro-saeki" target="_blank">
               <BsGithub />
             </IconLink>
-            <IconLink
-              color="#1DA1F2"
-              href="https://twitter.com/hirodeath"
-              target="_blank"
-            >
-              <BsTwitter />
-            </IconLink>
           </IconWrap>
         </ColExtend>
       </Row>
@@ -41,7 +34,7 @@ const StyledCol = styled(Col)`
 
 const Heading = styled.h1`
   color: #fff;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     font-size: 20px;
     display: flex;
     align-items: center;

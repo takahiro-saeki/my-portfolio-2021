@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Form = () => (
   <FormArea>
@@ -14,12 +14,6 @@ const Form = () => (
         target="_blank"
         rel="noreferrer"
       >
-        こちら
-      </a>
-    </Space>
-    <Space>
-      twitterのDMから送りたい方は
-      <a href="https://twitter.com/hirodeath" target="_blank" rel="noreferrer">
         こちら
       </a>
     </Space>
