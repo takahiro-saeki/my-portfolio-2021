@@ -1,17 +1,19 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Col, Row } from 'react-styled-flexboxgrid';
-import { Link } from 'gatsby';
-import StyledGrid from './atoms/StyledGrid';
-import sp1 from '../images/sp1.png';
-import sp2 from '../images/sp2.png';
-import sp3 from '../images/sp3.png';
-import g1 from '../images/portals_component.png';
-import mrcp from '../images/mrcp.png';
-import mohupara from '../images/mohupara.png';
-import media from 'styled-media-query';
+import React from "react";
+import styled from "styled-components";
+import { Col, Row } from "react-styled-flexboxgrid";
+import { Link } from "gatsby";
+import StyledGrid from "./atoms/StyledGrid";
+import sp1 from "../images/sp1.png";
+import sp2 from "../images/sp2.png";
+import sp3 from "../images/sp3.png";
+import g1 from "../images/portals_component.png";
+import mrcp from "../images/mrcp.png";
+import mohupara from "../images/mohupara.png";
+import media from "styled-media-query";
 
 const Work = () => {
+  return null;
+  /*
   return (
     <WorkWrap>
       <StyledGrid fluid>
@@ -62,7 +64,7 @@ const Work = () => {
               rel="noreferrer"
             >
               <Card>
-                <StyledImg src={g1} style={{ objectPosition: 'top center' }} />
+                <StyledImg src={g1} style={{ objectPosition: "top center" }} />
                 <DescArea>portals component</DescArea>
               </Card>
             </a>
@@ -76,7 +78,7 @@ const Work = () => {
               <Card>
                 <StyledImg
                   src={mrcp}
-                  style={{ objectPosition: 'top center' }}
+                  style={{ objectPosition: "top center" }}
                 />
                 <DescArea>material colorをrandomに生成するライブラリ</DescArea>
               </Card>
@@ -85,7 +87,7 @@ const Work = () => {
           <StyledCol xs={12} md={4}>
             <Link to="/mohupara">
               <Card>
-                <StyledImg src={mohupara} style={{ objectFit: 'contain' }} />
+                <StyledImg src={mohupara} style={{ objectFit: "contain" }} />
                 <DescArea>技術系同人サークル: もふもふ☆パラダイス</DescArea>
               </Card>
             </Link>
@@ -94,6 +96,7 @@ const Work = () => {
       </StyledGrid>
     </WorkWrap>
   );
+  */
 };
 
 const WorkWrap = styled.div`
@@ -103,14 +106,14 @@ const WorkWrap = styled.div`
 `;
 
 const StyledCol = styled(Col)`
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
 padding: 0;
 `}
 `;
 
 const StyledRow = styled(Row)`
   padding: 32px 0 48px;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
 padding: 0;
 `}
 `;
