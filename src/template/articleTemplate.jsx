@@ -6,7 +6,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import BlogFooter, { Footer } from '../components/BlogFooter';
 import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
-import { useMediaQuery } from 'beautiful-react-hooks';
+import useMediaQuery from 'beautiful-react-hooks/useMediaQuery';
 import media from 'styled-media-query';
 import { VscCalendar } from 'react-icons/vsc';
 import Header from '../components/Header';

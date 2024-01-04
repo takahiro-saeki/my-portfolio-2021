@@ -11,7 +11,7 @@ import StyledGrid from '../components/atoms/StyledGrid';
 import GlobalCss from '../components/GlobalCss';
 import { VscCalendar } from 'react-icons/vsc';
 import { AiOutlineTag, AiOutlineFolderOpen } from 'react-icons/ai';
-import { useMediaQuery } from 'beautiful-react-hooks';
+import useMediaQuery from 'beautiful-react-hooks/useMediaQuery';
 import media from 'styled-media-query';
 import Header from '../components/Header';
 import Seo from '../components/seo.js';
