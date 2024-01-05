@@ -4,6 +4,9 @@
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
   "author": "Takahiro Saeki",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@raae/gatsby-remark-oembed": "^0.3.3",
     "babel-eslint": "^10.1.0",
