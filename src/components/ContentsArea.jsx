@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
-import Mohupara from '../images/mohupara.png';
-import Blog from '../images/blogtitle.png';
-import Ts from '../images/ts.png';
-import { Col, Row } from 'react-styled-flexboxgrid';
-import { Link } from 'gatsby';
-import StyledGrid from '../components/atoms/StyledGrid';
-import media from 'styled-media-query';
+import React from "react";
+import styled from "styled-components";
+import Mohupara from "../images/mohupara.png";
+import Blog from "../images/blogtitle.png";
+import Ts from "../images/ts.png";
+import { Col, Row } from "react-styled-flexboxgrid";
+import { Link } from "gatsby";
+import StyledGrid from "../components/atoms/StyledGrid";
+import media from "styled-media-query";
 
 const ContentsArea = ({ is404 }) => (
   <ContentsAreaWrap>
@@ -43,18 +43,7 @@ const ContentsArea = ({ is404 }) => (
             </Link>
           </Card>
         </StyledCol>
-        <StyledCol xs={12} md={4}>
-          <Card>
-            <h3>ブログサイト</h3>
-            <ContentImgWrap>
-              <img src={Blog} alt="TAKAHIRO SAEKIのブログサイト" />
-            </ContentImgWrap>
-            <CardDescArea>私、三枝木貴浩のブログサイトです</CardDescArea>
-            <Link to="/blog">
-              <button>ヒロの考え事はこちら</button>
-            </Link>
-          </Card>
-        </StyledCol>
+        <StyledCol xs={12} md={4}></StyledCol>
       </ContentsRow>
     </StyledGrid>
   </ContentsAreaWrap>
@@ -77,13 +66,15 @@ const HeaderWrap = styled.div`
 const Card = styled.div`
   background: #fff;
   padding: 16px;
-  box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
-    rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px;
+  box-shadow:
+    rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+    rgb(0 0 0 / 14%) 0px 1px 1px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 3px 0px;
 
   border-radius: 8px;
   margin: 4px;
   font-size: 16px;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
 margin: 8px 0;
 `}
 
@@ -119,14 +110,14 @@ margin: 8px 0;
 `;
 
 const StyledCol = styled(Col)`
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
 padding: 0;
 `}
 `;
 
 const ContentsRow = styled(Row)`
   padding: 16px;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
   padding: 0;
   `}
 `;
