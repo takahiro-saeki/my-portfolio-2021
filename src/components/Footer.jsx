@@ -51,11 +51,6 @@ export const FooterInfo = () => (
               qiita
             </a>
           </li>
-          <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              facebook
-            </a>
-          </li>
         </ul>
       </ExternalLinkArea>
     </Col>

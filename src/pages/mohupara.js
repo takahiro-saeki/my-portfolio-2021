@@ -1,81 +1,81 @@
-import * as React from 'react';
-import styled from 'styled-components';
-import { Link, graphql } from 'gatsby';
-import { Col, Row } from 'react-styled-flexboxgrid';
-import m1 from '../images/image1.png';
-import m2 from '../images/image2.png';
-import m3 from '../images/mohupara-3.jpg';
-import m4 from '../images/mohupara-4.jpg';
-import m5 from '../images/mohupara-5.png';
-import m6 from '../images/mohupara-6.png';
-import mohupara from '../images/mohupara.png';
-import media from 'styled-media-query';
-import StyledGrid from '../components/atoms/StyledGrid';
-import Blog from '../images/blogtitle.png';
-import Ts from '../images/ts.png';
-import GlobalCss from '../components/GlobalCss';
-import Seo from '../components/seo.js';
-import { getImage } from 'gatsby-plugin-image';
+import * as React from "react";
+import styled from "styled-components";
+import { Link, graphql } from "gatsby";
+import { Col, Row } from "react-styled-flexboxgrid";
+import m1 from "../images/image1.png";
+import m2 from "../images/image2.png";
+import m3 from "../images/mohupara-3.jpg";
+import m4 from "../images/mohupara-4.jpg";
+import m5 from "../images/mohupara-5.png";
+import m6 from "../images/mohupara-6.png";
+import mohupara from "../images/mohupara.png";
+import media from "styled-media-query";
+import StyledGrid from "../components/atoms/StyledGrid";
+import Blog from "../images/blogtitle.png";
+import Ts from "../images/ts.png";
+import GlobalCss from "../components/GlobalCss";
+import Seo from "../components/seo.js";
+import { getImage } from "gatsby-plugin-image";
 
 const data = [
   {
-    title: 'これから始める ♡React.js 実践マニュアル',
-    desc: 'React.jsのコンポーネントの構成の仕方について、hooks APIを使用した構成方法から基本的な構成方法まで網羅的に紹介しています。これからReact.jsを始める方から既に業務で使用されている方まで、幅広い層の方に向けた1冊になっています。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'コミックマーケット95 2日目(日) 東ト38b',
-    date: '2018年12月30日(日)',
+    title: "これから始める ♡React.js 実践マニュアル",
+    desc: "React.jsのコンポーネントの構成の仕方について、hooks APIを使用した構成方法から基本的な構成方法まで網羅的に紹介しています。これからReact.jsを始める方から既に業務で使用されている方まで、幅広い層の方に向けた1冊になっています。",
+    circleName: "もふもふ☆パラダイス",
+    place: "コミックマーケット95 2日目(日) 東ト38b",
+    date: "2018年12月30日(日)",
     price: 500,
-    color: '#f9fbe7',
+    color: "#f9fbe7",
     image: m6,
   },
   {
-    title: 'アタシだけを見て♡Micro Frontends 実践マニュアル',
-    desc: 'どういう環境でweb componentsを使用すると効果があるのか、またweb componentsがどう将来を変革して行くのかという内容に加え、Micro Frontendsが解決する問題について詳細に説明しています。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'コミックマーケット94 1日目(金) 西め34a',
-    date: '2018年8月10日(金)',
+    title: "アタシだけを見て♡Micro Frontends 実践マニュアル",
+    desc: "どういう環境でweb componentsを使用すると効果があるのか、またweb componentsがどう将来を変革して行くのかという内容に加え、Micro Frontendsが解決する問題について詳細に説明しています。",
+    circleName: "もふもふ☆パラダイス",
+    place: "コミックマーケット94 1日目(金) 西め34a",
+    date: "2018年8月10日(金)",
     price: 500,
-    color: '#fff3e0',
+    color: "#fff3e0",
     image: m5,
   },
   {
-    title: 'さぁ、一緒に行こう♡ Web Components 実践マニュアル',
-    desc: 'Web componentsの基本的な概要やcustom-elementsの基本的なAPIの説明を主軸に、後半では応用的な使い方を説明しています。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'コミティア122 有明・東京ビッグサイト A20b',
-    date: '2017年11月23日(木)',
+    title: "さぁ、一緒に行こう♡ Web Components 実践マニュアル",
+    desc: "Web componentsの基本的な概要やcustom-elementsの基本的なAPIの説明を主軸に、後半では応用的な使い方を説明しています。",
+    circleName: "もふもふ☆パラダイス",
+    place: "コミティア122 有明・東京ビッグサイト A20b",
+    date: "2017年11月23日(木)",
     price: 500,
-    color: '#f3e5f5',
+    color: "#f3e5f5",
     image: m4,
   },
   {
-    title: 'アタシが教えてア・ゲ・ル♥ node.js実践マニュアル',
-    desc: 'Node.jsのインストールの仕方、基本的な使い方の説明や、expressを使用したサーバーサイドの開発までを説明しています。こちらの書籍はNode.jsに馴染みの無い方や初学者向けの内容となっております。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'COMITIA116 有明・東京ビッグサイト東４・５・６ホール T21a',
-    date: '2016年5月5日(木)',
+    title: "アタシが教えてア・ゲ・ル♥ node.js実践マニュアル",
+    desc: "Node.jsのインストールの仕方、基本的な使い方の説明や、expressを使用したサーバーサイドの開発までを説明しています。こちらの書籍はNode.jsに馴染みの無い方や初学者向けの内容となっております。",
+    circleName: "もふもふ☆パラダイス",
+    place: "COMITIA116 有明・東京ビッグサイト東４・５・６ホール T21a",
+    date: "2016年5月5日(木)",
     price: 500,
-    color: '#fbe9e7',
+    color: "#fbe9e7",
     image: m3,
   },
   {
-    title: 'キミと一緒に学びたいECMAScript2015',
-    desc: 'ECMAScript2015とは何かということから、著者が厳選した構文の説明、また実際にサンプルコードを通して実践的な使い方を説明した一冊になります。本書は2部構成になっており、基本編では構文の説明、応用編では実際にサンプルコードを例にどのように使用していくのかということを記載させて頂きました。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'サンシャインクリエイション2016 Winter',
-    date: '2016年2月28日(日)',
+    title: "キミと一緒に学びたいECMAScript2015",
+    desc: "ECMAScript2015とは何かということから、著者が厳選した構文の説明、また実際にサンプルコードを通して実践的な使い方を説明した一冊になります。本書は2部構成になっており、基本編では構文の説明、応用編では実際にサンプルコードを例にどのように使用していくのかということを記載させて頂きました。",
+    circleName: "もふもふ☆パラダイス",
+    place: "サンシャインクリエイション2016 Winter",
+    date: "2016年2月28日(日)",
     price: 500,
-    color: '#e3f2fd',
+    color: "#e3f2fd",
     image: m1,
   },
   {
-    title: 'アナタに捧げるフロントエンド実践マニュアル',
-    desc: 'PostCSSとは何かということや導入の仕方、次世代CSSの構文の説明を中心に執筆させて頂きました。 この書籍を通じて少しでもPostCSSに興味を持って頂けたら幸いです。',
-    circleName: 'もふもふ☆パラダイス',
-    place: 'コミックマーケットC89 東エ-35b',
-    date: '2015年12月31日(木)',
+    title: "アナタに捧げるフロントエンド実践マニュアル",
+    desc: "PostCSSとは何かということや導入の仕方、次世代CSSの構文の説明を中心に執筆させて頂きました。 この書籍を通じて少しでもPostCSSに興味を持って頂けたら幸いです。",
+    circleName: "もふもふ☆パラダイス",
+    place: "コミックマーケットC89 東エ-35b",
+    date: "2015年12月31日(木)",
     price: 500,
-    color: '#fce4ec',
+    color: "#fce4ec",
     image: m2,
   },
 ];
@@ -160,13 +160,7 @@ const MohuparaPage = (mohuparaData) => {
                 </Link>
               </LinkBannerArea>
             </Col>
-            <Col xs={12} md={3}>
-              <LinkBannerArea>
-                <Link to="/blog">
-                  <img src={Blog} alt="TAKAHIRO SAEKIのブログサイト" />
-                </Link>
-              </LinkBannerArea>
-            </Col>
+            <Col xs={12} md={3}></Col>
           </Row>
         </StyledGrid>
       </FooterArea>
@@ -177,7 +171,7 @@ const MohuparaPage = (mohuparaData) => {
 
 const LinkBannerArea = styled.div`
   height: 110px;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     padding: 16px 0;
     text-align: center;
   `}
@@ -198,7 +192,7 @@ const FooterCol = styled(Col)`
   }
   div {
     font-size: 14px;
-    ${media.lessThan('medium')`
+    ${media.lessThan("medium")`
     width: 100%;
   `}
   }
@@ -230,7 +224,7 @@ const BookInfoWrap = styled.ul`
 const SectionArea = styled.section`
   background: ${({ bgColor }) => bgColor};
   padding: 64px 0;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     padding: 32px 0;
   `}
 `;
@@ -248,7 +242,7 @@ const HeaderArea = styled.header`
 const BookImageArea = styled.div`
   padding: 0 24px;
   text-align: center;
-  ${media.lessThan('medium')`
+  ${media.lessThan("medium")`
     padding: 0 0 32px;
   `}
   img {
