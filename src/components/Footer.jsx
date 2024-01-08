@@ -29,32 +29,13 @@ export const FooterInfo = () => (
             </a>
           </li>
           <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              ブログ
-            </a>
+            <a href="https://github.com/takahiro-saeki">github</a>
           </li>
           <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              github
-            </a>
+            <a href="https://dev.to/hirodeath">dev</a>
           </li>
           <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              medium
-            </a>
-          </li>
-          <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">div</a>
-          </li>
-          <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              qiita
-            </a>
-          </li>
-          <li>
-            <a href="http://takahiro-saeki.github.io/new-book/template/">
-              facebook
-            </a>
+            <a href="https://qiita.com/hiro123">qiita</a>
           </li>
         </ul>
       </ExternalLinkArea>

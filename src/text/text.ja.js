@@ -119,7 +119,19 @@ const text = {
       desc: "ReactReduxを使用した中規模以上のアプリの保守並び新規機能開発を主に行なっていました。",
       date: "2019 - 2021",
     },
+    {
+      title: "株式会社一休",
+      iconColor: "#00bcd4",
+      desc: "Nextjsを使用した新規WEBサービスの開発並び同サービスのアプリ版をEXPO(ReactNative)を使用して開発していました。",
+      date: "2021 - 2023",
+    },
+    {
+      title: "株式会社CureApp",
+      iconColor: "#00bcd4",
+      desc: "ReactNativeを使用したiOS/androidアプリの保守並びNextjsを使用したWEBサービスの保守並び実装",
+      date: "2022 - 2024",
+    },
   ],
-}
+};
 
-export default text
+export default text;
