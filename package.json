@@ -1,75 +1,25 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "takahiro-saeki-portfolio",
+  "version": "1.0.0",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Takahiro Saeki",
-  "engines": {
-    "node": ">=18.0.0"
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@babel/eslint-parser": "^7.11.0",
-    "@raae/gatsby-remark-oembed": "^0.3.3",
-    "ajv": "^8.17.1",
-    "ajv-keywords": "^5.1.0",
-    "beautiful-react-hooks": "^5.0.0",
-    "date-fns": "^3.1.0",
-    "eslint-config-react-app": "^7.0.1",
-    "gatsby": "^5.12.9",
-    "gatsby-plugin-gatsby-cloud": "^5.12.2",
-    "gatsby-plugin-image": "^3.12.3",
-    "gatsby-plugin-manifest": "^5.12.3",
-    "gatsby-plugin-offline": "^6.12.3",
-    "gatsby-plugin-react-helmet": "^6.12.0",
-    "gatsby-plugin-sharp": "^5.12.3",
-    "gatsby-plugin-sitemap": "^6.12.3",
-    "gatsby-plugin-styled-components": "^6.12.0",
-    "gatsby-remark-autolink-headers": "^6.12.3",
-    "gatsby-remark-images": "^7.12.3",
-    "gatsby-remark-relative-images": "^2.0.5",
-    "gatsby-remark-table-of-contents": "^2.0.0",
-    "gatsby-source-filesystem": "^5.12.1",
-    "gatsby-source-wordpress": "^7.12.3",
-    "gatsby-transformer-remark": "^6.12.3",
-    "gatsby-transformer-sharp": "^5.12.3",
-    "lodash": "^4.17.21",
-    "prop-types": "^15.8.1",
+    "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.12.0",
-    "react-router-dom": "^6.18.0",
-    "react-styled-flexboxgrid": "^3.2.1",
-    "react-twitter-widgets": "^1.11.0",
-    "react-vertical-timeline-component": "^3.6.0",
-    "recharts": "^2.9.3",
     "styled-components": "^6.1.1",
-    "styled-media-query": "^2.1.2",
-    "styled-normalize": "^8.1.0",
-    "wordpress-export-to-markdown": "^2.2.2"
+    "react-icons": "^5.0.0",
+    "recharts": "^2.10.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.1.4",
-    "prettier": "3.1.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "eslint:fix": "eslint src/**/*.{js,jsx} --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.0"
   }
 }

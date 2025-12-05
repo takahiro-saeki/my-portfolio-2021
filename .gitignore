@@ -77,6 +77,7 @@ typings/
 
 # Next.js build output
 .next
+/out
 
 # Nuxt.js build / generate output
 .nuxt
@@ -104,3 +105,5 @@ dist
 .tern-port
 
 .vscode
+.playwright-mcp
+CNAME
