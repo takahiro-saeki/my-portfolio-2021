@@ -1,9 +1,10 @@
 'use client'
 
 import { Box, VStack, Text, HStack, Link as ChakraLink, Image, SimpleGrid } from '@chakra-ui/react'
-import { FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { SiQiita, SiDevdotto } from 'react-icons/si'
-import { ThemeMode, getTheme } from './theme'
+import type { ThemeMode} from './theme';
+import { getTheme } from './theme'
 
 interface FooterProps {
   mode: ThemeMode

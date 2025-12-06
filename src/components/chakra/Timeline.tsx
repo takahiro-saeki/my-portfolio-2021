@@ -3,7 +3,8 @@
 import { Box, VStack, Text, Flex } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaBriefcase, FaGraduationCap, FaPlane, FaBaby } from 'react-icons/fa'
-import { ThemeMode, getTheme } from './theme'
+import type { ThemeMode} from './theme';
+import { getTheme } from './theme'
 import textData from '@/data/text'
 
 const MotionBox = motion.create(Box)
