@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { Box, Flex, Text, Link as ChakraLink, HStack, VStack } from '@chakra-ui/react'
 import { FaGithub, FaBars, FaTimes } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ThemeMode, getTheme } from './theme'
+import type { ThemeMode} from './theme';
+import { getTheme } from './theme'
 
 const MotionBox = motion.create(Box)
 

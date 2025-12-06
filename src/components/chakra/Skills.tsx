@@ -2,7 +2,8 @@
 
 import { Box, VStack, Text, SimpleGrid, HStack } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { ThemeMode, getTheme } from './theme'
+import type { ThemeMode} from './theme';
+import { getTheme } from './theme'
 import skillData from '@/data/skillData'
 import text from '@/data/text'
 

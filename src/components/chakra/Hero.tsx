@@ -3,7 +3,8 @@
 import { Box, VStack, Text, HStack, Image, Link as ChakraLink } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaEnvelope } from 'react-icons/fa'
-import { ThemeMode, getTheme } from './theme'
+import type { ThemeMode} from './theme';
+import { getTheme } from './theme'
 
 const MotionBox = motion.create(Box)
 const MotionText = motion.create(Text)
