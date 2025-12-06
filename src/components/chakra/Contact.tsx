@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, VStack, Text, Button, HStack } from '@chakra-ui/react'
+import { Box, VStack, Text, HStack, Link as ChakraLink } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaEnvelope, FaExternalLinkAlt } from 'react-icons/fa'
 import { ThemeMode, getTheme } from './theme'
@@ -71,16 +71,22 @@ export default function Contact({ mode }: ContactProps) {
                 お仕事のご依頼やご質問など、お気軽にどうぞ。
               </Text>
 
-              <Button
-                as="a"
+              <ChakraLink
                 href="https://forms.gle/wDGveE76AfxXXASz9"
                 target="_blank"
-                size="lg"
+                display="inline-flex"
+                alignItems="center"
+                justifyContent="center"
+                fontSize="lg"
+                fontWeight="medium"
                 color={mode === 'dark' ? '#0f0f23' : '#ffffff'}
                 px={8}
+                py={3}
+                borderRadius="md"
                 _hover={{
                   opacity: 0.9,
                   transform: 'translateY(-2px)',
+                  textDecoration: 'none',
                 }}
                 transition="all 0.2s"
                 style={{
@@ -91,7 +97,7 @@ export default function Contact({ mode }: ContactProps) {
                   <Text>Google Formを開く</Text>
                   <FaExternalLinkAlt size={14} />
                 </HStack>
-              </Button>
+              </ChakraLink>
             </VStack>
           </Box>
         </MotionBox>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, VStack, Text, HStack, Button, Image } from '@chakra-ui/react'
+import { Box, VStack, Text, HStack, Image, Link as ChakraLink } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { FaGithub, FaEnvelope } from 'react-icons/fa'
 import { ThemeMode, getTheme } from './theme'
@@ -115,21 +115,22 @@ export default function Hero({ mode }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <HStack gap={4} mt={4} flexWrap="wrap" justify="center">
-            <Button
-              as="a"
+            <ChakraLink
               href="https://github.com/takahiro-saeki"
               target="_blank"
-              size="lg"
+              fontSize="lg"
+              fontWeight="medium"
               color={theme.text}
               px={6}
               py={3}
-              h="auto"
+              borderRadius="md"
               display="inline-flex"
               alignItems="center"
               gap={2}
               _hover={{
                 transform: 'translateY(-2px)',
                 opacity: 0.9,
+                textDecoration: 'none',
               }}
               transition="all 0.2s"
               style={{
@@ -140,21 +141,22 @@ export default function Hero({ mode }: HeroProps) {
             >
               <FaGithub size={18} />
               <Text as="span">GitHub</Text>
-            </Button>
-            <Button
-              as="a"
+            </ChakraLink>
+            <ChakraLink
               href="#contact"
-              size="lg"
+              fontSize="lg"
+              fontWeight="medium"
               color={mode === 'dark' ? '#0f0f23' : '#ffffff'}
               px={6}
               py={3}
-              h="auto"
+              borderRadius="md"
               display="inline-flex"
               alignItems="center"
               gap={2}
               _hover={{
                 opacity: 0.9,
                 transform: 'translateY(-2px)',
+                textDecoration: 'none',
               }}
               transition="all 0.2s"
               style={{
@@ -163,7 +165,7 @@ export default function Hero({ mode }: HeroProps) {
             >
               <FaEnvelope size={18} />
               <Text as="span">Contact</Text>
-            </Button>
+            </ChakraLink>
           </HStack>
         </MotionBox>
       </VStack>
