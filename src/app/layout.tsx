@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import StyledComponentsRegistry from '@/lib/registry'
+import { ChakraProviderClient } from '@/lib/chakra-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -21,9 +22,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <body>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ChakraProviderClient>
+          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        </ChakraProviderClient>
       </body>
     </html>
   )
