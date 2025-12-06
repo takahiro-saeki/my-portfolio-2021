@@ -1,0 +1,26 @@
+{
+  "name": "Takahiro Saeki Portfolio",
+  "short_name": "TS Portfolio",
+  "description": "三枝木貴浩のポートフォリオサイト - フロントエンドエンジニア",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/ts.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "lang": "ja",
+  "categories": ["portfolio", "personal"]
+}
