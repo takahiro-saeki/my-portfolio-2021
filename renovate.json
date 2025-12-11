@@ -22,8 +22,22 @@
       "labels": ["dependencies", "major"]
     },
     {
+      "description": "Node.js - never auto-merge, require manual review",
+      "matchPackageNames": ["node"],
+      "automerge": false,
+      "labels": ["dependencies", "node"]
+    },
+    {
+      "description": "GitHub Actions - don't auto-merge major updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "labels": ["dependencies", "github-actions"]
+    },
+    {
       "description": "Group all non-major updates together",
       "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["npm"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     }
