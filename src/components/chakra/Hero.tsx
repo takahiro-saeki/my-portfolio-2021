@@ -1,175 +1,112 @@
 'use client'
 
-import { Box, VStack, Text, HStack, Image, Link as ChakraLink } from '@chakra-ui/react'
+import { Box, Flex, Text, Image, Link as ChakraLink } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaEnvelope } from 'react-icons/fa'
-import type { ThemeMode} from './theme';
-import { getTheme } from './theme'
+import { FaGithub } from 'react-icons/fa'
+import { theme } from './theme'
+import { useReveal } from './useReveal'
+import { getContent } from '@/content'
 
 const MotionBox = motion.create(Box)
-const MotionText = motion.create(Text)
 
-interface HeroProps {
-  mode: ThemeMode
-}
-
-export default function Hero({ mode }: HeroProps) {
-  const theme = getTheme(mode)
+export default function Hero() {
+  const { hero } = getContent()
+  const reveal = useReveal()
+  const nameLines = hero.name.split(' ')
 
   return (
-    <Box
-      minH="100vh"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      position="relative"
-      overflow="hidden"
-    >
-      {/* Background Image */}
-      <Box
-        position="absolute"
-        inset={0}
-        style={{
-          backgroundImage: 'url(/images/forest.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      />
-
-      {/* Overlay */}
-      <Box
-        position="absolute"
-        inset={0}
-        style={{
-          background: mode === 'dark'
-            ? 'linear-gradient(135deg, rgba(15, 15, 35, 0.85) 0%, rgba(26, 26, 46, 0.9) 50%, rgba(22, 33, 62, 0.85) 100%)'
-            : 'linear-gradient(135deg, rgba(102, 126, 234, 0.75) 0%, rgba(118, 75, 162, 0.8) 50%, rgba(240, 147, 251, 0.75) 100%)',
-          backdropFilter: mode === 'glass' ? 'blur(8px)' : 'blur(2px)',
-        }}
-      />
-
-      {/* Glow Effect */}
-      {mode === 'dark' && (
-        <Box
-          position="absolute"
-          inset={0}
-          style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.15) 0%, transparent 50%)',
-          }}
-          pointerEvents="none"
-        />
-      )}
-
-      <VStack gap={6} textAlign="center" zIndex={1}>
-        <MotionBox
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+    <Box as="section" minH="calc(100vh - 61px)" display="flex" alignItems="center">
+      <Box w="100%" maxW="1080px" mx="auto" px={{ base: 6, md: 10 }} py={{ base: 16, md: 20 }}>
+        <Flex
+          direction={{ base: 'column', md: 'row' }}
+          gap={{ base: 10, md: 12 }}
+          align={{ base: 'flex-start', md: 'center' }}
         >
-          <Box
-            borderRadius="full"
-            overflow="hidden"
-            w="150px"
-            h="150px"
-            border="4px solid"
-            borderColor={theme.accent}
-            boxShadow={theme.shadow}
-          >
-            <Image
-              src="/images/hiro.jpeg"
-              alt="Takahiro Saeki"
-              w="100%"
-              h="100%"
-              objectFit="cover"
-            />
-          </Box>
-        </MotionBox>
+          <MotionBox {...reveal(0)} flex="1">
+            <Text fontFamily={theme.fontMono} fontSize="sm" color={theme.accent} mb={5} letterSpacing="0.06em">
+              {hero.role}
+            </Text>
 
-        <MotionText
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          fontSize={{ base: '3xl', md: '5xl' }}
-          fontWeight="bold"
-          color={theme.text}
-          bgGradient={theme.accentGradient}
-          bgClip="text"
-        >
-          Takahiro Saeki
-        </MotionText>
+            <Box>
+              {nameLines.map((line, i) => (
+                <Text
+                  key={i}
+                  as="span"
+                  display="block"
+                  fontFamily={theme.fontDisplay}
+                  fontWeight="700"
+                  fontSize={{ base: '4xl', md: '6xl' }}
+                  lineHeight="1.02"
+                  letterSpacing="-0.02em"
+                  color={theme.text}
+                >
+                  {line}
+                </Text>
+              ))}
+            </Box>
 
-        <MotionText
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          fontSize={{ base: 'lg', md: 'xl' }}
-          color={theme.textSecondary}
-          letterSpacing="wider"
-        >
-          Frontend Developer
-        </MotionText>
+            <Text mt={6} maxW="42ch" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.9" color={theme.textSecondary}>
+              {hero.description}
+            </Text>
 
-        <MotionBox
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <HStack gap={4} mt={4} flexWrap="wrap" justify="center">
-            <ChakraLink
-              href="https://github.com/takahiro-saeki"
-              target="_blank"
-              fontSize="lg"
-              fontWeight="medium"
-              color={theme.text}
-              px={6}
-              py={3}
-              borderRadius="md"
-              display="inline-flex"
-              alignItems="center"
-              gap={2}
-              _hover={{
-                transform: 'translateY(-2px)',
-                opacity: 0.9,
-                textDecoration: 'none',
-              }}
-              transition="all 0.2s"
-              style={{
-                background: mode === 'dark' ? 'rgba(0, 212, 255, 0.2)' : 'rgba(255, 255, 255, 0.2)',
-                border: theme.cardBorder,
-                backdropFilter: mode === 'glass' ? 'blur(10px)' : 'none',
-              }}
+            <Flex gap={4} mt={9} flexWrap="wrap">
+              <ChakraLink
+                href={hero.githubUrl}
+                target="_blank"
+                display="inline-flex"
+                alignItems="center"
+                gap={2}
+                px={5}
+                py={3}
+                fontSize="sm"
+                fontFamily={theme.fontMono}
+                color={theme.bg}
+                style={{ backgroundColor: theme.accent, borderRadius: theme.radius }}
+                transition="opacity 0.2s"
+                _hover={{ opacity: 0.85, textDecoration: 'none' }}
+              >
+                <FaGithub size={16} />
+                {hero.ctaGithub}
+              </ChakraLink>
+              <ChakraLink
+                href="#contact"
+                display="inline-flex"
+                alignItems="center"
+                gap={2}
+                px={5}
+                py={3}
+                fontSize="sm"
+                fontFamily={theme.fontMono}
+                color={theme.text}
+                style={{ border: `1px solid ${theme.border}`, borderRadius: theme.radius }}
+                transition="border-color 0.2s"
+                _hover={{ borderColor: theme.accent, textDecoration: 'none' }}
+              >
+                {hero.ctaContact}
+              </ChakraLink>
+            </Flex>
+          </MotionBox>
+
+          <MotionBox {...reveal(2)}>
+            <Box
+              w={{ base: '128px', md: '188px' }}
+              h={{ base: '128px', md: '188px' }}
+              overflow="hidden"
+              position="relative"
+              style={{ borderRadius: theme.radius, border: `1px solid ${theme.border}` }}
             >
-              <FaGithub size={18} />
-              <Text as="span">GitHub</Text>
-            </ChakraLink>
-            <ChakraLink
-              href="#contact"
-              fontSize="lg"
-              fontWeight="medium"
-              color={mode === 'dark' ? '#0f0f23' : '#ffffff'}
-              px={6}
-              py={3}
-              borderRadius="md"
-              display="inline-flex"
-              alignItems="center"
-              gap={2}
-              _hover={{
-                opacity: 0.9,
-                transform: 'translateY(-2px)',
-                textDecoration: 'none',
-              }}
-              transition="all 0.2s"
-              style={{
-                background: theme.accentGradient,
-              }}
-            >
-              <FaEnvelope size={18} />
-              <Text as="span">Contact</Text>
-            </ChakraLink>
-          </HStack>
-        </MotionBox>
-      </VStack>
+              <Image
+                src="/images/hiro.jpeg"
+                alt={hero.name}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                style={{ filter: 'grayscale(0.12) contrast(1.02)' }}
+              />
+            </Box>
+          </MotionBox>
+        </Flex>
+      </Box>
     </Box>
   )
 }

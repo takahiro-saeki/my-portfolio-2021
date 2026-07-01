@@ -1,115 +1,92 @@
 'use client'
 
-import { Box, VStack, Text, HStack, Link as ChakraLink, Image, SimpleGrid } from '@chakra-ui/react'
+import { Box, Flex, Text, HStack, VStack, Link as ChakraLink, Image, SimpleGrid } from '@chakra-ui/react'
+import type { IconType } from 'react-icons'
 import { FaGithub } from 'react-icons/fa'
 import { SiQiita, SiDevdotto } from 'react-icons/si'
-import type { ThemeMode} from './theme';
-import { getTheme } from './theme'
+import { theme } from './theme'
+import { getContent } from '@/content'
 
-interface FooterProps {
-  mode: ThemeMode
+const iconMap: Record<string, IconType> = {
+  github: FaGithub,
+  qiita: SiQiita,
+  devto: SiDevdotto,
 }
 
-const externalLinks = [
-  { label: 'もふパラ', url: 'http://takahiro-saeki.github.io/new-book/template/' },
-  { label: 'GitHub', url: 'https://github.com/takahiro-saeki', icon: FaGithub },
-  { label: 'dev.to', url: 'https://dev.to/hirodeath', icon: SiDevdotto },
-  { label: 'Qiita', url: 'https://qiita.com/hiro123', icon: SiQiita },
-]
-
-export default function Footer({ mode }: FooterProps) {
-  const theme = getTheme(mode)
+export default function Footer() {
+  const { footer } = getContent()
   const currentYear = new Date().getFullYear()
+  const copyright = footer.copyright.replace('{year}', String(currentYear))
 
   return (
-    <Box
-      as="footer"
-      py={16}
-      px={{ base: 6, md: 12 }}
-      borderTop={theme.cardBorder}
-    >
-      <VStack gap={12} maxW="1200px" mx="auto" px={{ base: 0, md: 6 }}>
-        <SimpleGrid columns={{ base: 1, md: 2 }} gap={12} w="100%">
-          {/* Profile Section */}
-          <VStack align={{ base: 'center', md: 'flex-start' }} gap={4}>
+    <Box as="footer" py={14} px={{ base: 6, md: 10 }} style={{ borderTop: `1px solid ${theme.border}` }}>
+      <Box maxW="1080px" mx="auto">
+        <SimpleGrid columns={{ base: 1, md: 2 }} gap={10}>
+          {/* Profile */}
+          <VStack align="flex-start" gap={4}>
             <HStack gap={4}>
               <Box
-                borderRadius="full"
                 overflow="hidden"
-                w="60px"
-                h="60px"
-                border="2px solid"
-                borderColor={theme.accent}
+                w="52px"
+                h="52px"
+                style={{ borderRadius: theme.radius, border: `1px solid ${theme.border}` }}
               >
-                <Image
-                  src="/images/hiro.jpeg"
-                  alt="Takahiro Saeki"
-                  w="100%"
-                  h="100%"
-                  objectFit="cover"
-                />
+                <Image src="/images/hiro.jpeg" alt={footer.name} w="100%" h="100%" objectFit="cover" />
               </Box>
               <VStack align="flex-start" gap={0}>
-                <Text fontWeight="bold" color={theme.text}>
-                  ヒロ
+                <Text fontFamily={theme.fontDisplay} fontWeight="600" color={theme.text}>
+                  {footer.name}
                 </Text>
-                <Text fontSize="sm" color={theme.textSecondary}>
-                  Frontend Developer
+                <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
+                  {footer.role}
                 </Text>
               </VStack>
             </HStack>
-            <Text
-              fontSize="sm"
-              color={theme.textSecondary}
-              textAlign={{ base: 'center', md: 'left' }}
-              maxW="400px"
-              lineHeight="tall"
-            >
-              三枝木貴浩、フロントエンドエンジニアを本業としている。
-              自分がこれだと確信した事に突っ走る性格。
-              趣味は音楽ゲームと運動、読書。猫が大好きです。
+            <Text fontSize="sm" color={theme.textSecondary} maxW="400px" lineHeight="1.85">
+              {footer.bio}
             </Text>
           </VStack>
 
-          {/* Links Section */}
-          <VStack align={{ base: 'center', md: 'flex-end' }} gap={4}>
-            <Text fontWeight="bold" color={theme.text}>
-              External Links
+          {/* Links */}
+          <VStack align={{ base: 'flex-start', md: 'flex-end' }} gap={4}>
+            <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary} letterSpacing="0.08em">
+              {`// ${footer.linksHeading.toLowerCase()}`}
             </Text>
-            <HStack gap={4} flexWrap="wrap" justify={{ base: 'center', md: 'flex-end' }}>
-              {externalLinks.map((link) => (
-                <ChakraLink
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  color={theme.textSecondary}
-                  fontSize="sm"
-                  _hover={{ color: theme.accent }}
-                  transition="color 0.2s"
-                  display="flex"
-                  alignItems="center"
-                  gap={1}
-                >
-                  {link.icon && <link.icon />}
-                  {link.label}
-                </ChakraLink>
-              ))}
+            <HStack gap={5} flexWrap="wrap" justify={{ base: 'flex-start', md: 'flex-end' }}>
+              {footer.links.map((link) => {
+                const Icon = link.icon ? iconMap[link.icon] : undefined
+                return (
+                  <ChakraLink
+                    key={link.label}
+                    href={link.url}
+                    target="_blank"
+                    color={theme.textSecondary}
+                    fontSize="sm"
+                    fontFamily={theme.fontMono}
+                    _hover={{ color: theme.accent, textDecoration: 'none' }}
+                    transition="color 0.2s"
+                    display="flex"
+                    alignItems="center"
+                    gap={1.5}
+                  >
+                    {Icon && <Icon size={14} />}
+                    {link.label}
+                  </ChakraLink>
+                )
+              })}
             </HStack>
           </VStack>
         </SimpleGrid>
 
-        {/* Copyright */}
-        <Box
-          pt={8}
-          borderTop={theme.cardBorder}
-          w="100%"
-          textAlign="center"
-        >
-          <Text fontSize="sm" color={theme.textSecondary}>
-            © 2015-{currentYear} Takahiro Saeki
+        <Flex pt={8} mt={10} style={{ borderTop: `1px solid ${theme.border}` }} justify="space-between" align="center" flexWrap="wrap" gap={2}>
+          <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
+            {copyright}
           </Text>
-        </Box>
-      </VStack>
+          <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
+            Built with Next.js
+          </Text>
+        </Flex>
+      </Box>
     </Box>
   )
 }

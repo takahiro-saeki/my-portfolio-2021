@@ -1,108 +1,60 @@
 'use client'
 
-import { Box, VStack, Text, HStack, Link as ChakraLink } from '@chakra-ui/react'
+import { Box, Text, Link as ChakraLink } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaExternalLinkAlt } from 'react-icons/fa'
-import type { ThemeMode} from './theme';
-import { getTheme } from './theme'
+import { FaArrowRight } from 'react-icons/fa'
+import { theme } from './theme'
+import { useReveal } from './useReveal'
+import SectionLabel from './SectionLabel'
+import { getContent } from '@/content'
 
 const MotionBox = motion.create(Box)
 
-interface ContactProps {
-  mode: ThemeMode
-}
-
-export default function Contact({ mode }: ContactProps) {
-  const theme = getTheme(mode)
+export default function Contact() {
+  const { contact } = getContent()
+  const reveal = useReveal()
 
   return (
-    <Box id="contact" py={20} px={6}>
-      <VStack gap={8} maxW="600px" mx="auto">
-        <MotionBox
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          w="100%"
-        >
+    <Box as="section" id="contact" py={{ base: 16, md: 24 }} px={{ base: 6, md: 10 }}>
+      <Box maxW="1080px" mx="auto">
+        <SectionLabel>{contact.heading}</SectionLabel>
+
+        <MotionBox {...reveal(0)}>
           <Box
-            borderRadius="2xl"
-            p={10}
-            textAlign="center"
+            p={{ base: 8, md: 12 }}
             style={{
-              background: theme.cardBg,
-              border: theme.cardBorder,
-              backdropFilter: mode === 'glass' ? 'blur(10px)' : 'none',
-              boxShadow: theme.shadow,
+              backgroundColor: theme.surface,
+              border: `1px solid ${theme.border}`,
+              borderRadius: theme.radius,
             }}
           >
-            <VStack gap={6}>
-              <Box
-                w="80px"
-                h="80px"
-                borderRadius="full"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                color={theme.accent}
-                style={{
-                  background: mode === 'dark' ? 'rgba(0, 212, 255, 0.1)' : 'rgba(255, 255, 255, 0.2)',
-                }}
-              >
-                <FaEnvelope size={32} />
-              </Box>
-
-              <Text
-                fontSize={{ base: '2xl', md: '3xl' }}
-                fontWeight="bold"
-                color={theme.text}
-                bgGradient={theme.accentGradient}
-                bgClip="text"
-              >
-                Contact
-              </Text>
-
-              <Text
-                color={theme.textSecondary}
-                fontSize="md"
-                lineHeight="tall"
-              >
-                お問い合わせは下記Google Formからお願いします。
-                <br />
-                お仕事のご依頼やご質問など、お気軽にどうぞ。
-              </Text>
-
-              <ChakraLink
-                href="https://forms.gle/wDGveE76AfxXXASz9"
-                target="_blank"
-                display="inline-flex"
-                alignItems="center"
-                justifyContent="center"
-                fontSize="lg"
-                fontWeight="medium"
-                color={mode === 'dark' ? '#0f0f23' : '#ffffff'}
-                px={8}
-                py={3}
-                borderRadius="md"
-                _hover={{
-                  opacity: 0.9,
-                  transform: 'translateY(-2px)',
-                  textDecoration: 'none',
-                }}
-                transition="all 0.2s"
-                style={{
-                  background: theme.accentGradient,
-                }}
-              >
-                <HStack gap={2}>
-                  <Text>Google Formを開く</Text>
-                  <FaExternalLinkAlt size={14} />
-                </HStack>
-              </ChakraLink>
-            </VStack>
+            <Text fontFamily={theme.fontDisplay} fontSize={{ base: '2xl', md: '3xl' }} fontWeight="700" color={theme.text} letterSpacing="-0.01em">
+              Let&apos;s talk.
+            </Text>
+            <Text mt={4} maxW="48ch" fontSize="sm" color={theme.textSecondary} lineHeight="1.9">
+              {contact.body}
+            </Text>
+            <ChakraLink
+              href={contact.formUrl}
+              target="_blank"
+              display="inline-flex"
+              alignItems="center"
+              gap={2}
+              mt={8}
+              px={6}
+              py={3}
+              fontSize="sm"
+              fontFamily={theme.fontMono}
+              color={theme.bg}
+              style={{ backgroundColor: theme.accent, borderRadius: theme.radius }}
+              transition="opacity 0.2s"
+              _hover={{ opacity: 0.85, textDecoration: 'none' }}
+            >
+              {contact.button} <FaArrowRight size={11} />
+            </ChakraLink>
           </Box>
         </MotionBox>
-      </VStack>
+      </Box>
     </Box>
   )
 }
