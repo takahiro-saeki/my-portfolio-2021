@@ -1,129 +1,83 @@
 'use client'
 
-import { Box, VStack, Text, SimpleGrid, HStack } from '@chakra-ui/react'
+import { Box, Flex, Text, SimpleGrid } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import type { ThemeMode} from './theme';
-import { getTheme } from './theme'
+import { theme } from './theme'
+import { useReveal } from './useReveal'
+import SectionLabel from './SectionLabel'
+import { getContent } from '@/content'
 import skillData from '@/data/skillData'
-import text from '@/data/text'
 
 const MotionBox = motion.create(Box)
 
-interface SkillsProps {
-  mode: ThemeMode
-}
-
-interface ProgressBarProps {
-  name: string
-  score: number
-  theme: ReturnType<typeof getTheme>
-  mode: ThemeMode
-  delay: number
-}
-
-function ProgressBar({ name, score, theme, mode, delay }: ProgressBarProps) {
+function SkillBar({ name, score, index }: { name: string; score: number; index: number }) {
   return (
     <Box mb={3}>
-      <HStack justify="space-between" mb={1}>
-        <Text fontSize="sm" color={theme.text} fontWeight="medium">
+      <Flex justify="space-between" align="center" mb={1.5}>
+        <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.text}>
           {name}
         </Text>
-        <Text fontSize="xs" color={theme.textSecondary}>
-          {score}%
+        <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
+          {score}
         </Text>
-      </HStack>
-      <Box
-        h="8px"
-        borderRadius="full"
-        overflow="hidden"
-        style={{ background: theme.progressBg }}
-      >
+      </Flex>
+      <Box h="2px" position="relative" style={{ backgroundColor: theme.border }}>
         <MotionBox
-          h="100%"
-          borderRadius="full"
+          position="absolute"
+          top={0}
+          left={0}
+          h="2px"
+          style={{ backgroundColor: theme.accent }}
           initial={{ width: 0 }}
           whileInView={{ width: `${score}%` }}
-          transition={{ duration: 1, delay, ease: 'easeOut' }}
           viewport={{ once: true }}
-          style={{
-            background: theme.progressFill,
-            boxShadow: mode === 'dark' ? '0 0 10px rgba(0, 212, 255, 0.5)' : 'none',
-          }}
+          transition={{ duration: 0.9, delay: index * 0.04, ease: 'easeOut' }}
         />
       </Box>
     </Box>
   )
 }
 
-export default function Skills({ mode }: SkillsProps) {
-  const theme = getTheme(mode)
+export default function Skills() {
+  const { skills } = getContent()
+  const reveal = useReveal()
 
   return (
-    <Box id="skills" py={20} px={6}>
-      <VStack gap={12} maxW="1200px" mx="auto">
-        <Text
-          fontSize={{ base: '2xl', md: '3xl' }}
-          fontWeight="bold"
-          color={theme.text}
-          bgGradient={theme.accentGradient}
-          bgClip="text"
-        >
-          Skills
-        </Text>
+    <Box as="section" id="skills" py={{ base: 16, md: 24 }} px={{ base: 6, md: 10 }}>
+      <Box maxW="1080px" mx="auto">
+        <SectionLabel>{skills.heading}</SectionLabel>
 
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8} w="100%">
-          {text.skill.map((skillCategory, categoryIndex) => (
-            <MotionBox
-              key={skillCategory.key}
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              viewport={{ once: true }}
-            >
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+          {skills.categories.map((category, categoryIndex) => (
+            <MotionBox key={category.key} {...reveal(categoryIndex)}>
               <Box
-                borderRadius="xl"
                 p={6}
                 h="100%"
                 style={{
-                  background: theme.cardBg,
-                  border: theme.cardBorder,
-                  backdropFilter: mode === 'glass' ? 'blur(10px)' : 'none',
-                  boxShadow: theme.shadow,
+                  backgroundColor: theme.surface,
+                  border: `1px solid ${theme.border}`,
+                  borderRadius: theme.radius,
                 }}
               >
-                <Text
-                  fontSize="lg"
-                  fontWeight="bold"
-                  color={theme.accent}
-                  mb={4}
-                >
-                  {skillCategory.title}
-                </Text>
+                <Flex align="center" gap={2} mb={5}>
+                  <Box w="6px" h="6px" style={{ backgroundColor: theme.accent }} />
+                  <Text fontFamily={theme.fontDisplay} fontSize="md" fontWeight="600" color={theme.text}>
+                    {category.title}
+                  </Text>
+                </Flex>
 
-                {skillData[skillCategory.key]?.map((skill, skillIndex) => (
-                  <ProgressBar
-                    key={skill.name}
-                    name={skill.name}
-                    score={skill.score}
-                    theme={theme}
-                    mode={mode}
-                    delay={categoryIndex * 0.1 + skillIndex * 0.05}
-                  />
+                {skillData[category.key]?.map((skill, skillIndex) => (
+                  <SkillBar key={skill.name} name={skill.name} score={skill.score} index={skillIndex} />
                 ))}
 
-                <Text
-                  fontSize="xs"
-                  color={theme.textSecondary}
-                  mt={4}
-                  lineHeight="tall"
-                >
-                  {skillCategory.note}
+                <Text fontSize="xs" color={theme.textSecondary} mt={4} lineHeight="1.8">
+                  {category.note}
                 </Text>
               </Box>
             </MotionBox>
           ))}
         </SimpleGrid>
-      </VStack>
+      </Box>
     </Box>
   )
 }

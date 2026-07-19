@@ -1,0 +1,194 @@
+{
+  "nav": [
+    { "label": "Works", "href": "#contents" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Timeline", "href": "#timeline" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "role": "Frontend Developer",
+    "name": "Takahiro Saeki",
+    "description": "React / TypeScript / Next.js を軸にしたフロントエンド開発。ものづくりとアニメーション表現が好きです。",
+    "ctaGithub": "GitHub",
+    "ctaContact": "Contact",
+    "githubUrl": "https://github.com/takahiro-saeki"
+  },
+  "works": {
+    "heading": "Works",
+    "items": [
+      {
+        "title": "Voices Diary",
+        "description": "ボイトレの自主練を記録・可視化するアプリ。練習時間や声の調子、気付きを記録し、連続日数とヒートマップで継続を見える化。お手本動画のタグ管理にも対応し、Web版とiOSアプリでデータを同期できます。",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://voicesdiary.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/voices-diary/id6779493880" }
+        ]
+      },
+      {
+        "title": "SquadNote",
+        "description": "サークル運営をシンプルにする日程・出欠管理アプリ。カレンダーでの日程作成、ワンタップ出欠、招待リンク参加、月ごとのLINEシェアに対応。完全無料・広告なしで提供しています。",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://squad-note.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" }
+        ]
+      },
+      {
+        "title": "Roll for Six",
+        "description": "6個のダイスを振って「6」を揃え続けるインクリメンタル・クリッカーゲーム。スキル解放、ボス戦、無限モードを搭載し、60〜90分でフルコンテンツを遊べます。Godot Engine 4.x製。",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/roll-for-six" }]
+      },
+      {
+        "title": "LOOP HAXE",
+        "description": "召喚した魔獣の大群が自動で戦うのを観戦するハクスラ・ローグライク。分岐するダンジョンで進路を選び、レリック・魔獣・スキルのシナジーを組み上げます。ブラウザで遊べるGodot製ゲーム。",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/loop-haxe" }]
+      },
+      {
+        "title": "ポートフォリオサイト",
+        "description": "私、三枝木貴浩のポートフォリオサイト。",
+        "image": "/images/ts.png",
+        "tag": "Next.js",
+        "links": []
+      },
+      {
+        "title": "もふもふパラダイス",
+        "description": "もふもふパラダイスの公式サイトです。",
+        "image": "/images/mohupara.png",
+        "tag": "Web",
+        "links": [{ "label": "View site", "url": "/mohupara" }]
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Skills",
+    "categories": [
+      {
+        "key": "lang",
+        "title": "言語",
+        "note": "ここには書いていないですが、node.jsも得意です。javascriptに関する事が全体的に得意です。"
+      },
+      {
+        "key": "framework",
+        "title": "フレームワーク",
+        "note": "react.jsが得意です。state管理にreact-reduxを使う事が多いです。"
+      },
+      {
+        "key": "build",
+        "title": "ビルドツール",
+        "note": "用途によって使い分けますが、業務ではwebpack、プライベートでもwebpack或いはparcelを使います。"
+      },
+      {
+        "key": "graphic",
+        "title": "デザインツール",
+        "note": "業務ではfigmaを使う事が多いです。プライベートではphotoshopを使います。"
+      },
+      {
+        "key": "css",
+        "title": "CSS",
+        "note": "react環境下だとstyled-componentsを使う事が多いのでCSS in JSばかりですが、個人的にはPostCSSが好みです。"
+      },
+      {
+        "key": "ai",
+        "title": "AI",
+        "note": "Claude Codeを中心にAI支援での開発を日常的に行っています。個人開発のゲームでは、コード生成やサウンド制作にもAIを活用しています。"
+      },
+      {
+        "key": "others",
+        "title": "その他",
+        "note": "プライベートではよくweb componentsを好んで使ったり仕様を追っていました。業務でも使う機会がちらほら。もっと積極的に使って行きたいです。"
+      }
+    ]
+  },
+  "timeline": {
+    "heading": "Timeline",
+    "items": [
+      {
+        "title": "この世に生を受ける",
+        "date": "1991 -",
+        "desc": "高校受験が終わってからずっとバンド人生、作曲とライブ活動ばかりしてました。"
+      },
+      {
+        "title": "P.I.SQUARE",
+        "date": "2014-2014",
+        "desc": "PHOTOSHOPを使ってデザインし、HTML、CSS、javascriptでWEB制作業務を行う。"
+      },
+      {
+        "title": "フリーランスエンジニアになる",
+        "date": "2015 -",
+        "desc": "個人事業主として開業。wordpress関連の案件を中心にWEB制作を行う。"
+      },
+      {
+        "title": "電子予約システムのリニューアル開発",
+        "date": "2015 - 2015",
+        "desc": "社内独自javascript frameworkを使った開発。業務をきっかけにECMAScript2015を学び始める。"
+      },
+      {
+        "title": "SNS関連のアプリ開発",
+        "date": "2016 - 2016",
+        "desc": "javascriptアニメーションの実装を主に行なっていました。"
+      },
+      {
+        "title": "バンクーバーで語学留学",
+        "date": "2016 - 2016",
+        "desc": "カナダで語学留学をしながらほぼ毎週勉強会に参加してバンクーバーのエンジニアの方々と交流。趣味のDanceDanceRevolutionがバンクーバーにもありDDR関連の友人知人を20-30人作る。"
+      },
+      {
+        "title": "電子書籍関連のフロント業務",
+        "date": "2017 - 2017",
+        "desc": "帰国後、某会社の電子書籍関連の施策改善を中心としたフロント実装。毎週勉強会なども社内で自主開催し、チームのフロント力向上にも貢献。"
+      },
+      {
+        "title": "Togetter",
+        "date": "2017 - 2018",
+        "desc": "ReactNative + redux + redux-sagaでのアプリ開発。初めてプロダクションでreduxを使用した開発を経験する。reduxの環境の理解を深めました。"
+      },
+      {
+        "title": "SmartDrive",
+        "date": "2018 - 2019",
+        "desc": "ReactReduxでの開発。中規模以上の保守、新規機能実装を行いました。"
+      },
+      {
+        "title": "BLUB株式会社",
+        "date": "2018 - 2019",
+        "desc": "ReactNativeでの新規アプリ開発。またその他細かい実装。"
+      },
+      {
+        "title": "HRBrain",
+        "date": "2019 - 2021",
+        "desc": "ReactReduxを使用した中規模以上のアプリの保守並び新規機能開発を主に行なっていました。"
+      },
+      {
+        "title": "株式会社一休",
+        "date": "2021 - 2023",
+        "desc": "Nextjsを使用した新規WEBサービスの開発並び同サービスのアプリ版をEXPO(ReactNative)を使用して開発していました。"
+      },
+      {
+        "title": "株式会社CureApp",
+        "date": "2022 - 2024",
+        "desc": "ReactNativeを使用したiOS/androidアプリの保守並びNextjsを使用したWEBサービスの保守並び実装"
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "body": "お問い合わせは下記Google Formからお願いします。お仕事のご依頼やご質問など、お気軽にどうぞ。",
+    "button": "Google Formを開く",
+    "formUrl": "https://forms.gle/wDGveE76AfxXXASz9"
+  },
+  "footer": {
+    "name": "ヒロ",
+    "role": "Frontend Developer",
+    "bio": "三枝木貴浩、フロントエンドエンジニアを本業としている。自分がこれだと確信した事に突っ走る性格。趣味は音楽ゲームと運動、読書。猫が大好きです。",
+    "linksHeading": "External Links",
+    "copyright": "© 2015-{year} Takahiro Saeki",
+    "links": [
+      { "label": "もふパラ", "url": "http://takahiro-saeki.github.io/new-book/template/" },
+      { "label": "GitHub", "url": "https://github.com/takahiro-saeki", "icon": "github" },
+      { "label": "dev.to", "url": "https://dev.to/hirodeath", "icon": "devto" },
+      { "label": "Qiita", "url": "https://qiita.com/hiro123", "icon": "qiita" }
+    ]
+  }
+}

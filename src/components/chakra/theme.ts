@@ -1,35 +1,30 @@
-export type ThemeMode = 'dark' | 'glass'
+// Terminal / Dev デザインのデザイントークン（単一テーマ）。
+// 純黒寄りの背景＋若草グリーンの単色アクセント＋モノ書体。虹色グラデ・グロー（発光）は使わない。
 
-export const themeStyles = {
-  dark: {
-    bg: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
-    cardBg: 'rgba(40, 40, 80, 0.95)',
-    cardBorder: '1px solid rgba(0, 212, 255, 0.3)',
-    text: '#ffffff',
-    textSecondary: '#b0b0b0',
-    accent: '#00d4ff',
-    accentGradient: 'linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%)',
-    headerBg: 'rgba(15, 15, 35, 0.98)',
-    progressBg: 'rgba(0, 212, 255, 0.15)',
-    progressFill: 'linear-gradient(90deg, #00d4ff 0%, #7c3aed 100%)',
-    shadow: '0 8px 32px rgba(0, 212, 255, 0.15)',
-    timelineColor: '#00d4ff',
-  },
-  glass: {
-    bg: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
-    cardBg: 'rgba(255, 255, 255, 0.2)',
-    cardBorder: '1px solid rgba(255, 255, 255, 0.4)',
-    text: '#ffffff',
-    textSecondary: 'rgba(255, 255, 255, 0.85)',
-    accent: '#ffffff',
-    accentGradient: 'linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)',
-    headerBg: 'rgba(255, 255, 255, 0.15)',
-    progressBg: 'rgba(255, 255, 255, 0.25)',
-    progressFill: 'linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.9) 100%)',
-    shadow: '0 8px 32px rgba(31, 38, 135, 0.4)',
-    timelineColor: '#ffffff',
-    backdropFilter: 'blur(10px)',
-  },
-}
+export const theme = {
+  // 配色
+  bg: '#0A0A0B',
+  surface: '#101012',
+  surfaceHover: '#16161A',
+  border: 'rgba(255, 255, 255, 0.10)',
+  borderStrong: 'rgba(255, 255, 255, 0.18)',
+  text: '#E6E6E6',
+  textSecondary: '#7A7A7A',
+  accent: '#7CFF6B',
+  accentSoft: 'rgba(124, 255, 107, 0.10)',
 
-export const getTheme = (mode: ThemeMode) => themeStyles[mode]
+  // 書体（layout.tsx で next/font が公開する CSS 変数を参照）
+  fontDisplay: 'var(--font-mono), monospace',
+  fontBody: 'var(--font-jp), var(--font-display), sans-serif',
+  fontMono: 'var(--font-mono), monospace',
+
+  // 形状
+  radius: '4px',
+
+  // 質感（極薄グリッド）
+  gridLines:
+    'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+  gridSize: '48px 48px',
+} as const
+
+export type Theme = typeof theme

@@ -1,7 +1,37 @@
 import type { Metadata } from 'next'
+import { Space_Grotesk, JetBrains_Mono, Newsreader, Noto_Sans_JP } from 'next/font/google'
 import StyledComponentsRegistry from '@/lib/registry'
 import { ChakraProviderClient } from '@/lib/chakra-provider'
 import './globals.css'
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-mono',
+  display: 'swap',
+})
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
+  display: 'swap',
+})
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ['latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-jp',
+  display: 'swap',
+})
 
 const siteUrl = 'https://takahiro-saeki.tech'
 
@@ -93,7 +123,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja" suppressHydrationWarning>
+    <html
+      lang="ja"
+      suppressHydrationWarning
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${newsreader.variable} ${notoSansJP.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
