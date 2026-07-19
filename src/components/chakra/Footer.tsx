@@ -78,12 +78,9 @@ export default function Footer() {
           </VStack>
         </SimpleGrid>
 
-        <Flex pt={8} mt={10} style={{ borderTop: `1px solid ${theme.border}` }} justify="space-between" align="center" flexWrap="wrap" gap={2}>
+        <Flex pt={8} mt={10} style={{ borderTop: `1px solid ${theme.border}` }} align="center" flexWrap="wrap" gap={2}>
           <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
             {copyright}
-          </Text>
-          <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
-            Built with Next.js
           </Text>
         </Flex>
       </Box>

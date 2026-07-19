@@ -7,12 +7,18 @@ export interface NavItem {
   href: string
 }
 
+export interface WorkLink {
+  label: string
+  url: string
+}
+
 export interface WorkItem {
   title: string
   description: string
-  image: string
-  link: string | null
+  /** 未指定の場合は画像なしのテキストカードとして表示される */
+  image?: string | null
   tag: string
+  links: WorkLink[]
 }
 
 export interface SkillCategory {

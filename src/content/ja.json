@@ -17,18 +17,48 @@
     "heading": "Works",
     "items": [
       {
+        "title": "Voices Diary",
+        "description": "ボイトレの自主練を記録・可視化するアプリ。練習時間や声の調子、気付きを記録し、連続日数とヒートマップで継続を見える化。お手本動画のタグ管理にも対応し、Web版とiOSアプリでデータを同期できます。",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://voicesdiary.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/voices-diary/id6779493880" }
+        ]
+      },
+      {
+        "title": "SquadNote",
+        "description": "サークル運営をシンプルにする日程・出欠管理アプリ。カレンダーでの日程作成、ワンタップ出欠、招待リンク参加、月ごとのLINEシェアに対応。完全無料・広告なしで提供しています。",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://squad-note.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" }
+        ]
+      },
+      {
+        "title": "Roll for Six",
+        "description": "6個のダイスを振って「6」を揃え続けるインクリメンタル・クリッカーゲーム。スキル解放、ボス戦、無限モードを搭載し、60〜90分でフルコンテンツを遊べます。Godot Engine 4.x製。",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/roll-for-six" }]
+      },
+      {
+        "title": "LOOP HAXE",
+        "description": "召喚した魔獣の大群が自動で戦うのを観戦するハクスラ・ローグライク。分岐するダンジョンで進路を選び、レリック・魔獣・スキルのシナジーを組み上げます。ブラウザで遊べるGodot製ゲーム。",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/loop-haxe" }]
+      },
+      {
         "title": "ポートフォリオサイト",
         "description": "私、三枝木貴浩のポートフォリオサイト。",
         "image": "/images/ts.png",
-        "link": null,
-        "tag": "Next.js"
+        "tag": "Next.js",
+        "links": []
       },
       {
         "title": "もふもふパラダイス",
         "description": "もふもふパラダイスの公式サイトです。",
         "image": "/images/mohupara.png",
-        "link": "/mohupara",
-        "tag": "Web"
+        "tag": "Web",
+        "links": [{ "label": "View site", "url": "/mohupara" }]
       }
     ]
   },
@@ -59,6 +89,11 @@
         "key": "css",
         "title": "CSS",
         "note": "react環境下だとstyled-componentsを使う事が多いのでCSS in JSばかりですが、個人的にはPostCSSが好みです。"
+      },
+      {
+        "key": "ai",
+        "title": "AI",
+        "note": "Claude Codeを中心にAI支援での開発を日常的に行っています。個人開発のゲームでは、コード生成やサウンド制作にもAIを活用しています。"
       },
       {
         "key": "others",

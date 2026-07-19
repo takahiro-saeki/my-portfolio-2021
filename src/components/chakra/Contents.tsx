@@ -33,9 +33,11 @@ export default function Contents() {
                 transition="border-color 0.25s, transform 0.25s"
                 _hover={{ borderColor: theme.accent, transform: 'translateY(-4px)' }}
               >
-                <Box style={{ aspectRatio: '16 / 9', borderBottom: `1px solid ${theme.border}` }}>
-                  <Image src={work.image} alt={work.title} w="100%" h="100%" objectFit="contain" p={4} />
-                </Box>
+                {work.image && (
+                  <Box style={{ aspectRatio: '16 / 9', borderBottom: `1px solid ${theme.border}` }}>
+                    <Image src={work.image} alt={work.title} w="100%" h="100%" objectFit="contain" p={4} />
+                  </Box>
+                )}
                 <Box p={6}>
                   <Flex justify="space-between" align="baseline" mb={3} gap={4}>
                     <Text fontFamily={theme.fontDisplay} fontSize="lg" fontWeight="600" color={theme.text}>
@@ -48,24 +50,32 @@ export default function Contents() {
                   <Text fontSize="sm" color={theme.textSecondary} lineHeight="1.8" mb={4}>
                     {work.description}
                   </Text>
-                  <Flex justify="space-between" align="center">
+                  <Flex justify="space-between" align="center" gap={4} flexWrap="wrap">
                     <Text fontFamily={theme.fontMono} fontSize="xs" color={theme.textSecondary}>
                       {work.tag}
                     </Text>
-                    {work.link && (
-                      <ChakraLink
-                        href={work.link}
-                        display="inline-flex"
-                        alignItems="center"
-                        gap={2}
-                        fontSize="sm"
-                        fontFamily={theme.fontMono}
-                        color={theme.accent}
-                        _hover={{ opacity: 0.8, textDecoration: 'none' }}
-                      >
-                        View site <FaArrowRight size={11} />
-                      </ChakraLink>
-                    )}
+                    <Flex gap={4} flexWrap="wrap">
+                      {work.links.map((link) => {
+                        const isExternal = link.url.startsWith('http')
+                        return (
+                          <ChakraLink
+                            key={link.url}
+                            href={link.url}
+                            target={isExternal ? '_blank' : undefined}
+                            rel={isExternal ? 'noopener noreferrer' : undefined}
+                            display="inline-flex"
+                            alignItems="center"
+                            gap={1.5}
+                            fontSize="sm"
+                            fontFamily={theme.fontMono}
+                            color={theme.accent}
+                            _hover={{ opacity: 0.8, textDecoration: 'none' }}
+                          >
+                            {link.label} <FaArrowRight size={11} />
+                          </ChakraLink>
+                        )
+                      })}
+                    </Flex>
                   </Flex>
                 </Box>
               </Box>
