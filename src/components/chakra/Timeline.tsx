@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Text } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
 import SectionLabel from './SectionLabel'

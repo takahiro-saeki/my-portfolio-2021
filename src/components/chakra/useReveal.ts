@@ -1,6 +1,6 @@
 'use client'
 
-import { useReducedMotion } from 'framer-motion'
+import { useReducedMotion } from 'motion/react'
 
 // スクロール時の控えめな出現アニメ。prefers-reduced-motion 有効時は無効化する。
 export function useReveal() {

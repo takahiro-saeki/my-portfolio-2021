@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Flex, Text, Image, Link as ChakraLink } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { FaGithub } from 'react-icons/fa'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
