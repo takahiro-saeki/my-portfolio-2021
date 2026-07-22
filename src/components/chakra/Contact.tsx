@@ -6,12 +6,12 @@ import { FaArrowRight } from 'react-icons/fa'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
 import SectionLabel from './SectionLabel'
-import { getContent } from '@/content'
+import { useContent } from './LocaleContext'
 
 const MotionBox = motion.create(Box)
 
 export default function Contact() {
-  const { contact } = getContent()
+  const { contact } = useContent()
   const reveal = useReveal()
 
   return (

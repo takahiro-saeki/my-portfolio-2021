@@ -5,12 +5,12 @@ import { motion } from 'motion/react'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
 import SectionLabel from './SectionLabel'
-import { getContent } from '@/content'
+import { useContent } from './LocaleContext'
 
 const MotionBox = motion.create(Box)
 
 export default function Timeline() {
-  const { timeline } = getContent()
+  const { timeline } = useContent()
   const reveal = useReveal()
 
   return (

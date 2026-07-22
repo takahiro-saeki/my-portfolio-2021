@@ -1,0 +1,194 @@
+{
+  "nav": [
+    { "label": "Works", "href": "#contents" },
+    { "label": "Skills", "href": "#skills" },
+    { "label": "Timeline", "href": "#timeline" },
+    { "label": "Contact", "href": "#contact" }
+  ],
+  "hero": {
+    "role": "Frontend Developer",
+    "name": "Takahiro Saeki",
+    "description": "Frontend development centered on React / TypeScript / Next.js. I love building things and creating animation-driven experiences.",
+    "ctaGithub": "GitHub",
+    "ctaContact": "Contact",
+    "githubUrl": "https://github.com/takahiro-saeki"
+  },
+  "works": {
+    "heading": "Works",
+    "items": [
+      {
+        "title": "Voices Diary",
+        "description": "An app to record and visualize your vocal training practice. Log your practice time, voice condition, and notes, and stay consistent with streaks and a heatmap. Supports tagging reference videos and syncs data between the web app and iOS app.",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://voicesdiary.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/voices-diary/id6779493880" }
+        ]
+      },
+      {
+        "title": "SquadNote",
+        "description": "An app that simplifies running a club: schedule creation, one-tap attendance, invite-link joining, and monthly LINE sharing. Completely free with no ads.",
+        "tag": "Web / iOS App",
+        "links": [
+          { "label": "Website", "url": "https://squad-note.com/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" }
+        ]
+      },
+      {
+        "title": "Roll for Six",
+        "description": "An incremental clicker game where you roll six dice and keep matching sixes to progress. Features skill unlocks, boss battles, and an infinite mode, with full content playable in 60-90 minutes. Built with Godot Engine 4.x.",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/roll-for-six" }]
+      },
+      {
+        "title": "LOOP HAXE",
+        "description": "A hack-and-slash roguelike where you watch a horde of summoned beasts fight automatically. Choose your path through branching dungeons and build synergies from relics, beasts, and skills. A browser-playable game built with Godot.",
+        "tag": "Godot / Game",
+        "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/loop-haxe" }]
+      },
+      {
+        "title": "Portfolio Site",
+        "description": "The portfolio site of me, Takahiro Saeki.",
+        "image": "/images/ts.png",
+        "tag": "Next.js",
+        "links": []
+      },
+      {
+        "title": "Mofumofu Paradise",
+        "description": "The official website of Mofumofu Paradise.",
+        "image": "/images/mohupara.png",
+        "tag": "Web",
+        "links": [{ "label": "View site", "url": "/mohupara" }]
+      }
+    ]
+  },
+  "skills": {
+    "heading": "Skills",
+    "categories": [
+      {
+        "key": "lang",
+        "title": "Languages",
+        "note": "Not listed here, but I'm also good with Node.js. I'm broadly strong with everything JavaScript-related."
+      },
+      {
+        "key": "framework",
+        "title": "Frameworks",
+        "note": "React is my strong suit. I often use react-redux for state management."
+      },
+      {
+        "key": "build",
+        "title": "Build Tools",
+        "note": "I choose tools by use case: webpack at work, and webpack or parcel for personal projects."
+      },
+      {
+        "key": "graphic",
+        "title": "Design Tools",
+        "note": "I mostly use Figma at work, and Photoshop for personal projects."
+      },
+      {
+        "key": "css",
+        "title": "CSS",
+        "note": "In React environments I mostly use styled-components, so it's mostly CSS-in-JS, but personally I prefer PostCSS."
+      },
+      {
+        "key": "ai",
+        "title": "AI",
+        "note": "I use AI-assisted development daily, centered on Claude Code. For my personal game projects, I also leverage AI for code generation and sound production."
+      },
+      {
+        "key": "others",
+        "title": "Others",
+        "note": "In my private time I've enjoyed using web components and following the spec. I get to use them occasionally at work too, and I'd like to use them more proactively."
+      }
+    ]
+  },
+  "timeline": {
+    "heading": "Timeline",
+    "items": [
+      {
+        "title": "Born into this world",
+        "date": "1991 -",
+        "desc": "After finishing high school entrance exams, I spent years in band life, focused on composing and playing live."
+      },
+      {
+        "title": "P.I.SQUARE",
+        "date": "2014-2014",
+        "desc": "Designed with Photoshop and built websites with HTML, CSS, and JavaScript."
+      },
+      {
+        "title": "Became a freelance engineer",
+        "date": "2015 -",
+        "desc": "Started as a sole proprietor, mainly building WordPress-based websites."
+      },
+      {
+        "title": "Renewal of an online reservation system",
+        "date": "2015 - 2015",
+        "desc": "Development using an in-house JavaScript framework. This work led me to start learning ECMAScript 2015."
+      },
+      {
+        "title": "SNS app development",
+        "date": "2016 - 2016",
+        "desc": "Mainly worked on implementing JavaScript animations."
+      },
+      {
+        "title": "Language study in Vancouver",
+        "date": "2016 - 2016",
+        "desc": "Studied English in Canada while attending meetups almost every week, connecting with local engineers. Through my hobby DanceDanceRevolution, I made 20-30 friends in the Vancouver DDR community."
+      },
+      {
+        "title": "Frontend work for an e-book service",
+        "date": "2017 - 2017",
+        "desc": "After returning to Japan, I focused on frontend implementation to improve an e-book service at a company. I also hosted weekly in-house study sessions, helping raise the team's frontend skills."
+      },
+      {
+        "title": "Togetter",
+        "date": "2017 - 2018",
+        "desc": "App development with React Native + Redux + redux-saga. My first production experience using Redux, which deepened my understanding of the Redux ecosystem."
+      },
+      {
+        "title": "SmartDrive",
+        "date": "2018 - 2019",
+        "desc": "Development with React/Redux. Maintained and implemented new features for medium-to-large-scale applications."
+      },
+      {
+        "title": "BLUB Inc.",
+        "date": "2018 - 2019",
+        "desc": "New app development with React Native, along with various smaller implementations."
+      },
+      {
+        "title": "HRBrain",
+        "date": "2019 - 2021",
+        "desc": "Mainly maintained and developed new features for medium-to-large React/Redux applications."
+      },
+      {
+        "title": "Ikyu Corporation",
+        "date": "2021 - 2023",
+        "desc": "Developed a new web service with Next.js, and built its app version using Expo (React Native)."
+      },
+      {
+        "title": "CureApp, Inc.",
+        "date": "2022 - 2024",
+        "desc": "Maintained iOS/Android apps built with React Native, and maintained and implemented web services with Next.js."
+      }
+    ]
+  },
+  "contact": {
+    "heading": "Contact",
+    "body": "Please reach out via the Google Form below. Feel free to contact me for work inquiries or any questions.",
+    "button": "Open Google Form",
+    "formUrl": "https://forms.gle/wDGveE76AfxXXASz9"
+  },
+  "footer": {
+    "name": "Hiro",
+    "role": "Frontend Developer",
+    "bio": "Takahiro Saeki, a frontend engineer by trade. Once I'm convinced something is right, I go all in. My hobbies are rhythm games, working out, and reading. I love cats.",
+    "linksHeading": "External Links",
+    "copyright": "© 2015-{year} Takahiro Saeki",
+    "links": [
+      { "label": "Mofupara", "url": "http://takahiro-saeki.github.io/new-book/template/" },
+      { "label": "GitHub", "url": "https://github.com/takahiro-saeki", "icon": "github" },
+      { "label": "dev.to", "url": "https://dev.to/hirodeath", "icon": "devto" },
+      { "label": "Qiita", "url": "https://qiita.com/hiro123", "icon": "qiita" }
+    ]
+  }
+}

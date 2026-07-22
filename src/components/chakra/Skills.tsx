@@ -5,7 +5,7 @@ import { motion } from 'motion/react'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
 import SectionLabel from './SectionLabel'
-import { getContent } from '@/content'
+import { useContent } from './LocaleContext'
 import skillData from '@/data/skillData'
 
 const MotionBox = motion.create(Box)
@@ -39,7 +39,7 @@ function SkillBar({ name, score, index }: { name: string; score: number; index: 
 }
 
 export default function Skills() {
-  const { skills } = getContent()
+  const { skills } = useContent()
   const reveal = useReveal()
 
   return (

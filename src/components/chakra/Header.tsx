@@ -5,12 +5,44 @@ import { Box, Flex, Text, Link as ChakraLink, HStack, VStack } from '@chakra-ui/
 import { FaGithub, FaBars, FaTimes } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'motion/react'
 import { theme } from './theme'
-import { getContent } from '@/content'
+import { useContent, useLocale } from './LocaleContext'
+import { locales } from '@/content'
 
 const MotionBox = motion.create(Box)
 
+function LocaleToggle() {
+  const { locale, setLocale } = useLocale()
+  return (
+    <HStack gap={0} style={{ border: `1px solid ${theme.border}`, borderRadius: '4px' }} overflow="hidden">
+      {locales.map((l) => {
+        const active = l === locale
+        return (
+          <Box
+            as="button"
+            key={l}
+            onClick={() => setLocale(l)}
+            px={2.5}
+            py={1}
+            fontSize="xs"
+            fontFamily={theme.fontMono}
+            cursor="pointer"
+            aria-pressed={active}
+            aria-label={`Switch to ${l.toUpperCase()}`}
+            color={active ? theme.bg : theme.textSecondary}
+            style={{ backgroundColor: active ? theme.accent : 'transparent' }}
+            transition="color 0.2s, background-color 0.2s"
+            _hover={active ? undefined : { color: theme.accent }}
+          >
+            {l.toUpperCase()}
+          </Box>
+        )
+      })}
+    </HStack>
+  )
+}
+
 export default function Header() {
-  const content = getContent()
+  const content = useContent()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
@@ -61,6 +93,8 @@ export default function Header() {
           </HStack>
 
           <HStack gap={4}>
+            <LocaleToggle />
+
             <ChakraLink
               href={content.hero.githubUrl}
               target="_blank"

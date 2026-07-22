@@ -1,6 +1,6 @@
 // サイト文言の型定義。将来の英語版追加時は Locale を拡張し、en.json を足すだけで済む。
 
-export type Locale = 'ja'
+export type Locale = 'ja' | 'en'
 
 export interface NavItem {
   label: string
