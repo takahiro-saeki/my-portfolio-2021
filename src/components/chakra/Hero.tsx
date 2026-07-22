@@ -5,12 +5,12 @@ import { motion } from 'motion/react'
 import { FaGithub } from 'react-icons/fa'
 import { theme } from './theme'
 import { useReveal } from './useReveal'
-import { getContent } from '@/content'
+import { useContent } from './LocaleContext'
 
 const MotionBox = motion.create(Box)
 
 export default function Hero() {
-  const { hero } = getContent()
+  const { hero } = useContent()
   const reveal = useReveal()
   const nameLines = hero.name.split(' ')
 

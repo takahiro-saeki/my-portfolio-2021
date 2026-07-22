@@ -5,7 +5,7 @@ import type { IconType } from 'react-icons'
 import { FaGithub } from 'react-icons/fa'
 import { SiQiita, SiDevdotto } from 'react-icons/si'
 import { theme } from './theme'
-import { getContent } from '@/content'
+import { useContent } from './LocaleContext'
 
 const iconMap: Record<string, IconType> = {
   github: FaGithub,
@@ -14,7 +14,7 @@ const iconMap: Record<string, IconType> = {
 }
 
 export default function Footer() {
-  const { footer } = getContent()
+  const { footer } = useContent()
   const currentYear = new Date().getFullYear()
   const copyright = footer.copyright.replace('{year}', String(currentYear))
 
