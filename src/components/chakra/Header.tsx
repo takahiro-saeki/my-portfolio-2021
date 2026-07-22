@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Box, Flex, Text, Link as ChakraLink, HStack, VStack } from '@chakra-ui/react'
 import { FaGithub, FaBars, FaTimes } from 'react-icons/fa'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'motion/react'
 import { theme } from './theme'
 import { getContent } from '@/content'
 
