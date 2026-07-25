@@ -58,10 +58,11 @@ export const metadata: Metadata = {
     siteName: 'Takahiro Saeki Portfolio',
     images: [
       {
-        url: '/images/ts.png',
+        url: '/images/ogp.png',
         width: 1200,
         height: 630,
-        alt: 'Takahiro Saeki Portfolio',
+        type: 'image/png',
+        alt: 'Takahiro Saeki - Frontend Developer',
       },
     ],
     locale: 'ja_JP',
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Takahiro Saeki - Frontend Developer',
     description: '三枝木貴浩のポートフォリオサイトです。',
-    images: ['/images/ts.png'],
+    images: ['/images/ogp.png'],
     creator: '@hirodeath',
   },
   robots: {
