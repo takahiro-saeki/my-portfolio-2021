@@ -49,6 +49,10 @@ export interface SiteContent {
     ctaGithub: string
     ctaContact: string
     githubUrl: string
+    availability: string
+    canvasLabel: string
+    identityLabel: string
+    signalHint: string
   }
   works: {
     heading: string

@@ -11,7 +11,11 @@
     "description": "React / TypeScript / Next.js を軸にしたフロントエンド開発。ものづくりとアニメーション表現が好きです。",
     "ctaGithub": "GitHub",
     "ctaContact": "Contact",
-    "githubUrl": "https://github.com/takahiro-saeki"
+    "githubUrl": "https://github.com/takahiro-saeki",
+    "availability": "Available",
+    "canvasLabel": "Canvas / WebGL",
+    "identityLabel": "Identity Verified",
+    "signalHint": "Move Pointer / Explore Signal"
   },
   "works": {
     "heading": "Works",
