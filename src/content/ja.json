@@ -19,9 +19,84 @@
   },
   "works": {
     "heading": "Works",
+    "filterLabel": "制作物のカテゴリ",
+    "resultLabel": "{count}件の制作物",
+    "filters": [{"value": "all", "label": "すべて"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "登壇資料"}],
     "items": [
       {
+        "title": "Haine · The Soul Ledger",
+        "description": "灰猫の魔女ハイネが、奪われた魂を取り戻すダークファンタジー。5×5のビンゴ盤とターン制カードバトルを組み合わせ、列の完成で攻撃力・防御・マナを強化します。Bezi Mega Jam 2026に向けて制作中で、日英対応の開発版をブラウザで遊べます。",
+        "category": "game",
+        "status": "開発版公開中",
+        "image": "/images/works/haine-the-soul-ledger.webp",
+        "tag": "Godot / Bezi Mega Jam 2026",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/haine-the-soul-ledger"
+          }
+        ]
+      },
+      {
+        "title": "AIとGame Jamで、ゲームを完成させた話",
+        "description": "VOLT NOMADを完成・公開するまでの制作記をまとめた登壇資料。AI Browser Game Jam 4での企画、Godotでの実装、Codex・PixelLab・Sunoの活用、試遊と取捨選択のプロセスを紹介します。2026年8月27日公開。",
+        "category": "talk",
+        "image": "/images/works/volt-nomad-talk.webp",
+        "tag": "Talk / AI × Game Development",
+        "links": [
+          {
+            "label": "Speaker Deck",
+            "url": "https://speakerdeck.com/takahirosaeki/ai-to-game-jam-de-gemu-o-kansei-saseta-hanashi"
+          },
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/volt-nomad"
+          }
+        ]
+      },
+      {
+        "title": "First Light",
+        "image": "/images/works/first-light.webp",
+        "description": "最初の夜明けを目指す小さな光を操作する、横スクロールシューティング・ローグライク。光の欠片で9種類の強化を選び、広がる闇と戦います。Nimble Game Jam 2026向けに48時間で制作。1プレイ約5〜7分、日英対応。",
+        "category": "game",
+        "tag": "Godot / Nimble Game Jam 2026",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/first-light"
+          }
+        ]
+      },
+      {
+        "title": "NO HEROES LEFT",
+        "description": "「悪が勝った」世界で魔王艦隊を操る、縦スクロール弾幕ローグライト。固有の武器を持つ3機体から選び、敵から奪ったコアとレリックで進化しながら全5ステージを攻略します。Week Sauce向けに制作。5言語対応、ブラウザで遊べます。",
+        "category": "game",
+        "image": "/images/works/no-heroes-left.webp",
+        "tag": "Godot / Week Sauce",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/no-heroes-left"
+          }
+        ]
+      },
+      {
+        "title": "PRIMAL COUNTDOWN",
+        "description": "恐竜の群れを90秒間しのぎ、倒せないT-Rexから洞窟へ逃げる原始時代アクションローグライト。自動攻撃と6種類の強化を組み合わせ、約2分のサバイバルに挑みます。Micro Jam 063向けに制作。日英・ゲームパッド対応。",
+        "category": "game",
+        "image": "/images/works/primal-countdown.webp",
+        "tag": "Godot / Micro Jam 063",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/primal-countdown"
+          }
+        ]
+      },
+      {
         "title": "Voices Diary",
+        "category": "app",
+        "image": "/images/works/voicesdiary-home.webp",
         "description": "ボイトレの自主練を記録・可視化するアプリ。練習時間や声の調子、気付きを記録し、連続日数とヒートマップで継続を見える化。お手本動画のタグ管理にも対応し、Web版とiOSアプリでデータを同期できます。",
         "tag": "Web / iOS App",
         "links": [
@@ -31,6 +106,8 @@
       },
       {
         "title": "SquadNote",
+        "category": "app",
+        "image": "/images/works/squadnote-home.webp",
         "description": "サークル運営をシンプルにする日程・出欠管理アプリ。カレンダーでの日程作成、ワンタップ出欠、招待リンク参加、月ごとのLINEシェアに対応。完全無料・広告なしで提供しています。",
         "tag": "Web / iOS App",
         "links": [
@@ -39,19 +116,35 @@
         ]
       },
       {
+        "title": "VOLT NOMAD",
+        "category": "game",
+        "image": "/images/works/volt-nomad.webp",
+        "description": "地下世界エンジンへ降下する回収オートマトンを描く、短編インクリメンタル・ボスラッシュ。手動攻撃でCHARGEを生み出し、5つのギアツリーと撃破した機械獣のコアを組み合わせてビルドを強化します。Godot 4.6製、日英対応でブラウザから遊べます。",
+        "tag": "Godot / Game",
+        "links": [
+          { "label": "itch.io", "url": "https://tsgamestudio.itch.io/volt-nomad" },
+          { "label": "登壇資料", "url": "https://speakerdeck.com/takahirosaeki/ai-to-game-jam-de-gemu-o-kansei-saseta-hanashi" }
+        ]
+      },
+      {
         "title": "Roll for Six",
+        "category": "game",
+        "image": "/images/works/roll-for-six.webp",
         "description": "6個のダイスを振って「6」を揃え続けるインクリメンタル・クリッカーゲーム。スキル解放、ボス戦、無限モードを搭載し、60〜90分でフルコンテンツを遊べます。Godot Engine 4.x製。",
         "tag": "Godot / Game",
         "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/roll-for-six" }]
       },
       {
         "title": "LOOP HAXE",
+        "category": "game",
+        "image": "/images/works/loop-haxe.webp",
         "description": "召喚した魔獣の大群が自動で戦うのを観戦するハクスラ・ローグライク。分岐するダンジョンで進路を選び、レリック・魔獣・スキルのシナジーを組み上げます。ブラウザで遊べるGodot製ゲーム。",
         "tag": "Godot / Game",
         "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/loop-haxe" }]
       },
       {
         "title": "ポートフォリオサイト",
+        "category": "app",
         "description": "私、三枝木貴浩のポートフォリオサイト。",
         "image": "/images/ts.png",
         "tag": "Next.js",
@@ -59,6 +152,7 @@
       },
       {
         "title": "もふもふパラダイス",
+        "category": "app",
         "description": "もふもふパラダイスの公式サイトです。",
         "image": "/images/mohupara.png",
         "tag": "Web",

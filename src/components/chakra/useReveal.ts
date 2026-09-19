@@ -7,7 +7,7 @@ export function useReveal() {
   const reduce = useReducedMotion()
   return (i = 0) =>
     reduce
-      ? {}
+      ? { initial: false as const, animate: { y: 0, opacity: 1 }, transition: { duration: 0 } }
       : {
           initial: { y: 16, opacity: 0 },
           whileInView: { y: 0, opacity: 1 },

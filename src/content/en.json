@@ -19,9 +19,84 @@
   },
   "works": {
     "heading": "Works",
+    "filterLabel": "Work categories",
+    "resultLabel": "Works: {count}",
+    "filters": [{"value": "all", "label": "All"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "Talks"}],
     "items": [
       {
+        "title": "Haine · The Soul Ledger",
+        "description": "A dark fantasy adventure about Haine, a gray-cat witch reclaiming stolen souls. Combine a 5×5 bingo board with turn-based card battles, completing lines to gain power, block, and mana. In development for Bezi Mega Jam 2026, with an early browser build available in English and Japanese.",
+        "category": "game",
+        "status": "Playable development build",
+        "image": "/images/works/haine-the-soul-ledger.webp",
+        "tag": "Godot / Bezi Mega Jam 2026",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/haine-the-soul-ledger"
+          }
+        ]
+      },
+      {
+        "title": "AIとGame Jamで、ゲームを完成させた話",
+        "description": "A lightning talk on finishing and publishing VOLT NOMAD for AI Browser Game Jam 4. Covers prototyping, Godot development, Codex, PixelLab, Suno, and the playtesting and selection process behind the finished game. Published August 27, 2026. Slides in Japanese.",
+        "category": "talk",
+        "image": "/images/works/volt-nomad-talk.webp",
+        "tag": "Talk / AI × Game Development",
+        "links": [
+          {
+            "label": "Speaker Deck",
+            "url": "https://speakerdeck.com/takahirosaeki/ai-to-game-jam-de-gemu-o-kansei-saseta-hanashi"
+          },
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/volt-nomad"
+          }
+        ]
+      },
+      {
+        "title": "First Light",
+        "image": "/images/works/first-light.webp",
+        "description": "A horizontal shooter roguelike about a tiny spark seeking the first dawn. Collect light, choose from nine upgrades, and push back the growing Dark. Created in 48 hours for Nimble Game Jam 2026. A run takes about 5–7 minutes, with English and Japanese support.",
+        "category": "game",
+        "tag": "Godot / Nimble Game Jam 2026",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/first-light"
+          }
+        ]
+      },
+      {
+        "title": "NO HEROES LEFT",
+        "description": "A vertical bullet-hell roguelite set after the villain wins. Choose one of three dark-fleet craft with distinct weapons, steal enemy cores and relics, and evolve through five sectors. Created for Week Sauce, playable in the browser with support for five languages.",
+        "category": "game",
+        "image": "/images/works/no-heroes-left.webp",
+        "tag": "Godot / Week Sauce",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/no-heroes-left"
+          }
+        ]
+      },
+      {
+        "title": "PRIMAL COUNTDOWN",
+        "description": "A prehistoric action roguelite: survive a 90-second dinosaur onslaught, then escape an unbeatable T-Rex to reach a cave. Combine automatic attacks with six adaptations in a roughly two-minute run. Created for Micro Jam 063, with English, Japanese, and gamepad support.",
+        "category": "game",
+        "image": "/images/works/primal-countdown.webp",
+        "tag": "Godot / Micro Jam 063",
+        "links": [
+          {
+            "label": "itch.io",
+            "url": "https://tsgamestudio.itch.io/primal-countdown"
+          }
+        ]
+      },
+      {
         "title": "Voices Diary",
+        "category": "app",
+        "image": "/images/works/voicesdiary-home.webp",
         "description": "An app to record and visualize your vocal training practice. Log your practice time, voice condition, and notes, and stay consistent with streaks and a heatmap. Supports tagging reference videos and syncs data between the web app and iOS app.",
         "tag": "Web / iOS App",
         "links": [
@@ -31,6 +106,8 @@
       },
       {
         "title": "SquadNote",
+        "category": "app",
+        "image": "/images/works/squadnote-home.webp",
         "description": "An app that simplifies running a club: schedule creation, one-tap attendance, invite-link joining, and monthly LINE sharing. Completely free with no ads.",
         "tag": "Web / iOS App",
         "links": [
@@ -39,19 +116,35 @@
         ]
       },
       {
+        "title": "VOLT NOMAD",
+        "category": "game",
+        "image": "/images/works/volt-nomad.webp",
+        "description": "A compact incremental boss rush about a recovery automaton descending into a subterranean world engine. Generate CHARGE with manual attacks, then strengthen your build through five gear trees and the cores of defeated machine beasts. Built with Godot 4.6, playable in English or Japanese in the browser.",
+        "tag": "Godot / Game",
+        "links": [
+          { "label": "itch.io", "url": "https://tsgamestudio.itch.io/volt-nomad" },
+          { "label": "Talk slides", "url": "https://speakerdeck.com/takahirosaeki/ai-to-game-jam-de-gemu-o-kansei-saseta-hanashi" }
+        ]
+      },
+      {
         "title": "Roll for Six",
+        "category": "game",
+        "image": "/images/works/roll-for-six.webp",
         "description": "An incremental clicker game where you roll six dice and keep matching sixes to progress. Features skill unlocks, boss battles, and an infinite mode, with full content playable in 60-90 minutes. Built with Godot Engine 4.x.",
         "tag": "Godot / Game",
         "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/roll-for-six" }]
       },
       {
         "title": "LOOP HAXE",
+        "category": "game",
+        "image": "/images/works/loop-haxe.webp",
         "description": "A hack-and-slash roguelike where you watch a horde of summoned beasts fight automatically. Choose your path through branching dungeons and build synergies from relics, beasts, and skills. A browser-playable game built with Godot.",
         "tag": "Godot / Game",
         "links": [{ "label": "itch.io", "url": "https://tsgamestudio.itch.io/loop-haxe" }]
       },
       {
         "title": "Portfolio Site",
+        "category": "app",
         "description": "The portfolio site of me, Takahiro Saeki.",
         "image": "/images/ts.png",
         "tag": "Next.js",
@@ -59,6 +152,7 @@
       },
       {
         "title": "Mofumofu Paradise",
+        "category": "app",
         "description": "The official website of Mofumofu Paradise.",
         "image": "/images/mohupara.png",
         "tag": "Web",
