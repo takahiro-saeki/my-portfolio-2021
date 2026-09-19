@@ -15,6 +15,8 @@ export interface WorkLink {
 export interface WorkItem {
   title: string
   description: string
+  category: 'app' | 'game' | 'talk'
+  status?: string
   /** 未指定の場合は画像なしのテキストカードとして表示される */
   image?: string | null
   tag: string
@@ -56,6 +58,9 @@ export interface SiteContent {
   }
   works: {
     heading: string
+    filterLabel: string
+    resultLabel: string
+    filters: { value: 'all' | WorkItem['category']; label: string }[]
     items: WorkItem[]
   }
   skills: {
