@@ -120,3 +120,52 @@ Haineと登壇資料を先頭に掲載。通常のアニメーション設定で
 - [コンテンツの型](../../../src/content/types.ts)
 - [Worksの表示](../../../src/components/chakra/Contents.tsx)
 - [共通の表示アニメーション](../../../src/components/chakra/useReveal.ts)
+
+## 2026-10-04の掲載情報更新（ローカル・未公開）
+
+基準は `main` / `323ee73ff3f001b6e81200b7529950c435901c8f` と、作業開始時点の既存未コミット差分。プロフィール・フッターの追加リンク・モーション実験ページ等の既存差分は保持した。今回の掲載情報修正はローカルの作業差分にのみ反映し、push・PR作成・マージ・本番デプロイは実施していない。
+
+| 対象 | 日英の変更 | 公開情報の根拠 |
+|---|---|---|
+| SquadNote | `Web / iOS / Android App` 表記、Google Playリンクを追加。公開日程はアプリ・ログイン不要で回答できること、定員・キャンセル待ち・空き枠への繰り上げ、月次LINE共有を紹介 | [公式サイト](https://squad-note.com/)、[機能紹介](https://squad-note.com/features)、[Google Play](https://play.google.com/store/apps/details?id=com.squadnote.app)、[App Store](https://apps.apple.com/jp/app/squadnote/id6766142849) |
+| Haine | ラインに装備した刻印の発動、26種のカード、分岐ルートを紹介。日英とも公開ブラウザ開発版のステータスとitch.ioリンクを維持 | [itch.ioの公開開発版](https://tsgamestudio.itch.io/haine-the-soul-ledger) |
+| もふパラ | フッターのURLをHTTPからHTTPSへ変更 | [HTTPSの公開ページ](https://takahiro-saeki.github.io/new-book/template/) がMacからHTTP 200 |
+
+SquadNoteのGoogle Playリンクは、ユーザーのMac上のPlaywrightブラウザで公式サイトからクリックし、商品名「SquadNote - 練習日程と出欠」、開発者「三枝木貴浩」、「インストール」ボタンを確認した。端末へのインストールは行っていない。紹介文の「完全無料・広告なし」は今回参照した公式紹介で再確認できなかったため、確認できた機能の説明に置き換えた。料金や広告方針の変更を確認したものではない。
+
+Haineの非公開TestFlightやネイティブアプリの公開を示す情報は追加していない。スキル評価、稼働状況、職歴、非公開の顧客情報は変更していない。
+
+### 実装・検証・配信状態
+
+- 実装: 日英JSONの修正とこの記録を既存チェックアウトの未コミット差分へ追加。
+- 検証: 作業用コピーに既存差分を含め、CIと同じ `npm run lint`、`npx tsc --noEmit` 相当のローカルTypeScript実行、`npm run build` が成功。最初のビルドはGoogle Fontsへの通信制限で失敗したが、通信可能な実行で再検証し成功。専用のtestスクリプトはない。
+- 内容確認: 両JSONの構文、12作品の維持、画像ファイルの存在、日英のSquadNoteリンク一致、Haineの開発版表記を確認。既存差分を基準に今回指定した項目だけが変わったことを照合した。
+- 表示確認: 静的ビルドの `out/` をMacの `127.0.0.1:3044` で配信。日本語1440×1100、英語390×1000（モバイル幅のエミュレーション）を実ブラウザで確認。Web / Appsの4件表示、言語切り替え後のフィルター維持、Android表記、3リンク、画像読み込み、横はみ出しなし、リンク高さ44px、外部リンクの `target="_blank"` と `rel="noopener noreferrer"` を確認。ブラウザのerror / warningは0。
+- 配信: 今回の差分は本番未反映。Planeへの同期も行っていない。
+
+### ローカル確認画面
+
+**local / ユーザーのMac / macOS / Playwright Chrome（実ブラウザ）/ 2026-10-04 UTC / main・323ee73 + 既存未コミット差分 + 今回の掲載情報更新**。静的ビルドを使用し、動きを減らす設定でSquadNoteのカードを撮影した。
+
+日本語・PC幅（1440×1100）:
+
+![SquadNoteの日本語カードとWeb・iOS・Androidリンク](assets/works-update-desktop-ja.png)
+
+英語・モバイル幅（390×1000、実機ではなくエミュレーション）:
+
+![SquadNoteの英語カードと折り返したGoogle Playリンク](assets/works-update-mobile-en.png)
+
+### 確認を残した事項
+
+- 「完全無料・広告なし」を紹介文へ再掲載する場合は、現行方針の確認が必要。
+- Android実機へのインストール、iOS Safari / Android Chromeの実機確認は未実施。
+- 本番反映はユーザーによる今回分の差分確認後に別途行う。既存の未コミット差分をまとめて公開する前提にはしない。
+
+
+## 2026-10-05の本番公開準備
+
+ユーザーがローカルプレビューを確認し、本番リリースを承認。最新版 `main` / `8985770276d3ecbd18b1a3d53038c303a20531bd` を基準に、上記の日英コンテンツ修正とローカル検証記録・画像2点だけを独立した公開ブランチへ移した。元チェックアウトにあるプロフィール・フッターの追加リンク・モーション実験・過去の配信記録等の未コミット差分は公開対象に含めていない。
+
+- 実装: 公開ブランチに準備済み。
+- 検証: 最新mainのlockfileでlint・型チェック・静的ビルドを実行し、必須PR CIを確認してから統合する。
+- 配信: このコミット作成時点では未配信。GitHub Pagesの実際の配信結果と本番検証は、配信後にローカル記録へ追記する。記録だけを目的とした追加配信は行わない。

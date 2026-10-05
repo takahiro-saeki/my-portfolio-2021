@@ -25,7 +25,7 @@
     "items": [
       {
         "title": "Haine · The Soul Ledger",
-        "description": "A dark fantasy adventure about Haine, a gray-cat witch reclaiming stolen souls. Combine a 5×5 bingo board with turn-based card battles, completing lines to gain power, block, and mana. In development for Bezi Mega Jam 2026, with an early browser build available in English and Japanese.",
+        "description": "A dark fantasy adventure following Haine, a gray-cat witch carrying a ledger of souls. Combine a 5×5 bingo board with turn-based card battles to activate the sigils equipped on completed lines. Shape your build with 26 cards and branching routes in this development build for Bezi Mega Jam 2026, playable in English and Japanese in the browser.",
         "category": "game",
         "status": "Playable development build",
         "image": "/images/works/haine-the-soul-ledger.webp",
@@ -108,11 +108,12 @@
         "title": "SquadNote",
         "category": "app",
         "image": "/images/works/squadnote-home.webp",
-        "description": "An app that simplifies running a club: schedule creation, one-tap attendance, invite-link joining, and monthly LINE sharing. Completely free with no ads.",
-        "tag": "Web / iOS App",
+        "description": "An app for managing club and team schedules and attendance. Members can respond Going, Maybe, or Not going from a public practice link without installing the app or signing in. Supports calendar-based scheduling, capacity limits, waitlists with promotion when a spot opens, and monthly schedule sharing via LINE.",
+        "tag": "Web / iOS / Android App",
         "links": [
           { "label": "Website", "url": "https://squad-note.com/" },
-          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" }
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.squadnote.app" }
         ]
       },
       {
@@ -283,7 +284,7 @@
     "linksHeading": "External Links",
     "copyright": "© 2015-{year} Takahiro Saeki",
     "links": [
-      { "label": "Mofupara", "url": "http://takahiro-saeki.github.io/new-book/template/" },
+      { "label": "Mofupara", "url": "https://takahiro-saeki.github.io/new-book/template/" },
       { "label": "GitHub", "url": "https://github.com/takahiro-saeki", "icon": "github" },
       { "label": "dev.to", "url": "https://dev.to/hirodeath", "icon": "devto" },
       { "label": "Qiita", "url": "https://qiita.com/hiro123", "icon": "qiita" }

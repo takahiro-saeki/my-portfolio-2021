@@ -25,7 +25,7 @@
     "items": [
       {
         "title": "Haine · The Soul Ledger",
-        "description": "灰猫の魔女ハイネが、奪われた魂を取り戻すダークファンタジー。5×5のビンゴ盤とターン制カードバトルを組み合わせ、列の完成で攻撃力・防御・マナを強化します。Bezi Mega Jam 2026に向けて制作中で、日英対応の開発版をブラウザで遊べます。",
+        "description": "灰猫の魔女ハイネが、魂の帳簿を手に旅するダークファンタジー。5×5のビンゴ盤とターン制カードバトルを組み合わせ、完成したラインに装備した刻印の力を発動します。26種のカードと分岐ルートで戦い方を組み立てる、Bezi Mega Jam 2026向けの開発版。日英対応でブラウザから遊べます。",
         "category": "game",
         "status": "開発版公開中",
         "image": "/images/works/haine-the-soul-ledger.webp",
@@ -108,11 +108,12 @@
         "title": "SquadNote",
         "category": "app",
         "image": "/images/works/squadnote-home.webp",
-        "description": "サークル運営をシンプルにする日程・出欠管理アプリ。カレンダーでの日程作成、ワンタップ出欠、招待リンク参加、月ごとのLINEシェアに対応。完全無料・広告なしで提供しています。",
-        "tag": "Web / iOS App",
+        "description": "サークル・チームの日程と出欠を管理するアプリ。公開日程のリンクから、メンバーはアプリのインストールやログインなしで参加・未定・欠席を回答できます。カレンダーでの日程作成、定員・キャンセル待ち・空き枠への繰り上げ、月次予定のLINEシェアに対応。",
+        "tag": "Web / iOS / Android App",
         "links": [
           { "label": "Website", "url": "https://squad-note.com/" },
-          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" }
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/squadnote/id6766142849" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.squadnote.app" }
         ]
       },
       {
@@ -283,7 +284,7 @@
     "linksHeading": "External Links",
     "copyright": "© 2015-{year} Takahiro Saeki",
     "links": [
-      { "label": "もふパラ", "url": "http://takahiro-saeki.github.io/new-book/template/" },
+      { "label": "もふパラ", "url": "https://takahiro-saeki.github.io/new-book/template/" },
       { "label": "GitHub", "url": "https://github.com/takahiro-saeki", "icon": "github" },
       { "label": "dev.to", "url": "https://dev.to/hirodeath", "icon": "devto" },
       { "label": "Qiita", "url": "https://qiita.com/hiro123", "icon": "qiita" }
