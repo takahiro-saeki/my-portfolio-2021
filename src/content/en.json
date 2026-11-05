@@ -21,7 +21,12 @@
     "heading": "Works",
     "filterLabel": "Work categories",
     "resultLabel": "Works: {count}",
-    "filters": [{"value": "all", "label": "All"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "Talks"}],
+    "filters": [{"value": "all", "label": "All"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "Talks"}, {"value": "business", "label": "Client Work"}],
+    "businessPlaceholder": {
+      "title": "Client Work",
+      "status": "Coming Soon",
+      "description": "Website projects and improvements for clients will be added here as I receive permission to share them."
+    },
     "items": [
       {
         "title": "Haine · The Soul Ledger",
@@ -91,6 +96,38 @@
             "label": "itch.io",
             "url": "https://tsgamestudio.itch.io/primal-countdown"
           }
+        ]
+      },
+      {
+        "title": "Daily Aha",
+        "category": "app",
+        "image": "/images/works/daily-aha.webp",
+        "screenshot": {
+          "src": "/images/works/daily-aha-screen-en.webp",
+          "alt": "Daily Aha home screen with a story about Persimmon Day"
+        },
+        "description": "Discover short, illustrated stories about dates, observances, nature, culture, and history. Explore their origins, check the listed sources, and continue to past or related stories. Supports Japanese, English, and offline reading.",
+        "tag": "iOS / Android App",
+        "links": [
+          { "label": "Website", "url": "https://takahiro-saeki.github.io/daily-aha-support/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/id6825774534" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.takahiro_saeki.dailyaha" }
+        ]
+      },
+      {
+        "title": "PackHabit",
+        "category": "app",
+        "image": "/images/works/packhabit.webp",
+        "screenshot": {
+          "src": "/images/works/packhabit-screen-en.webp",
+          "alt": "PackHabit packing checklist screen"
+        },
+        "description": "Check your usual essentials before heading out. Create a fresh checklist from a template and save the results to your history, whether for the gym, lessons, commuting, or travel. Includes reminders, widgets, and file backups. No login is required, and checklists and records stay on your device.",
+        "tag": "iOS / Android App",
+        "links": [
+          { "label": "Website", "url": "https://takahiro-saeki.github.io/packhabit-support/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/packhabit/id6824839561" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=jp.takahiro.packhabit" }
         ]
       },
       {

@@ -21,7 +21,12 @@
     "heading": "Works",
     "filterLabel": "制作物のカテゴリ",
     "resultLabel": "{count}件の制作物",
-    "filters": [{"value": "all", "label": "すべて"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "登壇資料"}],
+    "filters": [{"value": "all", "label": "すべて"}, {"value": "app", "label": "Web / Apps"}, {"value": "game", "label": "Games"}, {"value": "talk", "label": "登壇資料"}, {"value": "business", "label": "ビジネス案件"}],
+    "businessPlaceholder": {
+      "title": "ビジネス案件",
+      "status": "Coming Soon",
+      "description": "Webサイトの制作・改善など、個人でお受けしたお仕事を、掲載許可をいただいたものから順次ご紹介します。"
+    },
     "items": [
       {
         "title": "Haine · The Soul Ledger",
@@ -91,6 +96,38 @@
             "label": "itch.io",
             "url": "https://tsgamestudio.itch.io/primal-countdown"
           }
+        ]
+      },
+      {
+        "title": "きょうのへぇ",
+        "category": "app",
+        "image": "/images/works/daily-aha.webp",
+        "screenshot": {
+          "src": "/images/works/daily-aha-screen-ja.webp",
+          "alt": "きょうのへぇのホーム画面：柿の日の記事"
+        },
+        "description": "記念日・自然・文化・歴史など、日付にまつわる話題をイラストと短い記事で楽しむアプリ。由来や背景を読み、気になったことは出典から確かめられます。過去の記事や関連する話題へ読み進められ、日本語・英語とオフラインでの閲覧に対応。",
+        "tag": "iOS / Android App",
+        "links": [
+          { "label": "Website", "url": "https://takahiro-saeki.github.io/daily-aha-support/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/id6825774534" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=com.takahiro_saeki.dailyaha" }
+        ]
+      },
+      {
+        "title": "PackHabit",
+        "category": "app",
+        "image": "/images/works/packhabit.webp",
+        "screenshot": {
+          "src": "/images/works/packhabit-screen-ja.webp",
+          "alt": "PackHabitの持ち物チェック画面"
+        },
+        "description": "いつもの持ち物を、出かける前に確認するアプリ。テンプレートから今回のリストを作り、チェック結果を履歴に保存できます。ジム・習い事・通勤・旅行などに合わせて繰り返し使え、通知・ウィジェット・ファイルへのバックアップに対応。ログイン不要で、持ち物と記録を端末内に保存します。",
+        "tag": "iOS / Android App",
+        "links": [
+          { "label": "Website", "url": "https://takahiro-saeki.github.io/packhabit-support/" },
+          { "label": "App Store", "url": "https://apps.apple.com/jp/app/packhabit/id6824839561" },
+          { "label": "Google Play", "url": "https://play.google.com/store/apps/details?id=jp.takahiro.packhabit" }
         ]
       },
       {
