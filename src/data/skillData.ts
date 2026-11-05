@@ -44,9 +44,9 @@ const skillData: SkillData = {
     { name: 'CSS in JS', score: 85, fullMark: 100 },
   ],
   ai: [
-    { name: 'Claude Code', score: 90, fullMark: 100 },
+    { name: 'Codex / Claude Code', score: 90, fullMark: 100 },
     { name: 'Prompt Engineering', score: 85, fullMark: 100 },
-    { name: 'Claude API', score: 80, fullMark: 100 },
+    { name: 'Skills / Workflows', score: 80, fullMark: 100 },
     { name: 'MCP', score: 75, fullMark: 100 },
     { name: 'RAG', score: 65, fullMark: 100 },
   ],
