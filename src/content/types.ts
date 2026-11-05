@@ -15,10 +15,15 @@ export interface WorkLink {
 export interface WorkItem {
   title: string
   description: string
-  category: 'app' | 'game' | 'talk'
+  category: 'app' | 'game' | 'talk' | 'business'
   status?: string
   /** 未指定の場合は画像なしのテキストカードとして表示される */
   image?: string | null
+  /** 紹介画像の右に添えるアプリの実画面 */
+  screenshot?: {
+    src: string
+    alt: string
+  }
   tag: string
   links: WorkLink[]
 }
@@ -62,6 +67,11 @@ export interface SiteContent {
     resultLabel: string
     filters: { value: 'all' | WorkItem['category']; label: string }[]
     items: WorkItem[]
+    businessPlaceholder: {
+      title: string
+      status: string
+      description: string
+    }
   }
   skills: {
     heading: string

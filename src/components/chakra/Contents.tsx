@@ -17,6 +17,8 @@ export default function Contents() {
   const reveal = useReveal()
   const [category, setCategory] = useState<'all' | WorkItem['category']>('all')
   const visibleWorks = works.items.filter((work) => category === 'all' || work.category === category)
+  const showBusinessPlaceholder =
+    (category === 'all' || category === 'business') && !works.items.some((work) => work.category === 'business')
 
   return (
     <Box as="section" id="contents" py={{ base: 16, md: 24 }} px={{ base: 6, md: 10 }}>
@@ -67,8 +69,29 @@ export default function Contents() {
                 _hover={{ borderColor: theme.accent, transform: 'translateY(-4px)' }}
               >
                 {work.image && (
-                  <Box style={{ aspectRatio: '16 / 9', borderBottom: `1px solid ${theme.border}` }}>
-                    <Image src={work.image} alt={work.title} loading="lazy" w="100%" h="100%" objectFit="contain" p={4} />
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    gap={3}
+                    p={4}
+                    style={{ aspectRatio: '16 / 9', borderBottom: `1px solid ${theme.border}` }}
+                  >
+                    <Image src={work.image} alt={work.title} loading="lazy" flex="1" minW={0} w="0" h="100%" objectFit="contain" />
+                    {work.screenshot && (
+                      <Image
+                        src={work.screenshot.src}
+                        alt={work.screenshot.alt}
+                        loading="lazy"
+                        h="100%"
+                        w="auto"
+                        maxW="30%"
+                        flexShrink={0}
+                        objectFit="contain"
+                        borderRadius="8px"
+                        border="1px solid"
+                        borderColor={theme.borderStrong}
+                      />
+                    )}
                   </Box>
                 )}
                 <Box p={6}>
@@ -121,6 +144,27 @@ export default function Contents() {
               </Box>
             </MotionBox>
           ))}
+          {showBusinessPlaceholder && (
+            <Box
+              as="article"
+              gridColumn="1 / -1"
+              p={{ base: 6, md: 8 }}
+              bg={theme.surface}
+              border="1px dashed"
+              borderColor={theme.borderStrong}
+              borderRadius={theme.radius}
+            >
+              <Text fontFamily={theme.fontMono} fontSize="sm" color={theme.accent} mb={3}>
+                {works.businessPlaceholder.status}
+              </Text>
+              <Text as="h3" fontFamily={theme.fontDisplay} fontSize="lg" fontWeight="600" color={theme.text} mb={3}>
+                {works.businessPlaceholder.title}
+              </Text>
+              <Text fontSize="sm" color={theme.textSecondary} lineHeight="1.8" maxW="640px">
+                {works.businessPlaceholder.description}
+              </Text>
+            </Box>
+          )}
         </SimpleGrid>
       </Box>
     </Box>
